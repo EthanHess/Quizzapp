@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "pushToDetailView")
         self.navigationItem.rightBarButtonItem = barButtonItem
         
+        
         draggableView = DraggableView(frame: CGRectMake(20, 80, self.view.frame.size.width - 40, 200))
         self.view.addSubview(draggableView)
         
@@ -28,7 +29,9 @@ class ViewController: UIViewController {
     
     func pushToDetailView() {
         
+        let subjectView = SubjectListViewController()
         
+        self.navigationController?.pushViewController(subjectView, animated: true)
     }
     
     func flipCell() {

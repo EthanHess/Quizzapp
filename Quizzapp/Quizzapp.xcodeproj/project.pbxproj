@@ -14,6 +14,13 @@
 		27DA845E1C4C870C003F59DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27DA845C1C4C870C003F59DE /* LaunchScreen.storyboard */; };
 		27DA84661C4C8E55003F59DE /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84651C4C8E55003F59DE /* CardController.swift */; settings = {ASSET_TAGS = (); }; };
 		27DA84681C4C8E69003F59DE /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84671C4C8E69003F59DE /* DraggableView.swift */; settings = {ASSET_TAGS = (); }; };
+		27DA846B1C4D873C003F59DE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84691C4D873C003F59DE /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		27DA846D1C4D87F9003F59DE /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA846C1C4D87F9003F59DE /* Stack.swift */; settings = {ASSET_TAGS = (); }; };
+		27DA847B1C4D8D85003F59DE /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84771C4D8D85003F59DE /* Card+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		27DA847C1C4D8D85003F59DE /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84781C4D8D85003F59DE /* Card.swift */; settings = {ASSET_TAGS = (); }; };
+		27DA847D1C4D8D85003F59DE /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84791C4D8D85003F59DE /* Subject+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		27DA847E1C4D8D85003F59DE /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA847A1C4D8D85003F59DE /* Subject.swift */; settings = {ASSET_TAGS = (); }; };
+		27DA84801C4D8F2E003F59DE /* SubjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +33,13 @@
 		27DA845F1C4C870C003F59DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27DA84651C4C8E55003F59DE /* CardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
 		27DA84671C4C8E69003F59DE /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
+		27DA846A1C4D873C003F59DE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		27DA846C1C4D87F9003F59DE /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		27DA84771C4D8D85003F59DE /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Card+CoreDataProperties.swift"; path = "../Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		27DA84781C4D8D85003F59DE /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = ../Card.swift; sourceTree = "<group>"; };
+		27DA84791C4D8D85003F59DE /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Subject+CoreDataProperties.swift"; path = "../Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		27DA847A1C4D8D85003F59DE /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subject.swift; path = ../Subject.swift; sourceTree = "<group>"; };
+		27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +74,29 @@
 			children = (
 				27DA84531C4C870C003F59DE /* AppDelegate.swift */,
 				27DA84551C4C870C003F59DE /* ViewController.swift */,
+				27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */,
 				27DA84651C4C8E55003F59DE /* CardController.swift */,
 				27DA84671C4C8E69003F59DE /* DraggableView.swift */,
+				27DA846C1C4D87F9003F59DE /* Stack.swift */,
+				27DA84761C4D8BA2003F59DE /* Core Data Models */,
+				27DA84771C4D8D85003F59DE /* Card+CoreDataProperties.swift */,
+				27DA84781C4D8D85003F59DE /* Card.swift */,
+				27DA84791C4D8D85003F59DE /* Subject+CoreDataProperties.swift */,
+				27DA847A1C4D8D85003F59DE /* Subject.swift */,
 				27DA84571C4C870C003F59DE /* Main.storyboard */,
+				27DA84691C4D873C003F59DE /* Model.xcdatamodeld */,
 				27DA845A1C4C870C003F59DE /* Assets.xcassets */,
 				27DA845C1C4C870C003F59DE /* LaunchScreen.storyboard */,
 				27DA845F1C4C870C003F59DE /* Info.plist */,
 			);
 			path = Quizzapp;
+			sourceTree = "<group>";
+		};
+		27DA84761C4D8BA2003F59DE /* Core Data Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Core Data Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,10 +169,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27DA847D1C4D8D85003F59DE /* Subject+CoreDataProperties.swift in Sources */,
 				27DA84561C4C870C003F59DE /* ViewController.swift in Sources */,
+				27DA847B1C4D8D85003F59DE /* Card+CoreDataProperties.swift in Sources */,
 				27DA84661C4C8E55003F59DE /* CardController.swift in Sources */,
+				27DA84801C4D8F2E003F59DE /* SubjectListViewController.swift in Sources */,
+				27DA846B1C4D873C003F59DE /* Model.xcdatamodeld in Sources */,
 				27DA84681C4C8E69003F59DE /* DraggableView.swift in Sources */,
+				27DA847E1C4D8D85003F59DE /* Subject.swift in Sources */,
+				27DA846D1C4D87F9003F59DE /* Stack.swift in Sources */,
 				27DA84541C4C870C003F59DE /* AppDelegate.swift in Sources */,
+				27DA847C1C4D8D85003F59DE /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,8 +327,22 @@
 				27DA84641C4C870C003F59DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		27DA84691C4D873C003F59DE /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				27DA846A1C4D873C003F59DE /* Model.xcdatamodel */,
+			);
+			currentVersion = 27DA846A1C4D873C003F59DE /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 27DA84481C4C870C003F59DE /* Project object */;
 }

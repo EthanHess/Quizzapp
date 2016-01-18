@@ -24,6 +24,7 @@ class DraggableView: UIView {
         questionLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 10, 100))
         questionLabel.text = "Quiz question"
         questionLabel.backgroundColor = UIColor.grayColor()
+        questionLabel.layer.masksToBounds = true
         questionLabel.layer.cornerRadius = 10
         questionLabel.layer.borderColor = UIColor.whiteColor().CGColor
         questionLabel.layer.borderWidth = 2
@@ -32,6 +33,7 @@ class DraggableView: UIView {
         answerLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 10, 100))
         answerLabel.text = "Quiz answer"
         answerLabel.backgroundColor = UIColor.grayColor()
+        answerLabel.layer.masksToBounds = true
         answerLabel.layer.cornerRadius = 10
         answerLabel.layer.borderColor = UIColor.whiteColor().CGColor
         answerLabel.layer.borderWidth = 2
