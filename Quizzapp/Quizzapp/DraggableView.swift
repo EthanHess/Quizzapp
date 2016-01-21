@@ -21,18 +21,18 @@ class DraggableView: UIView {
         self.layer.cornerRadius = 10
         self.layer.borderColor = UIColor.darkGrayColor().CGColor
         
-        questionLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 10, 100))
+        questionLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 20, 100))
         questionLabel.text = "Quiz question"
-        questionLabel.backgroundColor = UIColor.grayColor()
+        questionLabel.backgroundColor = UIColor.whiteColor()
         questionLabel.layer.masksToBounds = true
         questionLabel.layer.cornerRadius = 10
         questionLabel.layer.borderColor = UIColor.whiteColor().CGColor
         questionLabel.layer.borderWidth = 2
         self.addSubview(questionLabel)
         
-        answerLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 10, 100))
+        answerLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 20, 100))
         answerLabel.text = "Quiz answer"
-        answerLabel.backgroundColor = UIColor.grayColor()
+        answerLabel.backgroundColor = UIColor.whiteColor()
         answerLabel.layer.masksToBounds = true
         answerLabel.layer.cornerRadius = 10
         answerLabel.layer.borderColor = UIColor.whiteColor().CGColor
@@ -45,7 +45,7 @@ class DraggableView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func flipCell() {
+    func flipCard() {
         
         if isFlipped == false {
             

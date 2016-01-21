@@ -10,21 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var draggableView = DraggableView!()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let barButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "pushToDetailView")
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "pushToDetailView")
         self.navigationItem.rightBarButtonItem = barButtonItem
         
+        //establish colors
         
-        draggableView = DraggableView(frame: CGRectMake(20, 80, self.view.frame.size.width - 40, 200))
-        self.view.addSubview(draggableView)
+        let colorOne = CGFloat(55)
+        let colorTwo = CGFloat(140)
+        let colorThree = CGFloat(245)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: "flipCell")
-        draggableView.addGestureRecognizer(tapGesture)
-        
+        self.view.backgroundColor = UIColor(red: colorOne / 255.0, green: colorTwo / 255.0, blue: colorThree / 255.0, alpha: 1.0)
     }
     
     func pushToDetailView() {
@@ -32,15 +30,6 @@ class ViewController: UIViewController {
         let subjectView = SubjectListViewController()
         
         self.navigationController?.pushViewController(subjectView, animated: true)
-    }
-    
-    func flipCell() {
-        
-        UIView.transitionWithView(draggableView, duration: 1, options: UIViewAnimationOptions.TransitionFlipFromRight, animations: { () -> Void in
-            
-            self.draggableView.flipCell()
-            
-            }, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
