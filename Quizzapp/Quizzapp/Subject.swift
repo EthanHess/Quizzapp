@@ -1,17 +1,17 @@
 //
-//  Card.swift
+//  Subject.swift
 //  Quizzapp
 //
-//  Created by Ethan Hess on 1/18/16.
+//  Created by Ethan Hess on 1/23/16.
 //  Copyright © 2016 Ethan Hess. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-@objc(Card)
+@objc(Subject)
 
-class Card: Subject {
+class Subject: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 

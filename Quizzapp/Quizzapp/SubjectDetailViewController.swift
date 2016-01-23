@@ -36,7 +36,7 @@ class SubjectDetailViewController: UIViewController {
             self.currentCard = firstCard
         }
 
-        self.draggableView = DraggableView(frame: CGRectMake(20, 80, self.view.frame.size.width - 40, 180))
+        self.draggableView = DraggableView(frame: CGRectMake(50, 100, self.view.frame.size.width - 100, self.view.frame.size.height - 200))
 
         self.draggableView.questionLabel.text = self.currentCard?.question
         self.draggableView.answerLabel.text = self.currentCard?.answer
@@ -118,12 +118,22 @@ class SubjectDetailViewController: UIViewController {
             dragView.center = CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)
             
             //call update image
+            
+            updateImage()
         }
     }
     
     func updateImage() {
         
         //cycle through card deck images here
+        
+        for var i = 0; i < self.subject.cards?.count; i++ {
+            
+            self.currentCard = self.subject.cards?.array[i] as? Card
+            self.draggableView.questionLabel.text = self.currentCard?.question
+            self.draggableView.answerLabel.text = self.currentCard?.answer
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
