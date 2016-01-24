@@ -127,7 +127,7 @@ class SubjectDetailViewController: UIViewController {
         
         //cycle through card deck images here
         
-        for var i = 0; i < self.subject.cards?.count; i++ {
+        for var i = 0; i < (self.subject.cards?.count)!-1; i++ {
             
             self.currentCard = self.subject.cards?.array[i] as? Card
             self.draggableView.questionLabel.text = self.currentCard?.question

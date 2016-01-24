@@ -38,7 +38,11 @@ class CardController: NSObject {
         save()
     }
     
-    //Remove methods here
+    func removeSubject(subject: Subject) {
+        
+        subject.managedObjectContext?.deleteObject(subject)
+        save()
+    }
     
     func save() {
         

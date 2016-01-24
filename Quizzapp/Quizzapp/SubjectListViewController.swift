@@ -86,6 +86,17 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         self.navigationController?.pushViewController(subjectDetailVC, animated: true)
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            
+            CardController.sharedInstance.removeSubject(CardController.sharedInstance.subjects[indexPath.row])
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
