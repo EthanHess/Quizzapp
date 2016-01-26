@@ -14,6 +14,7 @@ class SubjectDetailViewController: UIViewController {
     var subject : Subject!
     var currentCard : Card?
     var cardArray = [Card]()
+    var selectedCardIndex = 0
     
     func updateWithSubject(subject: Subject) {
         
@@ -119,21 +120,30 @@ class SubjectDetailViewController: UIViewController {
             
             //call update image
             
-            updateImage()
+            updateCard()
         }
     }
     
-    func updateImage() {
+//    func updateImage() {
+//        
+//        //cycle through card deck images here
+//        
+//        for var i = 0; i < (self.subject.cards?.count)!; i++ {
+//            
+//            self.currentCard = self.subject.cards?.array[i] as? Card
+//            self.draggableView.questionLabel.text = self.currentCard?.question
+//            self.draggableView.answerLabel.text = self.currentCard?.answer
+//            
+//        }
+//    }
+    
+    func updateCard() {
         
-        //cycle through card deck images here
+        self.selectedCardIndex += 1
+        self.currentCard = self.subject.cards?.array[self.selectedCardIndex] as? Card
+        self.draggableView.questionLabel.text = self.currentCard?.question
+        self.draggableView.answerLabel.text = self.currentCard?.answer
         
-        for var i = 0; i < (self.subject.cards?.count)!-1; i++ {
-            
-            self.currentCard = self.subject.cards?.array[i] as? Card
-            self.draggableView.questionLabel.text = self.currentCard?.question
-            self.draggableView.answerLabel.text = self.currentCard?.answer
-            
-        }
     }
 
     override func didReceiveMemoryWarning() {
