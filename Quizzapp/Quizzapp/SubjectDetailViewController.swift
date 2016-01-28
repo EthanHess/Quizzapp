@@ -67,11 +67,7 @@ class SubjectDetailViewController: UIViewController {
     
     func pushToAddDetailView() {
         
-        let addViewController = AddCardViewController()
-        
-        addViewController.subject = self.subject
-        
-        self.navigationController?.pushViewController(addViewController, animated: true)
+        print("Hello World!")
     }
     
     func dragView(gesture: UIPanGestureRecognizer) {

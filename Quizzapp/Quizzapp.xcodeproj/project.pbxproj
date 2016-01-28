@@ -22,7 +22,6 @@
 		27DA846D1C4D87F9003F59DE /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA846C1C4D87F9003F59DE /* Stack.swift */; settings = {ASSET_TAGS = (); }; };
 		27DA84801C4D8F2E003F59DE /* SubjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		27DA84821C4F36BA003F59DE /* SubjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84811C4F36BA003F59DE /* SubjectDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		27DA84841C4F4773003F59DE /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84831C4F4773003F59DE /* AddCardViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +42,6 @@
 		27DA846C1C4D87F9003F59DE /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectListViewController.swift; sourceTree = "<group>"; };
 		27DA84811C4F36BA003F59DE /* SubjectDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectDetailViewController.swift; sourceTree = "<group>"; };
-		27DA84831C4F4773003F59DE /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +78,6 @@
 				27DA84551C4C870C003F59DE /* ViewController.swift */,
 				27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */,
 				27DA84811C4F36BA003F59DE /* SubjectDetailViewController.swift */,
-				27DA84831C4F4773003F59DE /* AddCardViewController.swift */,
 				27DA84651C4C8E55003F59DE /* CardController.swift */,
 				27DA84671C4C8E69003F59DE /* DraggableView.swift */,
 				27DA846C1C4D87F9003F59DE /* Stack.swift */,
@@ -182,7 +179,6 @@
 				27DA84821C4F36BA003F59DE /* SubjectDetailViewController.swift in Sources */,
 				27DA84661C4C8E55003F59DE /* CardController.swift in Sources */,
 				27DA84801C4D8F2E003F59DE /* SubjectListViewController.swift in Sources */,
-				27DA84841C4F4773003F59DE /* AddCardViewController.swift in Sources */,
 				27DA846B1C4D873C003F59DE /* Model.xcdatamodeld in Sources */,
 				27DA84681C4C8E69003F59DE /* DraggableView.swift in Sources */,
 				27DA846D1C4D87F9003F59DE /* Stack.swift in Sources */,
