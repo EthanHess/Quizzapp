@@ -114,31 +114,29 @@ class SubjectDetailViewController: UIViewController {
             dragView.transform = stretch
             dragView.center = CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)
             
-            //call update image
+            //call update card
             
             updateCard()
         }
     }
     
-//    func updateImage() {
-//        
-//        //cycle through card deck images here
-//        
-//        for var i = 0; i < (self.subject.cards?.count)!; i++ {
-//            
-//            self.currentCard = self.subject.cards?.array[i] as? Card
-//            self.draggableView.questionLabel.text = self.currentCard?.question
-//            self.draggableView.answerLabel.text = self.currentCard?.answer
-//            
-//        }
-//    }
     
     func updateCard() {
         
-        self.selectedCardIndex += 1
-        self.currentCard = self.subject.cards?.array[self.selectedCardIndex] as? Card
-        self.draggableView.questionLabel.text = self.currentCard?.question
-        self.draggableView.answerLabel.text = self.currentCard?.answer
+        let cardCount = (self.subject.cards?.array.count)! - 2
+        
+        if self.selectedCardIndex <= cardCount {
+            
+            self.selectedCardIndex += 1
+            self.currentCard = self.subject.cards?.array[self.selectedCardIndex] as? Card
+            self.draggableView.questionLabel.text = self.currentCard?.question
+            self.draggableView.answerLabel.text = self.currentCard?.answer
+        
+        } else {
+
+             print("finished!")
+            
+        }
         
     }
 
