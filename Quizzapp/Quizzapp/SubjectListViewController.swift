@@ -30,7 +30,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         self.navigationItem.rightBarButtonItem = addButton
 
         self.tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Grouped)
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
@@ -95,14 +95,16 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         //eventually add custom cell which shows current score
         
-        var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell!
-        cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
+        let cell : TableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! TableViewCell!
+//        cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
         
         let subject = CardController.sharedInstance.subjects[indexPath.row] as Subject!
         
-        cell.textLabel?.text = NSString(format: "%@ right: %i, wrong: %i", subject.name!, Int(subject.trueCount!), Int(subject.falseCount!)) as String
+        cell.titleLabel.text = subject.name!
         
-        cell.detailTextLabel?.text = NSString(format: "%d Cards", (subject.cards?.count)!) as String
+        cell.scoreLabel?.text = NSString(format: "right: %i, wrong: %i", Int(subject.trueCount!), Int(subject.falseCount!)) as String
+        
+        cell.cardCountLabel?.text = NSString(format: "%d Cards", (subject.cards?.count)!) as String
         
         return cell
     }
@@ -110,6 +112,11 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return CardController.sharedInstance.subjects.count
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        return 260
     }
     
     func addSubject() {

@@ -36,7 +36,8 @@ class SubjectDetailViewController: UIViewController {
         setUpBarButtonItem()
         
         self.updateWithSubject(self.subject!)
-
+        
+        //TODO: Clear array here
         
         if let firstCard = self.subject?.cards?.array.first as? Card {
             self.currentCard = firstCard
