@@ -1,8 +1,8 @@
 //
-//  Subject+CoreDataProperties.swift
+//  Card+CoreDataProperties.swift
 //  Quizzapp
 //
-//  Created by Ethan Hess on 1/23/16.
+//  Created by Ethan Hess on 1/30/16.
 //  Copyright © 2016 Ethan Hess. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -12,9 +12,10 @@
 import Foundation
 import CoreData
 
-extension Subject {
+extension Card {
 
-    @NSManaged var name: String?
-    @NSManaged var cards: NSOrderedSet?
+    @NSManaged var answer: String?
+    @NSManaged var question: String?
+    @NSManaged var subject: Subject?
 
 }

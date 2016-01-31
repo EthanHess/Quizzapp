@@ -44,14 +44,17 @@ class CardController: NSObject {
         save()
     }
     
-    func addTrueBoolToCard(trueBool: Bool) {
+    func addFalseCountToSubject(subject: Subject, falseCount: Int) {
         
+        subject.falseCount = falseCount
+        save()
         
     }
     
-    func addFalseBoolToCard(falseBool: Bool) {
+    func addTrueCountToSubject(subject: Subject, trueCount: Int) {
         
-        
+        subject.trueCount = trueCount
+        save()
     }
     
     func save() {

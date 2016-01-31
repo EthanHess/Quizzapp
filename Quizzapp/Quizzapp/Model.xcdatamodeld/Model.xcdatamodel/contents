@@ -6,11 +6,13 @@
         <relationship name="subject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subject" inverseName="cards" inverseEntity="Subject" syncable="YES"/>
     </entity>
     <entity name="Subject" representedClassName="Subject" syncable="YES">
+        <attribute name="falseCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="trueCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="cards" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Card" inverseName="subject" inverseEntity="Card" syncable="YES"/>
     </entity>
     <elements>
         <element name="Card" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Subject" positionX="-63" positionY="117" width="128" height="73"/>
+        <element name="Subject" positionX="-63" positionY="117" width="128" height="105"/>
     </elements>
 </model>

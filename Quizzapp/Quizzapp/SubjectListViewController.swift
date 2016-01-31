@@ -100,7 +100,8 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         let subject = CardController.sharedInstance.subjects[indexPath.row] as Subject!
         
-        cell.textLabel?.text = subject.name
+        cell.textLabel?.text = NSString(format: "%@ right: %i, wrong: %i", subject.name!, Int(subject.trueCount!), Int(subject.falseCount!)) as String
+        
         cell.detailTextLabel?.text = NSString(format: "%d Cards", (subject.cards?.count)!) as String
         
         return cell

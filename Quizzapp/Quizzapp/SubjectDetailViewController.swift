@@ -15,6 +15,8 @@ class SubjectDetailViewController: UIViewController {
     var currentCard : Card?
     var cardArray = [Card]()
     var selectedCardIndex = 0
+    var wrongArray : [Bool] = []
+    var rightArray : [Bool] = []
     
     func updateWithSubject(subject: Subject) {
         
@@ -25,6 +27,9 @@ class SubjectDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        wrongArray.removeAll(keepCapacity: true)
+        rightArray.removeAll(keepCapacity: true)
         
         self.view.backgroundColor = UIColor.whiteColor()
         
@@ -97,13 +102,15 @@ class SubjectDetailViewController: UIViewController {
             if dragView.center.x < 100 {
                 
                 print("wrong")
-                //call reset method here
+                
+                self.wrongArray.append(false)
             }
             
             else if dragView.center.x > self.view.bounds.width - 100 {
                 
                 print("right")
-                //call reset
+                
+                self.rightArray.append(true)
             }
             
             //save boolean to current card
@@ -133,12 +140,24 @@ class SubjectDetailViewController: UIViewController {
             self.draggableView.answerLabel.text = self.currentCard?.answer
         
         } else {
-
-             print("finished!")
             
+             CardController.sharedInstance.addFalseCountToSubject(self.subject, falseCount: wrongArray.count)
+             CardController.sharedInstance.addTrueCountToSubject(self.subject, trueCount: rightArray.count)
+
+             let alertController = UIAlertController(title: "Finished", message: String(format: "You got %i right and %i wrong", rightArray.count, wrongArray.count), preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let okayAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: { (action) -> Void in
+                
+                
+            })
+            
+            alertController.addAction(okayAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
         
     }
+    
+    //TODO: make function displaying alert according to score
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
