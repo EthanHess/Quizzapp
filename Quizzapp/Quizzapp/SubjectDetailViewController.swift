@@ -28,31 +28,14 @@ class SubjectDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        wrongArray.removeAll(keepCapacity: true)
-        rightArray.removeAll(keepCapacity: true)
-        
         self.view.backgroundColor = UIColor.whiteColor()
         
         setUpBarButtonItem()
         
-        self.updateWithSubject(self.subject!)
-        
-        //TODO: Clear array here
-        
-        if let firstCard = self.subject?.cards?.array.first as? Card {
-            self.currentCard = firstCard
-        }
-
         self.draggableView = DraggableView(frame: CGRectMake(50, 100, self.view.frame.size.width - 100, self.view.frame.size.height - 200))
-
-        self.draggableView.questionLabel.text = self.currentCard?.question
-        self.draggableView.answerLabel.text = self.currentCard?.answer
         self.view.addSubview(self.draggableView)
-
-        let dragGesture = UIPanGestureRecognizer(target: self, action: "dragView:")
-        let tapGesture = UITapGestureRecognizer(target: self, action: "flipCard")
-        draggableView.addGestureRecognizer(tapGesture)
-        draggableView.addGestureRecognizer(dragGesture)
+        
+        setUpView()
         
     }
     
@@ -144,18 +127,46 @@ class SubjectDetailViewController: UIViewController {
             
              CardController.sharedInstance.addFalseCountToSubject(self.subject, falseCount: wrongArray.count)
              CardController.sharedInstance.addTrueCountToSubject(self.subject, trueCount: rightArray.count)
+            
+            //reload VC table view
+            
+             NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "refresh", object: nil))
 
              let alertController = UIAlertController(title: "Finished", message: String(format: "You got %i right and %i wrong", rightArray.count, wrongArray.count), preferredStyle: UIAlertControllerStyle.Alert)
             
             let okayAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: { (action) -> Void in
                 
-                
+                self.setUpView()
             })
             
             alertController.addAction(okayAction)
             self.presentViewController(alertController, animated: true, completion: nil)
         }
         
+    }
+    
+    func setUpView() {
+        
+        selectedCardIndex = 0
+        
+        wrongArray.removeAll(keepCapacity: true)
+        rightArray.removeAll(keepCapacity: true)
+        
+        self.updateWithSubject(self.subject!)
+        
+        //TODO: Clear array here
+        
+        if let firstCard = self.subject?.cards?.array.first as? Card {
+            self.currentCard = firstCard
+        }
+        
+        self.draggableView.questionLabel.text = self.currentCard?.question
+        self.draggableView.answerLabel.text = self.currentCard?.answer
+        
+        let dragGesture = UIPanGestureRecognizer(target: self, action: "dragView:")
+        let tapGesture = UITapGestureRecognizer(target: self, action: "flipCard")
+        draggableView.addGestureRecognizer(tapGesture)
+        draggableView.addGestureRecognizer(dragGesture)
     }
     
     //TODO: make function displaying alert according to score

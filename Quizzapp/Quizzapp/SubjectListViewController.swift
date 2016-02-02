@@ -24,6 +24,8 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerForNotifications()
+        
         //maybe change to custom popout view later
         
         let addButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: "addSubject")
@@ -89,6 +91,11 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.view.addSubview(self.addCardView)
         
+    }
+    
+    func registerForNotifications() {
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshTable", name: "refresh", object: nil)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -245,6 +252,11 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     //add text view delegate
+    
+    func refreshTable() {
+        
+        tableView.reloadData()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

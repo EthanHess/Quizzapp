@@ -20,25 +20,25 @@ class TableViewCell: UITableViewCell {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        titleLabel = UILabel(frame: CGRectMake(20, 10, self.frame.size.width - 40, 60))
+        titleLabel = UILabel(frame: CGRectMake(20, 10, self.frame.size.width - 20, 60))
         titleLabel.textAlignment = NSTextAlignment.Center
         titleLabel.backgroundColor = UIColor.whiteColor()
         titleLabel.textColor = UIColor.blackColor()
         self.addSubview(titleLabel)
         
-        cardCountLabel = UILabel(frame: CGRectMake(20, 80, self.frame.size.width / 2 - 40, 50))
+        cardCountLabel = UILabel(frame: CGRectMake(20, 80, self.frame.size.width - 20, 50))
         cardCountLabel.backgroundColor = UIColor.whiteColor()
         cardCountLabel.textAlignment = NSTextAlignment.Center
         cardCountLabel.textColor = UIColor.blackColor()
         self.addSubview(cardCountLabel)
         
-        scoreLabel = UILabel(frame: CGRectMake(20, 140, self.frame.size.width - 100, 50))
+        scoreLabel = UILabel(frame: CGRectMake(20, 140, self.frame.size.width - 20, 50))
         scoreLabel.textAlignment = NSTextAlignment.Center
         scoreLabel.backgroundColor = UIColor.whiteColor()
         scoreLabel.textColor = UIColor.blackColor()
         self.addSubview(scoreLabel)
         
-        scoreLabelContainer = UIView(frame: CGRectMake(20, 200, self.frame.size.width, 50))
+        scoreLabelContainer = UIView(frame: CGRectMake(20, 200, self.frame.size.width - 20, 50))
         scoreLabelContainer.backgroundColor = UIColor.lightGrayColor()
         self.addSubview(scoreLabelContainer)
         
