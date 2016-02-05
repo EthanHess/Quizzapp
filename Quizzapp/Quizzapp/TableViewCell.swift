@@ -20,26 +20,32 @@ class TableViewCell: UITableViewCell {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        titleLabel = UILabel(frame: CGRectMake(20, 10, self.frame.size.width - 20, 60))
+        self.backgroundColor = UIColor(red: (45)/255, green: (88)/255, blue: (170)/255, alpha: 1)
+        
+        titleLabel = UILabel(frame: CGRectMake(20, 10, self.frame.size.width - 40, 60))
+        titleLabel.font = UIFont(name: "Chalkduster", size: 18)
         titleLabel.textAlignment = NSTextAlignment.Center
-        titleLabel.backgroundColor = UIColor.whiteColor()
-        titleLabel.textColor = UIColor.blackColor()
+        titleLabel.backgroundColor = UIColor.clearColor()
+        titleLabel.textColor = UIColor.whiteColor()
         self.addSubview(titleLabel)
         
-        cardCountLabel = UILabel(frame: CGRectMake(20, 80, self.frame.size.width - 20, 50))
-        cardCountLabel.backgroundColor = UIColor.whiteColor()
+        cardCountLabel = UILabel(frame: CGRectMake(20, 80, self.frame.size.width - 40, 50))
+        cardCountLabel.font = UIFont(name: "Chalkduster", size: 16)
+        cardCountLabel.backgroundColor = UIColor.clearColor()
         cardCountLabel.textAlignment = NSTextAlignment.Center
-        cardCountLabel.textColor = UIColor.blackColor()
+        cardCountLabel.textColor = UIColor.whiteColor()
         self.addSubview(cardCountLabel)
         
-        scoreLabel = UILabel(frame: CGRectMake(20, 140, self.frame.size.width - 20, 50))
+        scoreLabel = UILabel(frame: CGRectMake(20, 140, self.frame.size.width - 40, 50))
+        scoreLabel.font = UIFont(name: "Chalkduster", size: 16)
         scoreLabel.textAlignment = NSTextAlignment.Center
-        scoreLabel.backgroundColor = UIColor.whiteColor()
-        scoreLabel.textColor = UIColor.blackColor()
+        scoreLabel.backgroundColor = UIColor.clearColor()
+        scoreLabel.textColor = UIColor.whiteColor()
         self.addSubview(scoreLabel)
         
-        scoreLabelContainer = UIView(frame: CGRectMake(20, 200, self.frame.size.width - 20, 50))
+        scoreLabelContainer = UIView(frame: CGRectMake(20, 200, self.frame.size.width - 40, 50))
         scoreLabelContainer.backgroundColor = UIColor.lightGrayColor()
+        scoreLabelContainer.layer.cornerRadius = 10
         self.addSubview(scoreLabelContainer)
         
         //eventually add scoreView subviews

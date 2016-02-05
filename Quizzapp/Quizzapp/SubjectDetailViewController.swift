@@ -17,6 +17,8 @@ class SubjectDetailViewController: UIViewController {
     var selectedCardIndex = 0
     var wrongArray : [Bool] = []
     var rightArray : [Bool] = []
+    var rightLabel : UILabel!
+    var wrongLabel : UILabel!
     
     func updateWithSubject(subject: Subject) {
         
@@ -28,7 +30,7 @@ class SubjectDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor(red: 180 / 255.0, green: 80 / 255.0, blue: 40 / 255.0, alpha: 1.0)
         
         setUpBarButtonItem()
         
@@ -37,6 +39,29 @@ class SubjectDetailViewController: UIViewController {
         
         setUpView()
         
+        rightWrongLabels()
+        
+    }
+    
+    func rightWrongLabels() {
+        
+        rightLabel = UILabel(frame: CGRectMake(50, self.view.frame.size.height / 2 - 50, self.view.frame.size.width - 100, 100))
+        rightLabel.backgroundColor = UIColor.clearColor()
+        rightLabel.text = "Right!"
+        rightLabel.textColor = UIColor.blueColor()
+        rightLabel.textAlignment = NSTextAlignment.Center
+        rightLabel.font = UIFont(name: "Chalkduster", size: 48)
+        rightLabel.hidden = true
+        self.view.addSubview(rightLabel)
+        
+        wrongLabel = UILabel(frame: CGRectMake(50, self.view.frame.size.height / 2 - 50, self.view.frame.size.width - 100, 100))
+        wrongLabel.backgroundColor = UIColor.clearColor()
+        wrongLabel.text = "Wrong!"
+        wrongLabel.textColor = UIColor.redColor()
+        wrongLabel.textAlignment = NSTextAlignment.Center
+        wrongLabel.font = UIFont(name: "Chalkduster", size: 48)
+        wrongLabel.hidden = true
+        self.view.addSubview(wrongLabel)
     }
     
     func flipCard() {
@@ -76,6 +101,24 @@ class SubjectDetailViewController: UIViewController {
         var stretch = CGAffineTransformScale(rotation, scale, scale)
         
         dragView.transform = stretch
+        
+        //change background color accordingly 
+        
+        if dragView.center.x < 150 {
+            
+            wrongLabel.hidden = false
+            wrongLabel.alpha = 0.5
+            rightLabel.hidden = true
+            
+        }
+        
+        if dragView.center.x > self.view.bounds.width - 150 {
+            
+            rightLabel.hidden = false
+            rightLabel.alpha = 0.5
+            wrongLabel.hidden = true
+            
+        }
         
         //decifer whether answer was wrong or right
         

@@ -155,6 +155,8 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        //make sure if card count == 0 that an alert pops up telling them to add at least one card
+        
         let subject = CardController.sharedInstance.subjects[indexPath.row] as Subject!
         self.subjectToAdd = subject
         
