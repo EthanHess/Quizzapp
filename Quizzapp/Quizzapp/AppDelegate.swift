@@ -21,7 +21,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.rootViewController = navigationController
         
+        setUpAppearance()
+        
         return true
+    }
+    
+    func setUpAppearance() {
+        
+        let tealColor = RGB(60, 180, 255)
+        
+        window?.tintColor = tealColor
+        
+        UINavigationBar.appearance().barTintColor = tealColor
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    }
+    
+    private func RGB(r: CGFloat, _ g: CGFloat, _ b: CGFloat) -> UIColor {
+        return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }
 
     func applicationWillResignActive(application: UIApplication) {

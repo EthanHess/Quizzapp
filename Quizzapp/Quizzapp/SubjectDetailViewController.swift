@@ -30,16 +30,16 @@ class SubjectDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red: 180 / 255.0, green: 80 / 255.0, blue: 40 / 255.0, alpha: 1.0)
+        self.view.backgroundColor = UIColor(red: 80 / 255.0, green: 120 / 255.0, blue: 235 / 255.0, alpha: 1.0)
         
         setUpBarButtonItem()
         
         self.draggableView = DraggableView(frame: CGRectMake(50, 100, self.view.frame.size.width - 100, self.view.frame.size.height - 200))
         self.view.addSubview(self.draggableView)
         
-        setUpView()
-        
         rightWrongLabels()
+        
+        setUpView()
         
     }
     
@@ -194,6 +194,9 @@ class SubjectDetailViewController: UIViewController {
         
         wrongArray.removeAll(keepCapacity: true)
         rightArray.removeAll(keepCapacity: true)
+        
+        wrongLabel.hidden = true
+        rightLabel.hidden = true
         
         self.updateWithSubject(self.subject!)
         
