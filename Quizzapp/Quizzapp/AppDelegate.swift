@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navigationController = UINavigationController(rootViewController: viewController)
         
+        self.window?.backgroundColor = UIColor.whiteColor()
         self.window?.rootViewController = navigationController
         
         setUpAppearance()
@@ -28,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setUpAppearance() {
         
-        let tealColor = RGB(60, 180, 255)
+        let tealColor = RGB(0, 204, 183)
         
         window?.tintColor = tealColor
         

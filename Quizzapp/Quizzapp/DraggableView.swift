@@ -17,14 +17,14 @@ class DraggableView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = Colors().cardColorTwo
+        self.backgroundColor = Colors().cardBackgroundColor
         self.layer.cornerRadius = 10
         self.layer.borderColor = UIColor.whiteColor().CGColor
         self.layer.borderWidth = 1
         
-        questionLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 20, 100))
+        questionLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 20, 250))
 //        questionLabel.text = "Quiz question"
-        questionLabel.textColor = Colors().cardColorThree
+        questionLabel.textColor = Colors().cardTextColor
         questionLabel.font = UIFont(name: "Chalkduster", size: 36)
         questionLabel.textAlignment = NSTextAlignment.Center
         questionLabel.backgroundColor = UIColor.whiteColor()
@@ -32,9 +32,9 @@ class DraggableView: UIView {
         questionLabel.layer.cornerRadius = 10
         self.addSubview(questionLabel)
         
-        answerLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 20, 100))
+        answerLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 20, 250))
 //        answerLabel.text = "Quiz answer"
-        answerLabel.textColor = Colors().cardColorThree
+        answerLabel.textColor = Colors().cardTextColor
         answerLabel.font = UIFont(name: "Chalkduster", size: 36)
         answerLabel.textAlignment = NSTextAlignment.Center
         answerLabel.backgroundColor = UIColor.whiteColor()

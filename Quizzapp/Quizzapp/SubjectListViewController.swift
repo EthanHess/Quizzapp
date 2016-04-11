@@ -26,12 +26,17 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         registerForNotifications()
         
+        self.view.backgroundColor = Colors().viewBackgroundColor
+        
         //maybe change to custom popout view later
         
         let addButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: "addSubject")
         self.navigationItem.rightBarButtonItem = addButton
 
-        self.tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Grouped)
+        self.tableView = UITableView(frame: CGRectMake(50, 0, self.view.frame.size.width - 100, self.view.frame.size.height), style: UITableViewStyle.Grouped)
+        self.tableView.backgroundColor = Colors().viewBackgroundColor
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+//        self.tableView.separatorInset
         self.tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -108,15 +113,20 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         //eventually add custom cell which shows current score
         
         let cell : TableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! TableViewCell!
+
 //        cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
         
         let subject = CardController.sharedInstance.subjects[indexPath.row] as Subject!
         
         cell.titleLabel.text = subject.name!
         
-        cell.scoreLabel?.text = NSString(format: "right: %i, wrong: %i", Int(subject.trueCount!), Int(subject.falseCount!)) as String
+        cell.scoreLabel.text = NSString(format: "right: %i, wrong: %i", Int(subject.trueCount!), Int(subject.falseCount!)) as String
         
-        cell.cardCountLabel?.text = NSString(format: "%d Cards", (subject.cards?.count)!) as String
+        cell.cardCountLabel.text = NSString(format: "%d Cards", (subject.cards?.count)!) as String
+        
+        cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cell.layer.borderWidth = 2
         
         return cell
     }

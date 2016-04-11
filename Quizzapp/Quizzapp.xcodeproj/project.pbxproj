@@ -7,33 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27BD445B1C5D8681009AEFB1 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		27BD445C1C5D8681009AEFB1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44581C5D8681009AEFB1 /* Card.swift */; settings = {ASSET_TAGS = (); }; };
-		27BD445D1C5D8681009AEFB1 /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44591C5D8681009AEFB1 /* Subject+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		27BD445E1C5D8681009AEFB1 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD445A1C5D8681009AEFB1 /* Subject.swift */; settings = {ASSET_TAGS = (); }; };
-		27BD44631C5E5EA9009AEFB1 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44621C5E5EA9009AEFB1 /* TableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		27BD44671C5E615B009AEFB1 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44661C5E615B009AEFB1 /* ScoreView.swift */; settings = {ASSET_TAGS = (); }; };
-		27C3B78E1C699D8700F71AB5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B78D1C699D8700F71AB5 /* Colors.swift */; settings = {ASSET_TAGS = (); }; };
+		270BD3171C6D97DB00C77FC5 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD3161C6D97DB00C77FC5 /* PageViewController.swift */; };
+		270BD3191C6D999200C77FC5 /* ViewControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */; };
+		270BD31B1C6D9AC300C77FC5 /* ViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD31A1C6D9AC300C77FC5 /* ViewControllerTwo.swift */; };
+		270BD31D1C6D9AD500C77FC5 /* ViewControllerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD31C1C6D9AD500C77FC5 /* ViewControllerThree.swift */; };
+		27BD445B1C5D8681009AEFB1 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */; };
+		27BD445C1C5D8681009AEFB1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44581C5D8681009AEFB1 /* Card.swift */; };
+		27BD445D1C5D8681009AEFB1 /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44591C5D8681009AEFB1 /* Subject+CoreDataProperties.swift */; };
+		27BD445E1C5D8681009AEFB1 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD445A1C5D8681009AEFB1 /* Subject.swift */; };
+		27BD44631C5E5EA9009AEFB1 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44621C5E5EA9009AEFB1 /* TableViewCell.swift */; };
+		27C3B78E1C699D8700F71AB5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B78D1C699D8700F71AB5 /* Colors.swift */; };
 		27DA84541C4C870C003F59DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84531C4C870C003F59DE /* AppDelegate.swift */; };
 		27DA84561C4C870C003F59DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84551C4C870C003F59DE /* ViewController.swift */; };
 		27DA84591C4C870C003F59DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27DA84571C4C870C003F59DE /* Main.storyboard */; };
 		27DA845B1C4C870C003F59DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27DA845A1C4C870C003F59DE /* Assets.xcassets */; };
 		27DA845E1C4C870C003F59DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27DA845C1C4C870C003F59DE /* LaunchScreen.storyboard */; };
-		27DA84661C4C8E55003F59DE /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84651C4C8E55003F59DE /* CardController.swift */; settings = {ASSET_TAGS = (); }; };
-		27DA84681C4C8E69003F59DE /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84671C4C8E69003F59DE /* DraggableView.swift */; settings = {ASSET_TAGS = (); }; };
-		27DA846B1C4D873C003F59DE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84691C4D873C003F59DE /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
-		27DA846D1C4D87F9003F59DE /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA846C1C4D87F9003F59DE /* Stack.swift */; settings = {ASSET_TAGS = (); }; };
-		27DA84801C4D8F2E003F59DE /* SubjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		27DA84821C4F36BA003F59DE /* SubjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84811C4F36BA003F59DE /* SubjectDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		27DA84661C4C8E55003F59DE /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84651C4C8E55003F59DE /* CardController.swift */; };
+		27DA84681C4C8E69003F59DE /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84671C4C8E69003F59DE /* DraggableView.swift */; };
+		27DA846B1C4D873C003F59DE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84691C4D873C003F59DE /* Model.xcdatamodeld */; };
+		27DA846D1C4D87F9003F59DE /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA846C1C4D87F9003F59DE /* Stack.swift */; };
+		27DA84801C4D8F2E003F59DE /* SubjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */; };
+		27DA84821C4F36BA003F59DE /* SubjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84811C4F36BA003F59DE /* SubjectDetailViewController.swift */; };
+		27DAD6021C8548C700A902A2 /* QBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DAD6011C8548C700A902A2 /* QBackground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		270BD3161C6D97DB00C77FC5 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerOne.swift; sourceTree = "<group>"; };
+		270BD31A1C6D9AC300C77FC5 /* ViewControllerTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTwo.swift; sourceTree = "<group>"; };
+		270BD31C1C6D9AD500C77FC5 /* ViewControllerThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerThree.swift; sourceTree = "<group>"; };
 		27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Card+CoreDataProperties.swift"; path = "../Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		27BD44581C5D8681009AEFB1 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = ../Card.swift; sourceTree = "<group>"; };
 		27BD44591C5D8681009AEFB1 /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Subject+CoreDataProperties.swift"; path = "../Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		27BD445A1C5D8681009AEFB1 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subject.swift; path = ../Subject.swift; sourceTree = "<group>"; };
 		27BD44621C5E5EA9009AEFB1 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		27BD44661C5E615B009AEFB1 /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		27C3B78D1C699D8700F71AB5 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		27DA84501C4C870C003F59DE /* Quizzapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27DA84531C4C870C003F59DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +55,7 @@
 		27DA846C1C4D87F9003F59DE /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectListViewController.swift; sourceTree = "<group>"; };
 		27DA84811C4F36BA003F59DE /* SubjectDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectDetailViewController.swift; sourceTree = "<group>"; };
+		27DAD6011C8548C700A902A2 /* QBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QBackground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +95,13 @@
 				27DA84651C4C8E55003F59DE /* CardController.swift */,
 				27DA84671C4C8E69003F59DE /* DraggableView.swift */,
 				27BD44621C5E5EA9009AEFB1 /* TableViewCell.swift */,
-				27BD44661C5E615B009AEFB1 /* ScoreView.swift */,
 				27C3B78D1C699D8700F71AB5 /* Colors.swift */,
+				27DAD6011C8548C700A902A2 /* QBackground.swift */,
 				27DA846C1C4D87F9003F59DE /* Stack.swift */,
+				270BD3161C6D97DB00C77FC5 /* PageViewController.swift */,
+				270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */,
+				270BD31A1C6D9AC300C77FC5 /* ViewControllerTwo.swift */,
+				270BD31C1C6D9AD500C77FC5 /* ViewControllerThree.swift */,
 				27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */,
 				27BD44581C5D8681009AEFB1 /* Card.swift */,
 				27BD44591C5D8681009AEFB1 /* Subject+CoreDataProperties.swift */,
@@ -182,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27BD44631C5E5EA9009AEFB1 /* TableViewCell.swift in Sources */,
+				27DAD6021C8548C700A902A2 /* QBackground.swift in Sources */,
 				27C3B78E1C699D8700F71AB5 /* Colors.swift in Sources */,
 				27DA84561C4C870C003F59DE /* ViewController.swift in Sources */,
 				27DA84821C4F36BA003F59DE /* SubjectDetailViewController.swift in Sources */,
@@ -193,9 +206,12 @@
 				27BD445B1C5D8681009AEFB1 /* Card+CoreDataProperties.swift in Sources */,
 				27BD445C1C5D8681009AEFB1 /* Card.swift in Sources */,
 				27DA846D1C4D87F9003F59DE /* Stack.swift in Sources */,
-				27BD44671C5E615B009AEFB1 /* ScoreView.swift in Sources */,
+				270BD31D1C6D9AD500C77FC5 /* ViewControllerThree.swift in Sources */,
+				270BD3191C6D999200C77FC5 /* ViewControllerOne.swift in Sources */,
 				27DA84541C4C870C003F59DE /* AppDelegate.swift in Sources */,
 				27BD445D1C5D8681009AEFB1 /* Subject+CoreDataProperties.swift in Sources */,
+				270BD3171C6D97DB00C77FC5 /* PageViewController.swift in Sources */,
+				270BD31B1C6D9AC300C77FC5 /* ViewControllerTwo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

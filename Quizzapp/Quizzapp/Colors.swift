@@ -28,4 +28,25 @@ class Colors {
             return UIColor(red: (95)/255, green: (170)/255, blue: (130)/255, alpha: 1)
         }
     }
+    
+    //Make more custom colors with RGB values online
+    
+    var viewBackgroundColor : UIColor {
+        get {
+            return UIColor(red: 205/255, green: 252/255, blue: 201/255, alpha: 1.0)
+        }
+    }
+    
+    var cardBackgroundColor : UIColor {
+        get {
+            return UIColor(red: 74/255, green: 69/255, blue: 211/255, alpha: 1.0)
+        }
+    }
+    
+    var cardTextColor : UIColor {
+        get {
+            return UIColor(red: 242/255, green: 244/255, blue: 217/255, alpha: 1.0)
+        }
+    }
+    
 }
