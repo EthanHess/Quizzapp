@@ -10,7 +10,7 @@ import UIKit
 
 class SubjectListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UITextFieldDelegate {
     
-    var tableView = UITableView!()
+    var tableView : UITableView!
     var textField : UITextField!
     var textView : UITextView!
     var addCardButton : UIButton!
@@ -30,7 +30,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         //maybe change to custom popout view later
         
-        let addButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: "addSubject")
+        let addButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SubjectListViewController.addSubject))
         self.navigationItem.rightBarButtonItem = addButton
 
         self.tableView = UITableView(frame: CGRectMake(50, 0, self.view.frame.size.width - 100, self.view.frame.size.height), style: UITableViewStyle.Grouped)
@@ -43,9 +43,9 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.addSubview(self.tableView)
         
         self.addCardView = UIView(frame: CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height / 2))
-        self.addCardView.backgroundColor = Colors().cardColorTwo
+        self.addCardView.backgroundColor = Colors().cardBackgroundColor
         self.addCardView.layer.cornerRadius = 10
-        self.addCardView.layer.borderColor = Colors().cardColorOne.CGColor
+        self.addCardView.layer.borderColor = Colors().cardTextColor.CGColor
         self.addCardView.layer.borderWidth = 2
         
         titleLabel = UILabel(frame: CGRectMake(100, 25, self.addCardView.frame.size.width - 200, 50))
@@ -73,7 +73,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         addCardButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
         addCardButton.setTitle("Add", forState: UIControlState.Normal)
         addCardButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        addCardButton.addTarget(self, action: "addCard", forControlEvents: UIControlEvents.TouchUpInside)
+        addCardButton.addTarget(self, action: #selector(SubjectListViewController.addCard), forControlEvents: UIControlEvents.TouchUpInside)
         addCardButton.layer.cornerRadius = 22.5
         addCardButton.layer.borderWidth = 1
         addCardButton.layer.borderColor = UIColor.whiteColor().CGColor
@@ -83,7 +83,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         clearButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
         clearButton.setTitle("Clear", forState: UIControlState.Normal)
         clearButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        clearButton.addTarget(self, action: "clearFields", forControlEvents: UIControlEvents.TouchUpInside)
+        clearButton.addTarget(self, action: #selector(SubjectListViewController.clearFields), forControlEvents: UIControlEvents.TouchUpInside)
         clearButton.layer.cornerRadius = 22.5
         clearButton.layer.borderWidth = 1
         clearButton.layer.borderColor = UIColor.whiteColor().CGColor
@@ -93,7 +93,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         dismissButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 18)
         dismissButton.setTitle(">", forState: UIControlState.Normal)
         dismissButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        dismissButton.addTarget(self, action: "dismissAddView", forControlEvents: UIControlEvents.TouchUpInside)
+        dismissButton.addTarget(self, action: #selector(SubjectListViewController.dismissAddView), forControlEvents: UIControlEvents.TouchUpInside)
         dismissButton.layer.cornerRadius = 22.5
         dismissButton.layer.borderWidth = 1
         dismissButton.layer.borderColor = UIColor.whiteColor().CGColor
@@ -105,7 +105,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func registerForNotifications() {
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshTable", name: "refresh", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubjectListViewController.refreshTable), name: "refresh", object: nil)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -117,6 +117,11 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
 //        cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
         
         let subject = CardController.sharedInstance.subjects[indexPath.row] as Subject!
+        
+        let right = Int(subject.trueCount!)
+        let wrong = Int(subject.falseCount!)
+        
+        cell.setRightAndWrongCount(right, wrong: wrong)
         
         cell.titleLabel.text = subject.name!
         

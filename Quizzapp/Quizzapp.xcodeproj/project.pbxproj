@@ -28,7 +28,6 @@
 		27DA846D1C4D87F9003F59DE /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA846C1C4D87F9003F59DE /* Stack.swift */; };
 		27DA84801C4D8F2E003F59DE /* SubjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */; };
 		27DA84821C4F36BA003F59DE /* SubjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84811C4F36BA003F59DE /* SubjectDetailViewController.swift */; };
-		27DAD6021C8548C700A902A2 /* QBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DAD6011C8548C700A902A2 /* QBackground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +54,6 @@
 		27DA846C1C4D87F9003F59DE /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectListViewController.swift; sourceTree = "<group>"; };
 		27DA84811C4F36BA003F59DE /* SubjectDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectDetailViewController.swift; sourceTree = "<group>"; };
-		27DAD6011C8548C700A902A2 /* QBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QBackground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +94,6 @@
 				27DA84671C4C8E69003F59DE /* DraggableView.swift */,
 				27BD44621C5E5EA9009AEFB1 /* TableViewCell.swift */,
 				27C3B78D1C699D8700F71AB5 /* Colors.swift */,
-				27DAD6011C8548C700A902A2 /* QBackground.swift */,
 				27DA846C1C4D87F9003F59DE /* Stack.swift */,
 				270BD3161C6D97DB00C77FC5 /* PageViewController.swift */,
 				270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */,
@@ -194,7 +191,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				27BD44631C5E5EA9009AEFB1 /* TableViewCell.swift in Sources */,
-				27DAD6021C8548C700A902A2 /* QBackground.swift in Sources */,
 				27C3B78E1C699D8700F71AB5 /* Colors.swift in Sources */,
 				27DA84561C4C870C003F59DE /* ViewController.swift in Sources */,
 				27DA84821C4F36BA003F59DE /* SubjectDetailViewController.swift in Sources */,

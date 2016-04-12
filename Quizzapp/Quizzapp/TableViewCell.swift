@@ -13,11 +13,14 @@ class TableViewCell: UITableViewCell {
     var titleLabel = UILabel()
     var scoreLabel = UILabel()
     var cardCountLabel = UILabel()
+    
     var graphView = UIView()
+    var rightCountView : UIView!
+    var wrongCountView : UIView!
     
     //count variables passed to cell from index path method 
-    var rightCount = 0
-    var wrongCount = 0
+//    var rightCount = 2
+//    var wrongCount = 3
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
@@ -31,30 +34,24 @@ class TableViewCell: UITableViewCell {
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         graphView.translatesAutoresizingMaskIntoConstraints = false
         
-//        titleLabel = UILabel(frame: CGRectMake(20, 10, self.frame.size.width - 40, 60))
-//        titleLabel = UILabel()
+        
         titleLabel.font = UIFont(name: "Chalkduster", size: 18)
         titleLabel.textAlignment = NSTextAlignment.Center
         titleLabel.backgroundColor = UIColor.clearColor()
         titleLabel.textColor = UIColor.whiteColor()
         
-        
-//        cardCountLabel = UILabel(frame: CGRectMake(20, 80, self.frame.size.width - 40, 50))
-//        cardCountLabel = UILabel()
+
         cardCountLabel.font = UIFont(name: "Chalkduster", size: 16)
         cardCountLabel.backgroundColor = UIColor.clearColor()
         cardCountLabel.textAlignment = NSTextAlignment.Center
         cardCountLabel.textColor = UIColor.whiteColor()
         
-        
-//        scoreLabel = UILabel(frame: CGRectMake(20, 140, self.frame.size.width - 40, 50))
-//        scoreLabel = UILabel()
+
         scoreLabel.font = UIFont(name: "Chalkduster", size: 16)
         scoreLabel.textAlignment = NSTextAlignment.Center
         scoreLabel.backgroundColor = UIColor.clearColor()
         scoreLabel.textColor = UIColor.whiteColor()
         
-//        graphView = UIView()
         graphView.backgroundColor = UIColor.purpleColor()
         graphView.layer.cornerRadius = 10
         
@@ -66,9 +63,27 @@ class TableViewCell: UITableViewCell {
         
         
         setUpConstraints()
-
-
+    }
+    
+    func setRightAndWrongCount(right: Int, wrong: Int) {
         
+        //set up graph view subviews
+        
+        let rightBarLength = CGFloat(right * 10)
+        let rightViewFrame = CGRectMake(20, 10, rightBarLength, 10)
+        
+        rightCountView = UIView(frame: rightViewFrame)
+        rightCountView.layer.cornerRadius = 3
+        rightCountView.backgroundColor = UIColor.cyanColor()
+        graphView.addSubview(rightCountView)
+        
+        let wrongBarLength = CGFloat(wrong * 10)
+        let wrongViewFrame = CGRectMake(20, 30, wrongBarLength, 10)
+        
+        wrongCountView = UIView(frame: wrongViewFrame)
+        wrongCountView.layer.cornerRadius = 3
+        wrongCountView.backgroundColor = UIColor.redColor()
+        graphView.addSubview(wrongCountView)
     }
     
     func setUpConstraints() {

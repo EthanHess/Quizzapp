@@ -10,7 +10,7 @@ import UIKit
 
 class SubjectDetailViewController: UIViewController {
     
-    var draggableView = DraggableView!()
+    var draggableView : DraggableView!
     var subject : Subject!
     var currentCard : Card?
     var cardArray = [Card]()
@@ -75,7 +75,7 @@ class SubjectDetailViewController: UIViewController {
     
     func setUpBarButtonItem() {
         
-        let addButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: "pushToAddDetailView")
+        let addButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SubjectDetailViewController.pushToAddDetailView))
         self.navigationItem.rightBarButtonItem = addButton
     }
     
@@ -209,8 +209,8 @@ class SubjectDetailViewController: UIViewController {
         self.draggableView.questionLabel.text = self.currentCard?.question
         self.draggableView.answerLabel.text = self.currentCard?.answer
         
-        let dragGesture = UIPanGestureRecognizer(target: self, action: "dragView:")
-        let tapGesture = UITapGestureRecognizer(target: self, action: "flipCard")
+        let dragGesture = UIPanGestureRecognizer(target: self, action: #selector(SubjectDetailViewController.dragView(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SubjectDetailViewController.flipCard))
         draggableView.addGestureRecognizer(tapGesture)
         draggableView.addGestureRecognizer(dragGesture)
     }

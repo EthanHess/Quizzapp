@@ -10,45 +10,28 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var onboardButton : UIButton!
-    
-    var qBackground = QBackground()
     var labelImageView = UIImageView()
+    var qLabel = UILabel() //maybe change to custom image eventually
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let barButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "pushToDetailView")
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(ViewController.pushToDetailView))
         self.navigationItem.rightBarButtonItem = barButtonItem
         
-        //establish colors
-        
-//        let colorOne = CGFloat(55)
-//        let colorTwo = CGFloat(140)
-//        let colorThree = CGFloat(245)
+        let onboardBarButtonItem = UIBarButtonItem(title: "Instructions", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.presentOnboarding))
+        self.navigationItem.leftBarButtonItem = onboardBarButtonItem
         
         self.view.backgroundColor = Colors().viewBackgroundColor
         
-        onboardButton = UIButton(frame: CGRectMake(20, self.view.frame.size.height / 2 - 50, self.view.frame.size.width - 40, 100))
-        onboardButton.setTitle("Instructions", forState: UIControlState.Normal)
-        onboardButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        onboardButton.setTitleShadowColor(UIColor.lightGrayColor(), forState: UIControlState.Normal)
-        onboardButton.addTarget(self, action: "presentOnboarding", forControlEvents: UIControlEvents.TouchUpInside)
-        onboardButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 42)
-        self.view.addSubview(onboardButton)
+        qLabel = UILabel(frame: CGRectMake(self.view.frame.size.width / 2 - 5, 150, 10, 10))
+        qLabel.text = "Q"
+        qLabel.textAlignment = NSTextAlignment.Center
+        qLabel.textColor = UIColor.whiteColor()
+        qLabel.font = UIFont(name: "ArialHebrew", size: 244)
+        self.view.addSubview(qLabel)
         
-        //set up imageviews for load animation
-        
-        let dimension = self.view.frame.size.width / 4
-        
-        self.qBackground = QBackground(frame: CGRectMake(75, 125, 0, 0))
-        self.qBackground.layer.cornerRadius = 37.5
-        self.qBackground.layer.masksToBounds = true
-//        self.view.sendSubviewToBack(self.qBackground)
-        self.view.addSubview(self.qBackground)
-        
-        
-        self.labelImageView = UIImageView(frame: CGRectMake(150, 120, self.view.frame.size.width / 2, 50))
+        self.labelImageView = UIImageView(frame: CGRectMake(50, 380, self.view.frame.size.width - 100, 50))
         self.labelImageView.image = UIImage(named: "uizzap")
         self.labelImageView.alpha = 0
         self.view.addSubview(self.labelImageView)
@@ -58,21 +41,18 @@ class ViewController: UIViewController {
     
     func loadAnimation() {
         
-        //load animation here
+        UIView.animateWithDuration(1, animations: {
+            
+            let newLabelFrame = CGRectMake(50, 100, self.view.frame.size.width - 100, 275)
+            
+            self.qLabel.frame = newLabelFrame
         
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
             
-            self.qBackground.frame = CGRectMake(50, 100, 75, 75)
-            
-            }) { (completed) -> Void in
+            }) { (success) in
                 
-//                self.qBackground.image = UIImage(named: "")
-//                self.qBackground.hidden = false
-                self.qBackground.animateBackroundRect()
-                
-                self.performSelector("fadeInLabel", withObject: self, afterDelay: 1)
+            self.fadeInLabel()
         }
-    }
+     }
     
     func fadeInLabel() {
         
@@ -81,6 +61,18 @@ class ViewController: UIViewController {
             self.labelImageView.alpha = 1
             
             }) { (completed) -> Void in
+                
+            self.moveViewsSideBySide()
+                
+        }
+    }
+    
+    func moveViewsSideBySide() {
+        
+        UIView.animateWithDuration(1, animations: { 
+            
+            
+            }) { (success) in
                 
                 
         }
@@ -96,7 +88,11 @@ class ViewController: UIViewController {
     
     func presentOnboarding() {
         
-        //presentPageViewController here
+        //present PageViewController here
+        
+        let pageViewController = PageViewController()
+        
+        self.navigationController?.pushViewController(pageViewController, animated: true)
         
     }
 

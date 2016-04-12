@@ -23,21 +23,21 @@ class DraggableView: UIView {
         self.layer.borderWidth = 1
         
         questionLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 20, 250))
-//        questionLabel.text = "Quiz question"
+        questionLabel.numberOfLines = 0
         questionLabel.textColor = Colors().cardTextColor
-        questionLabel.font = UIFont(name: "Chalkduster", size: 36)
+        questionLabel.font = UIFont(name: "Chalkduster", size: 16)
         questionLabel.textAlignment = NSTextAlignment.Center
-        questionLabel.backgroundColor = UIColor.whiteColor()
+        questionLabel.backgroundColor = Colors().cardLabelBackgroundColor
         questionLabel.layer.masksToBounds = true
         questionLabel.layer.cornerRadius = 10
         self.addSubview(questionLabel)
         
         answerLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 20, 250))
-//        answerLabel.text = "Quiz answer"
+        answerLabel.numberOfLines = 0
         answerLabel.textColor = Colors().cardTextColor
-        answerLabel.font = UIFont(name: "Chalkduster", size: 36)
+        answerLabel.font = UIFont(name: "Chalkduster", size: 16)
         answerLabel.textAlignment = NSTextAlignment.Center
-        answerLabel.backgroundColor = UIColor.whiteColor()
+        answerLabel.backgroundColor = Colors().cardLabelBackgroundColor
         answerLabel.layer.masksToBounds = true
         answerLabel.layer.cornerRadius = 10
         answerLabel.hidden = true
