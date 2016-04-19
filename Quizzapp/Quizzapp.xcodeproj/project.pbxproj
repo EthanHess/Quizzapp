@@ -17,6 +17,9 @@
 		27BD445E1C5D8681009AEFB1 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD445A1C5D8681009AEFB1 /* Subject.swift */; };
 		27BD44631C5E5EA9009AEFB1 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44621C5E5EA9009AEFB1 /* TableViewCell.swift */; };
 		27C3B78E1C699D8700F71AB5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B78D1C699D8700F71AB5 /* Colors.swift */; };
+		27CF75061CC59D44002A354E /* QContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CF75051CC59D44002A354E /* QContainerView.swift */; };
+		27CF75081CC59E38002A354E /* QLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CF75071CC59E38002A354E /* QLayer.swift */; };
+		27CF750A1CC5A3D6002A354E /* QSpaceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CF75091CC5A3D6002A354E /* QSpaceLayer.swift */; };
 		27DA84541C4C870C003F59DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84531C4C870C003F59DE /* AppDelegate.swift */; };
 		27DA84561C4C870C003F59DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84551C4C870C003F59DE /* ViewController.swift */; };
 		27DA84591C4C870C003F59DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27DA84571C4C870C003F59DE /* Main.storyboard */; };
@@ -41,6 +44,9 @@
 		27BD445A1C5D8681009AEFB1 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subject.swift; path = ../Subject.swift; sourceTree = "<group>"; };
 		27BD44621C5E5EA9009AEFB1 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		27C3B78D1C699D8700F71AB5 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		27CF75051CC59D44002A354E /* QContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QContainerView.swift; sourceTree = "<group>"; };
+		27CF75071CC59E38002A354E /* QLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QLayer.swift; sourceTree = "<group>"; };
+		27CF75091CC5A3D6002A354E /* QSpaceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSpaceLayer.swift; sourceTree = "<group>"; };
 		27DA84501C4C870C003F59DE /* Quizzapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27DA84531C4C870C003F59DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27DA84551C4C870C003F59DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +73,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27CF750B1CC5AEBC002A354E /* AnimationViews */ = {
+			isa = PBXGroup;
+			children = (
+				27CF75051CC59D44002A354E /* QContainerView.swift */,
+				27CF75071CC59E38002A354E /* QLayer.swift */,
+				27CF75091CC5A3D6002A354E /* QSpaceLayer.swift */,
+			);
+			name = AnimationViews;
+			sourceTree = "<group>";
+		};
+		27CF750C1CC5AED7002A354E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				27DA84651C4C8E55003F59DE /* CardController.swift */,
+				27DA846C1C4D87F9003F59DE /* Stack.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		27CF750D1CC5AEF1002A354E /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				27DA84671C4C8E69003F59DE /* DraggableView.swift */,
+				27BD44621C5E5EA9009AEFB1 /* TableViewCell.swift */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		27CF750E1CC5AF09002A354E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				270BD3161C6D97DB00C77FC5 /* PageViewController.swift */,
+				270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */,
+				270BD31A1C6D9AC300C77FC5 /* ViewControllerTwo.swift */,
+				270BD31C1C6D9AD500C77FC5 /* ViewControllerThree.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		27CF750F1CC5AF18002A354E /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */,
+				27BD44581C5D8681009AEFB1 /* Card.swift */,
+				27BD44591C5D8681009AEFB1 /* Subject+CoreDataProperties.swift */,
+				27BD445A1C5D8681009AEFB1 /* Subject.swift */,
+				27C3B78D1C699D8700F71AB5 /* Colors.swift */,
+			);
+			name = DataModels;
+			sourceTree = "<group>";
+		};
 		27DA84471C4C870C003F59DE = {
 			isa = PBXGroup;
 			children = (
@@ -90,20 +147,11 @@
 				27DA84551C4C870C003F59DE /* ViewController.swift */,
 				27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */,
 				27DA84811C4F36BA003F59DE /* SubjectDetailViewController.swift */,
-				27DA84651C4C8E55003F59DE /* CardController.swift */,
-				27DA84671C4C8E69003F59DE /* DraggableView.swift */,
-				27BD44621C5E5EA9009AEFB1 /* TableViewCell.swift */,
-				27C3B78D1C699D8700F71AB5 /* Colors.swift */,
-				27DA846C1C4D87F9003F59DE /* Stack.swift */,
-				270BD3161C6D97DB00C77FC5 /* PageViewController.swift */,
-				270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */,
-				270BD31A1C6D9AC300C77FC5 /* ViewControllerTwo.swift */,
-				270BD31C1C6D9AD500C77FC5 /* ViewControllerThree.swift */,
-				27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */,
-				27BD44581C5D8681009AEFB1 /* Card.swift */,
-				27BD44591C5D8681009AEFB1 /* Subject+CoreDataProperties.swift */,
-				27BD445A1C5D8681009AEFB1 /* Subject.swift */,
-				27DA84761C4D8BA2003F59DE /* Core Data Models */,
+				27CF750B1CC5AEBC002A354E /* AnimationViews */,
+				27CF750D1CC5AEF1002A354E /* Custom Views */,
+				27CF750C1CC5AED7002A354E /* Controllers */,
+				27CF750E1CC5AF09002A354E /* Onboarding */,
+				27CF750F1CC5AF18002A354E /* DataModels */,
 				27DA84571C4C870C003F59DE /* Main.storyboard */,
 				27DA84691C4D873C003F59DE /* Model.xcdatamodeld */,
 				27DA845A1C4C870C003F59DE /* Assets.xcassets */,
@@ -111,13 +159,6 @@
 				27DA845F1C4C870C003F59DE /* Info.plist */,
 			);
 			path = Quizzapp;
-			sourceTree = "<group>";
-		};
-		27DA84761C4D8BA2003F59DE /* Core Data Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Core Data Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,8 +246,11 @@
 				270BD31D1C6D9AD500C77FC5 /* ViewControllerThree.swift in Sources */,
 				270BD3191C6D999200C77FC5 /* ViewControllerOne.swift in Sources */,
 				27DA84541C4C870C003F59DE /* AppDelegate.swift in Sources */,
+				27CF75061CC59D44002A354E /* QContainerView.swift in Sources */,
 				27BD445D1C5D8681009AEFB1 /* Subject+CoreDataProperties.swift in Sources */,
+				27CF75081CC59E38002A354E /* QLayer.swift in Sources */,
 				270BD3171C6D97DB00C77FC5 /* PageViewController.swift in Sources */,
+				27CF750A1CC5A3D6002A354E /* QSpaceLayer.swift in Sources */,
 				270BD31B1C6D9AC300C77FC5 /* ViewControllerTwo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

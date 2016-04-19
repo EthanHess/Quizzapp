@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setUpAppearance() {
         
-        let tealColor = RGB(0, 204, 183)
+        let tealColor = RGB(0, 225, 200)
         
         window?.tintColor = tealColor
         

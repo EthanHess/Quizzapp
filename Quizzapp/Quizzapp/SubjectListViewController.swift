@@ -36,7 +36,6 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView = UITableView(frame: CGRectMake(50, 0, self.view.frame.size.width - 100, self.view.frame.size.height), style: UITableViewStyle.Grouped)
         self.tableView.backgroundColor = Colors().viewBackgroundColor
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-//        self.tableView.separatorInset
         self.tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -48,10 +47,10 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         self.addCardView.layer.borderColor = Colors().cardTextColor.CGColor
         self.addCardView.layer.borderWidth = 2
         
-        titleLabel = UILabel(frame: CGRectMake(100, 25, self.addCardView.frame.size.width - 200, 50))
+        titleLabel = UILabel(frame: CGRectMake(25, 25, self.addCardView.frame.size.width - 50, 50))
         titleLabel.textAlignment = NSTextAlignment.Center
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.font = UIFont(name: "Chalkduster", size: 42)
+        titleLabel.font = UIFont(name: "ArialHebrew", size: 42)
         addCardView.addSubview(titleLabel)
         
         textField = UITextField(frame: CGRectMake(100, 90, self.addCardView.frame.size.width - 200, 50))
@@ -110,11 +109,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        //eventually add custom cell which shows current score
-        
         let cell : TableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! TableViewCell!
-
-//        cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
         
         let subject = CardController.sharedInstance.subjects[indexPath.row] as Subject!
         
@@ -222,8 +217,6 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func popOutAddCardViewWithSubject(subject: Subject) {
-        
-//        print(subject.name)
         
         //pop out add card view etc.
         
