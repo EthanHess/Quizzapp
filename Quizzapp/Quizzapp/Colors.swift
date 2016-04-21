@@ -11,27 +11,33 @@ import UIKit
 
 class Colors {
     
+    var navBackgroundColor : UIColor {
+        get {
+            return UIColor(red: 0/255, green: 59/255, blue: 237/255, alpha: 1.0)
+        }
+    }
+    
     var viewBackgroundColor : UIColor {
         get {
-            return UIColor(red: 215/255, green: 220/255, blue: 242/255, alpha: 1.0)
+            return UIColor(red: 234/255, green: 247/255, blue: 238/255, alpha: 1.0)
         }
     }
     
     var cardBackgroundColor : UIColor {
         get {
-            return UIColor(red: 74/255, green: 69/255, blue: 211/255, alpha: 1.0)
+            return UIColor(red: 0/255, green: 252/255, blue: 252/255, alpha: 1.0)
         }
     }
     
     var cardTextColor : UIColor {
         get {
-            return UIColor(red: 242/255, green: 244/255, blue: 217/255, alpha: 1.0)
+            return UIColor(red: 38/255, green: 38/255, blue: 38/255, alpha: 1.0)
         }
     }
     
     var cardLabelBackgroundColor : UIColor {
         get {
-            return UIColor(red: 33/255, green: 29/255, blue: 32/255, alpha: 1.0)
+            return UIColor(red: 71/255, green: 150/255, blue: 165/255, alpha: 1.0)
         }
     }
     

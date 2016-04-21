@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "QBackground.png",
+      "filename" : "graphBackground.png",
       "scale" : "1x"
     },
     {

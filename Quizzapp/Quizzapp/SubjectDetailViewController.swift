@@ -17,6 +17,7 @@ class SubjectDetailViewController: UIViewController {
     var selectedCardIndex = 0
     var wrongArray : [Bool] = []
     var rightArray : [Bool] = []
+    
     var rightLabel : UILabel!
     var wrongLabel : UILabel!
     
@@ -110,6 +111,8 @@ class SubjectDetailViewController: UIViewController {
             wrongLabel.alpha = 0.5
             rightLabel.hidden = true
             
+            performSelector(#selector(SubjectDetailViewController.hideWrongLabel), withObject: nil, afterDelay: 1)
+            
         }
         
         if dragView.center.x > self.view.bounds.width - 150 {
@@ -117,6 +120,8 @@ class SubjectDetailViewController: UIViewController {
             rightLabel.hidden = false
             rightLabel.alpha = 0.5
             wrongLabel.hidden = true
+            
+            performSelector(#selector(SubjectDetailViewController.hideRightLabel), withObject: nil, afterDelay: 1)
             
         }
         
@@ -152,6 +157,16 @@ class SubjectDetailViewController: UIViewController {
             
             updateCard()
         }
+    }
+    
+    func hideWrongLabel() {
+        
+        wrongLabel.hidden = true
+    }
+    
+    func hideRightLabel() {
+        
+        rightLabel.hidden = true
     }
     
     

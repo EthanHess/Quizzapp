@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     //qlabel animations
+    
     var qTainerView = QContainerView()
     
     //uizzap labels
@@ -31,7 +32,8 @@ class ViewController: UIViewController {
         let onboardBarButtonItem = UIBarButtonItem(title: "Instructions", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.presentOnboarding))
         self.navigationItem.leftBarButtonItem = onboardBarButtonItem
         
-        self.view.backgroundColor = Colors().viewBackgroundColor
+//        self.view.backgroundColor = Colors().viewBackgroundColor
+        self.view.backgroundColor = UIColor.blackColor()
         
     }
     
@@ -83,54 +85,52 @@ class ViewController: UIViewController {
 
     func setUpOtherLetters() {
         
-        //set alpha to 0 to make look cooler
+        let labelDimension : CGFloat = self.view.frame.size.width / 6
         
-        let labelDimension : CGFloat = 75
-        
-        uLabel.frame = CGRect(x: -225, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
+        uLabel.frame = CGRect(x: -labelDimension * 3, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
         uLabel.alpha = 0
         uLabel.text = "U"
         uLabel.textAlignment = NSTextAlignment.Center
         uLabel.font = UIFont(name: "Arial-Hebrew", size: 84)
         uLabel.sizeToFit()
         uLabel.textColor = UIColor.whiteColor()
-        uLabel.backgroundColor = Colors().viewBackgroundColor
+        uLabel.backgroundColor = UIColor.blackColor()
         
-        iLabel.frame = CGRect(x: -150, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
+        iLabel.frame = CGRect(x: -labelDimension * 2, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
         iLabel.alpha = 0
         iLabel.text = "I"
         iLabel.textAlignment = NSTextAlignment.Center
         iLabel.font = UIFont(name: "Arial-Hebrew", size: 84)
         iLabel.sizeToFit()
         iLabel.textColor = UIColor.whiteColor()
-        iLabel.backgroundColor = Colors().viewBackgroundColor
+        iLabel.backgroundColor = UIColor.blackColor()
         
-        z1Label.frame = CGRect(x: -75, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
+        z1Label.frame = CGRect(x: -labelDimension, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
         z1Label.alpha = 0
         z1Label.text = "Z"
         z1Label.textAlignment = NSTextAlignment.Center
         z1Label.font = UIFont(name: "Arial-Hebrew", size: 84)
         z1Label.sizeToFit()
         z1Label.textColor = UIColor.whiteColor()
-        z1Label.backgroundColor = Colors().viewBackgroundColor
+        z1Label.backgroundColor = UIColor.blackColor()
         
-        z2Label.frame = CGRect(x: view.bounds.width + 150, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
+        z2Label.frame = CGRect(x: view.bounds.width + labelDimension * 2, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
         z2Label.alpha = 0
         z2Label.text = "Z"
         z2Label.textAlignment = NSTextAlignment.Center
         z2Label.font = UIFont(name: "Arial-Hebrew", size: 84)
         z2Label.sizeToFit()
         z2Label.textColor = UIColor.whiteColor()
-        z2Label.backgroundColor = Colors().viewBackgroundColor
+        z2Label.backgroundColor = UIColor.blackColor()
         
-        aLabel.frame = CGRect(x: view.bounds.width + 75, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
+        aLabel.frame = CGRect(x: view.bounds.width + labelDimension, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
         aLabel.alpha = 0
         aLabel.text = "A"
         aLabel.textAlignment = NSTextAlignment.Center
         aLabel.font = UIFont(name: "Arial-Hebrew", size: 84)
         aLabel.sizeToFit()
         aLabel.textColor = UIColor.whiteColor()
-        aLabel.backgroundColor = Colors().viewBackgroundColor
+        aLabel.backgroundColor = UIColor.blackColor()
         
         pLabel.frame = CGRect(x: view.bounds.width, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
         pLabel.alpha = 0
@@ -139,7 +139,7 @@ class ViewController: UIViewController {
         pLabel.font = UIFont(name: "Arial-Hebrew", size: 84)
         pLabel.sizeToFit()
         pLabel.textColor = UIColor.whiteColor()
-        pLabel.backgroundColor = Colors().viewBackgroundColor
+        pLabel.backgroundColor = UIColor.blackColor()
         
         view.addSubview(uLabel)
         view.addSubview(iLabel)
@@ -155,27 +155,26 @@ class ViewController: UIViewController {
     func animateLabels() {
         
         let yCoord = view.bounds.height - 150
+        let labelDimension = self.view.frame.size.width / 6
         
         UIView.animateWithDuration(1) {
-            
-            //TODO: Make coordinates exact/even
             
             self.uLabel.frame = CGRect(x: 0, y: yCoord, width: 75, height: 75)
             self.uLabel.alpha = 1
             
-            self.iLabel.frame = CGRect(x: 75, y: yCoord, width: 75, height: 75)
+            self.iLabel.frame = CGRect(x: labelDimension, y: yCoord, width: 75, height: 75)
             self.iLabel.alpha = 1
             
-            self.z1Label.frame = CGRect(x: 150, y: yCoord, width: 75, height: 75)
+            self.z1Label.frame = CGRect(x: labelDimension * 2, y: yCoord, width: 75, height: 75)
             self.z1Label.alpha = 1
             
-            self.z2Label.frame = CGRect(x: 225, y: yCoord, width: 75, height: 75)
+            self.z2Label.frame = CGRect(x: labelDimension * 3, y: yCoord, width: 75, height: 75)
             self.z2Label.alpha = 1
             
-            self.aLabel.frame = CGRect(x: 300, y: yCoord, width: 75, height: 75)
+            self.aLabel.frame = CGRect(x: labelDimension * 4, y: yCoord, width: 75, height: 75)
             self.aLabel.alpha = 1
             
-            self.pLabel.frame = CGRect(x: 375, y: yCoord, width: 75, height: 75)
+            self.pLabel.frame = CGRect(x: labelDimension * 5, y: yCoord, width: 75, height: 75)
             self.pLabel.alpha = 1
         }
         

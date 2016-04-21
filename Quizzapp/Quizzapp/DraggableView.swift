@@ -17,8 +17,14 @@ class DraggableView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = Colors().cardBackgroundColor
+        let imageView = UIImageView(frame: self.bounds)
+        imageView.image = UIImage(named: "cardBackground")
+        imageView.layer.masksToBounds =  true
+        addSubview(imageView)
+        
+//        self.backgroundColor = Colors().cardBackgroundColor
         self.layer.cornerRadius = 10
+        self.layer.masksToBounds = true
         self.layer.borderColor = UIColor.whiteColor().CGColor
         self.layer.borderWidth = 1
         
