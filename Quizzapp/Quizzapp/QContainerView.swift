@@ -12,6 +12,7 @@ class QContainerView: UIView {
     
     let qLayer = QLayer()
     let spaceLayer = QSpaceLayer()
+    let qImageView = UIImageView()
     
     var parentFrame : CGRect = CGRectZero
     
@@ -19,6 +20,11 @@ class QContainerView: UIView {
         super.init(frame: frame)
         
         backgroundColor = UIColor.clearColor()
+        
+        qImageView.frame = CGRectMake(self.bounds.width, self.bounds.height, 0, 0)
+        qImageView.image = UIImage(named: "QLine")
+        self.bringSubviewToFront(qImageView)
+        self.addSubview(qImageView)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,14 +33,16 @@ class QContainerView: UIView {
     
     func expandCircle() {
         
-        layer.addSublayer(qLayer)
+//        layer.addSublayer(qLayer)
+        layer.insertSublayer(qLayer, atIndex: 0)
         qLayer.expand()
         
     }
     
     func expandSmallerCircle() {
         
-        layer.addSublayer(spaceLayer)
+//        layer.addSublayer(spaceLayer)
+        layer.insertSublayer(spaceLayer, atIndex: 1)
         spaceLayer.expandAgain()
         
         NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(QContainerView.drawQLine), userInfo: nil, repeats: false)
@@ -43,8 +51,10 @@ class QContainerView: UIView {
     
     func drawQLine() {
         
-        
-        print("HEY WORLD")
+        UIView.animateWithDuration(0.5) { 
+            
+           self.qImageView.frame = CGRectMake(self.bounds.width / 2, self.bounds.height / 2, self.bounds.width / 2, self.bounds.height / 2)
+        }
         
         
     }
