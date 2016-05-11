@@ -21,8 +21,7 @@ class DraggableView: UIView {
         imageView.image = UIImage(named: "cardBackground")
         imageView.layer.masksToBounds =  true
         addSubview(imageView)
-        
-//        self.backgroundColor = Colors().cardBackgroundColor
+
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
         self.layer.borderColor = UIColor.whiteColor().CGColor
@@ -74,10 +73,5 @@ class DraggableView: UIView {
         
     }
     
-    
-//    override func drawRect(rect: CGRect) {
-//        
-//    }
-
 
 }

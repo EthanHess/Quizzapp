@@ -42,10 +42,13 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.addSubview(self.tableView)
         
         self.addCardView = UIView(frame: CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height / 2))
-        self.addCardView.backgroundColor = Colors().cardBackgroundColor
         self.addCardView.layer.cornerRadius = 10
         self.addCardView.layer.borderColor = Colors().cardTextColor.CGColor
         self.addCardView.layer.borderWidth = 2
+        
+        let imageBG = UIImageView(frame: addCardView.bounds)
+        imageBG.image = UIImage(named: "quizCellBackground")
+        addCardView.addSubview(imageBG)
         
         titleLabel = UILabel(frame: CGRectMake(25, 25, self.addCardView.frame.size.width - 50, 50))
         titleLabel.textAlignment = NSTextAlignment.Center

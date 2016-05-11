@@ -13,7 +13,7 @@ class Colors {
     
     var navBackgroundColor : UIColor {
         get {
-            return UIColor(red: 0/255, green: 59/255, blue: 237/255, alpha: 1.0)
+            return UIColor(red: 0/255, green: 9/255, blue: 84/255, alpha: 1.0)
         }
     }
     

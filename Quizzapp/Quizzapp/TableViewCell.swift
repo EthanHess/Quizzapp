@@ -33,21 +33,21 @@ class TableViewCell: UITableViewCell {
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         
         
-        titleLabel.font = UIFont(name: "Chalkduster", size: 18)
+        titleLabel.font = UIFont(name: "Arial-Hebrew", size: 18)
         titleLabel.textAlignment = NSTextAlignment.Center
         titleLabel.backgroundColor = UIColor.clearColor()
         titleLabel.textColor = UIColor.whiteColor()
         bringSubviewToFront(titleLabel)
         
 
-        cardCountLabel.font = UIFont(name: "Chalkduster", size: 16)
+        cardCountLabel.font = UIFont(name: "Arial-Hebrew", size: 16)
         cardCountLabel.backgroundColor = UIColor.clearColor()
         cardCountLabel.textAlignment = NSTextAlignment.Center
         cardCountLabel.textColor = UIColor.whiteColor()
         bringSubviewToFront(cardCountLabel)
         
 
-        scoreLabel.font = UIFont(name: "Chalkduster", size: 16)
+        scoreLabel.font = UIFont(name: "Arial-Hebrew", size: 16)
         scoreLabel.textAlignment = NSTextAlignment.Center
         scoreLabel.backgroundColor = UIColor.clearColor()
         scoreLabel.textColor = UIColor.whiteColor()
@@ -65,18 +65,13 @@ class TableViewCell: UITableViewCell {
         self.contentView.addSubview(cardCountLabel)
         self.contentView.addSubview(scoreLabel)
         self.contentView.addSubview(graphView)
-//        self.contentView.addSubview(backgroundImageView)
+
         self.contentView.insertSubview(backgroundImageView, atIndex: 0)
         
         setUpConstraints()
 
         graphView.backgroundColor = UIColor(patternImage: UIImage(named:"graphBackground")!)
         
-//        let graphImage = UIImageView(frame: graphView.bounds)
-//        graphImage.layer.masksToBounds = true
-////        graphImage.image = UIImage(named: "graphBackground")
-//        graphImage.backgroundColor = UIColor.blackColor()
-//        graphView.addSubview(graphImage)
         
     }
     

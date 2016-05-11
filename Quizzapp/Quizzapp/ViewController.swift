@@ -32,8 +32,10 @@ class ViewController: UIViewController {
         let onboardBarButtonItem = UIBarButtonItem(title: "Instructions", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.presentOnboarding))
         self.navigationItem.leftBarButtonItem = onboardBarButtonItem
         
-//        self.view.backgroundColor = Colors().viewBackgroundColor
-        self.view.backgroundColor = UIColor.blackColor()
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.image = UIImage(named: "mainQBackground")
+        view.addSubview(imageView)
+        
         
     }
     
@@ -93,8 +95,8 @@ class ViewController: UIViewController {
         uLabel.textAlignment = NSTextAlignment.Center
         uLabel.font = UIFont(name: "Arial-Hebrew", size: 84)
         uLabel.sizeToFit()
-        uLabel.textColor = UIColor.whiteColor()
-        uLabel.backgroundColor = UIColor.blackColor()
+        uLabel.textColor = UIColor.blackColor()
+        uLabel.backgroundColor = UIColor.clearColor()
         
         iLabel.frame = CGRect(x: -labelDimension * 2, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
         iLabel.alpha = 0
@@ -102,8 +104,8 @@ class ViewController: UIViewController {
         iLabel.textAlignment = NSTextAlignment.Center
         iLabel.font = UIFont(name: "Arial-Hebrew", size: 84)
         iLabel.sizeToFit()
-        iLabel.textColor = UIColor.whiteColor()
-        iLabel.backgroundColor = UIColor.blackColor()
+        iLabel.textColor = UIColor.blackColor()
+        iLabel.backgroundColor = UIColor.clearColor()
         
         z1Label.frame = CGRect(x: -labelDimension, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
         z1Label.alpha = 0
@@ -111,8 +113,8 @@ class ViewController: UIViewController {
         z1Label.textAlignment = NSTextAlignment.Center
         z1Label.font = UIFont(name: "Arial-Hebrew", size: 84)
         z1Label.sizeToFit()
-        z1Label.textColor = UIColor.whiteColor()
-        z1Label.backgroundColor = UIColor.blackColor()
+        z1Label.textColor = UIColor.blackColor()
+        z1Label.backgroundColor = UIColor.clearColor()
         
         z2Label.frame = CGRect(x: view.bounds.width + labelDimension * 2, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
         z2Label.alpha = 0
@@ -120,8 +122,8 @@ class ViewController: UIViewController {
         z2Label.textAlignment = NSTextAlignment.Center
         z2Label.font = UIFont(name: "Arial-Hebrew", size: 84)
         z2Label.sizeToFit()
-        z2Label.textColor = UIColor.whiteColor()
-        z2Label.backgroundColor = UIColor.blackColor()
+        z2Label.textColor = UIColor.blackColor()
+        z2Label.backgroundColor = UIColor.clearColor()
         
         aLabel.frame = CGRect(x: view.bounds.width + labelDimension, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
         aLabel.alpha = 0
@@ -129,8 +131,8 @@ class ViewController: UIViewController {
         aLabel.textAlignment = NSTextAlignment.Center
         aLabel.font = UIFont(name: "Arial-Hebrew", size: 84)
         aLabel.sizeToFit()
-        aLabel.textColor = UIColor.whiteColor()
-        aLabel.backgroundColor = UIColor.blackColor()
+        aLabel.textColor = UIColor.blackColor()
+        aLabel.backgroundColor = UIColor.clearColor()
         
         pLabel.frame = CGRect(x: view.bounds.width, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
         pLabel.alpha = 0
@@ -138,8 +140,8 @@ class ViewController: UIViewController {
         pLabel.textAlignment = NSTextAlignment.Center
         pLabel.font = UIFont(name: "Arial-Hebrew", size: 84)
         pLabel.sizeToFit()
-        pLabel.textColor = UIColor.whiteColor()
-        pLabel.backgroundColor = UIColor.blackColor()
+        pLabel.textColor = UIColor.blackColor()
+        pLabel.backgroundColor = UIColor.clearColor()
         
         view.addSubview(uLabel)
         view.addSubview(iLabel)

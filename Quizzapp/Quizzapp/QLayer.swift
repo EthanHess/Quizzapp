@@ -15,7 +15,7 @@ class QLayer: CAShapeLayer {
     override init() {
         super.init()
         
-        fillColor = UIColor.whiteColor().CGColor
+        fillColor = UIColor.blackColor().CGColor
         path = qPathSmall.CGPath
     }
     

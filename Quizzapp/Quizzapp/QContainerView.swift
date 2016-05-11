@@ -33,15 +33,13 @@ class QContainerView: UIView {
     
     func expandCircle() {
         
-//        layer.addSublayer(qLayer)
         layer.insertSublayer(qLayer, atIndex: 0)
         qLayer.expand()
         
     }
     
     func expandSmallerCircle() {
-        
-//        layer.addSublayer(spaceLayer)
+
         layer.insertSublayer(spaceLayer, atIndex: 1)
         spaceLayer.expandAgain()
         

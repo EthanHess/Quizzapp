@@ -15,7 +15,7 @@ class QSpaceLayer: CAShapeLayer {
     override init() {
         super.init()
         
-        fillColor = UIColor.blackColor().CGColor
+        fillColor = UIColor(patternImage: UIImage(named: "mainQBackground")!).CGColor
         path = centerCirclePathSmall.CGPath
     }
     

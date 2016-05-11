@@ -42,6 +42,17 @@ class SubjectDetailViewController: UIViewController {
         
         setUpView()
         
+        if self.subject.cards?.count == 0 {
+            
+            let alertController = UIAlertController(title: "No cards!", message: "There are no cards yet in this stack, please add one", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Okay!", style: UIAlertActionStyle.Cancel, handler: nil)
+            
+            alertController.addAction(action)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+            
+        }
+        
     }
     
     func rightWrongLabels() {
