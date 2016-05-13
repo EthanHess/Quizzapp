@@ -191,6 +191,12 @@ class SubjectDetailViewController: UIViewController {
             self.currentCard = self.subject.cards?.array[self.selectedCardIndex] as? Card
             self.draggableView.questionLabel.text = self.currentCard?.question
             self.draggableView.answerLabel.text = self.currentCard?.answer
+            
+            //flip it back over
+            if self.draggableView.isFlipped == true {
+                
+                draggableView.flipCard()
+            }
         
         } else {
             
@@ -234,6 +240,12 @@ class SubjectDetailViewController: UIViewController {
         
         self.draggableView.questionLabel.text = self.currentCard?.question
         self.draggableView.answerLabel.text = self.currentCard?.answer
+        
+        //flip it back over
+        if self.draggableView.isFlipped == true {
+            
+            draggableView.flipCard()
+        }
         
         let dragGesture = UIPanGestureRecognizer(target: self, action: #selector(SubjectDetailViewController.dragView(_:)))
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SubjectDetailViewController.flipCard))
