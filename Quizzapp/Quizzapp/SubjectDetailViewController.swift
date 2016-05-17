@@ -31,7 +31,7 @@ class SubjectDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = Colors().viewBackgroundColor
+        self.view.backgroundColor = Colors().detailViewBackgroundColor
         
         setUpBarButtonItem()
         
