@@ -87,6 +87,8 @@ class ViewController: UIViewController {
 
     func setUpOtherLetters() {
         
+        let labelColor = Colors().qLineColor
+        
         let labelDimension : CGFloat = self.view.frame.size.width / 6
         
         uLabel.frame = CGRect(x: -labelDimension * 3, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
@@ -95,7 +97,7 @@ class ViewController: UIViewController {
         uLabel.textAlignment = NSTextAlignment.Center
         uLabel.font = UIFont(name: "Arial-Hebrew", size: 84)
         uLabel.sizeToFit()
-        uLabel.textColor = UIColor.blackColor()
+        uLabel.textColor = labelColor
         uLabel.backgroundColor = UIColor.clearColor()
         
         iLabel.frame = CGRect(x: -labelDimension * 2, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
@@ -104,7 +106,7 @@ class ViewController: UIViewController {
         iLabel.textAlignment = NSTextAlignment.Center
         iLabel.font = UIFont(name: "Arial-Hebrew", size: 84)
         iLabel.sizeToFit()
-        iLabel.textColor = UIColor.blackColor()
+        iLabel.textColor = labelColor
         iLabel.backgroundColor = UIColor.clearColor()
         
         z1Label.frame = CGRect(x: -labelDimension, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
@@ -113,7 +115,7 @@ class ViewController: UIViewController {
         z1Label.textAlignment = NSTextAlignment.Center
         z1Label.font = UIFont(name: "Arial-Hebrew", size: 84)
         z1Label.sizeToFit()
-        z1Label.textColor = UIColor.blackColor()
+        z1Label.textColor = labelColor
         z1Label.backgroundColor = UIColor.clearColor()
         
         z2Label.frame = CGRect(x: view.bounds.width + labelDimension * 2, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
@@ -122,7 +124,7 @@ class ViewController: UIViewController {
         z2Label.textAlignment = NSTextAlignment.Center
         z2Label.font = UIFont(name: "Arial-Hebrew", size: 84)
         z2Label.sizeToFit()
-        z2Label.textColor = UIColor.blackColor()
+        z2Label.textColor = labelColor
         z2Label.backgroundColor = UIColor.clearColor()
         
         aLabel.frame = CGRect(x: view.bounds.width + labelDimension, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
@@ -131,7 +133,7 @@ class ViewController: UIViewController {
         aLabel.textAlignment = NSTextAlignment.Center
         aLabel.font = UIFont(name: "Arial-Hebrew", size: 84)
         aLabel.sizeToFit()
-        aLabel.textColor = UIColor.blackColor()
+        aLabel.textColor = labelColor
         aLabel.backgroundColor = UIColor.clearColor()
         
         pLabel.frame = CGRect(x: view.bounds.width, y: view.bounds.height - 150, width: labelDimension, height: labelDimension)
@@ -140,7 +142,7 @@ class ViewController: UIViewController {
         pLabel.textAlignment = NSTextAlignment.Center
         pLabel.font = UIFont(name: "Arial-Hebrew", size: 84)
         pLabel.sizeToFit()
-        pLabel.textColor = UIColor.blackColor()
+        pLabel.textColor = labelColor
         pLabel.backgroundColor = UIColor.clearColor()
         
         view.addSubview(uLabel)

@@ -19,7 +19,13 @@ class Colors {
     
     var navBackgroundColor : UIColor {
         get {
-            return UIColor(red: 0/255, green: 9/255, blue: 84/255, alpha: 1.0)
+            return UIColor(red: 8/255, green: 7/255, blue: 56/255, alpha: 1.0)
+        }
+    }
+    
+    var navTextColor : UIColor {
+        get {
+            return UIColor(red: 255/255, green: 204/255, blue: 0/255, alpha: 1.0)
         }
     }
     
@@ -44,6 +50,12 @@ class Colors {
     var cardLabelBackgroundColor : UIColor {
         get {
             return UIColor(red: 229/255, green: 224/255, blue: 199/255, alpha: 1.0)
+        }
+    }
+    
+    var qLineColor : UIColor {
+        get {
+            return UIColor(red: 91/255, green: 234/255, blue: 30/255, alpha: 1.0)
         }
     }
     
