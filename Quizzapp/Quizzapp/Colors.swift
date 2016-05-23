@@ -13,50 +13,54 @@ class Colors {
     
     var viewBackgroundColor : UIColor {
         get {
-            return UIColor(red: 213/255, green: 239/255, blue: 239/255, alpha: 1.0)
+            return RGB(213, 239, 239)
         }
     }
     
     var navBackgroundColor : UIColor {
         get {
-            return UIColor(red: 8/255, green: 7/255, blue: 56/255, alpha: 1.0)
+            return RGB(8, 7, 56)
         }
     }
     
     var navTextColor : UIColor {
         get {
-            return UIColor(red: 255/255, green: 204/255, blue: 0/255, alpha: 1.0)
+            return RGB(255, 204, 0)
         }
     }
     
     var detailViewBackgroundColor : UIColor {
         get {
-            return UIColor(red: 0/255, green: 168/255, blue: 219/255, alpha: 1.0)
+            return RGB(0, 168, 219)
         }
     }
     
     var cardBackgroundColor : UIColor {
         get {
-            return UIColor(red: 229/255, green: 224/255, blue: 199/255, alpha: 1.0)
+            return RGB(229, 224, 199)
         }
     }
     
     var cardTextColor : UIColor {
         get {
-            return UIColor(red: 33/255, green: 36/255, blue: 38/255, alpha: 1.0)
+            return RGB(228, 232, 0)
         }
     }
     
     var cardLabelBackgroundColor : UIColor {
         get {
-            return UIColor(red: 229/255, green: 224/255, blue: 199/255, alpha: 1.0)
+            return RGB(0, 6, 48)
         }
     }
     
     var qLineColor : UIColor {
         get {
-            return UIColor(red: 91/255, green: 234/255, blue: 30/255, alpha: 1.0)
+            return RGB(91, 234, 30)
         }
+    }
+    
+    private func RGB(r: CGFloat, _ g: CGFloat, _ b: CGFloat) -> UIColor {
+        return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }
     
 }

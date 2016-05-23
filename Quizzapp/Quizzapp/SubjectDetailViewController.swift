@@ -31,7 +31,7 @@ class SubjectDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = Colors().detailViewBackgroundColor
+//        self.view.backgroundColor = Colors().detailViewBackgroundColor
         
         setUpBarButtonItem()
         
@@ -52,6 +52,10 @@ class SubjectDetailViewController: UIViewController {
             presentViewController(alertController, animated: true, completion: nil)
             
         }
+        
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.image = UIImage(named: "cardViewBackground")
+        view.insertSubview(imageView, atIndex: 0)
         
     }
     

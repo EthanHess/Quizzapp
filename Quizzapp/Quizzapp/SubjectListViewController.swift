@@ -26,15 +26,15 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         registerForNotifications()
         
-        self.view.backgroundColor = Colors().viewBackgroundColor
+//        self.view.backgroundColor = Colors().viewBackgroundColor
         
         //maybe change to custom popout view later
         
         let addButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SubjectListViewController.addSubject))
         self.navigationItem.rightBarButtonItem = addButton
 
-        self.tableView = UITableView(frame: CGRectMake(50, 0, self.view.frame.size.width - 100, self.view.frame.size.height), style: UITableViewStyle.Grouped)
-        self.tableView.backgroundColor = Colors().viewBackgroundColor
+        self.tableView = UITableView(frame: CGRectMake(50, 80, self.view.frame.size.width - 100, self.view.frame.size.height), style: UITableViewStyle.Grouped)
+        self.tableView.backgroundColor = UIColor.clearColor()
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.delegate = self
@@ -102,6 +102,11 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         addCardView.addSubview(dismissButton)
         
         self.view.addSubview(self.addCardView)
+        
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.image = UIImage(named: "listBackground")
+        view.insertSubview(imageView, atIndex: 0)
+//        view.addSubview(imageView)
         
     }
     
@@ -236,10 +241,6 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func addCard() {
         
-        //check to see if fields are empty
-        
-        print(subjectToAdd)
-        
         CardController.sharedInstance.addCardToSubject(self.subjectToAdd!, questiion: self.textField.text!, answer: self.textView.text)
         
         tableView.reloadData()
@@ -259,16 +260,25 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         UIView.animateWithDuration(0.5) { () -> Void in
             
             self.addCardView.center = CGPointMake(self.view.center.x + self.view.frame.size.width, self.addCardView.center.y)
-            self.tableView.center = self.view.center
+            self.tableView.center = CGPointMake(self.view.center.x, self.view.center.y + 80)
             self.navigationController?.navigationBarHidden = false
             self.tableView.alpha = 1
             
         }
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+//    func textFieldDidEndEditing(textField: UITextField) {
+//        
+//        textField.resignFirstResponder()
+//    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        addCard()
         
         textField.resignFirstResponder()
+        
+        return true
     }
     
     //add text view delegate
