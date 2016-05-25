@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+let cFont = "Courier"
+
 class Colors {
     
     var viewBackgroundColor : UIColor {
@@ -56,6 +58,24 @@ class Colors {
     var qLineColor : UIColor {
         get {
             return RGB(91, 234, 30)
+        }
+    }
+    
+    var cardLineColor : UIColor {
+        get {
+            return RGB(227, 252, 0)
+        }
+    }
+    
+    var wrongLabelColor : UIColor {
+        get {
+            return UIColor(red: 249/255, green: 246/255, blue: 34/255, alpha: 1.0)
+        }
+    }
+    
+    var rightLabelColor : UIColor {
+        get {
+            return UIColor(red: 48/255, green: 247/255, blue: 34/255, alpha: 1.0)
         }
     }
     

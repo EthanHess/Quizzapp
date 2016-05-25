@@ -24,13 +24,13 @@ class DraggableView: UIView {
 
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
-        self.layer.borderColor = UIColor.whiteColor().CGColor
+        self.layer.borderColor = Colors().cardLineColor.CGColor
         self.layer.borderWidth = 1
         
         questionLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 20, 250))
         questionLabel.numberOfLines = 0
         questionLabel.textColor = Colors().cardTextColor
-        questionLabel.font = UIFont(name: "Chalkduster", size: 16)
+        questionLabel.font = UIFont(name: cFont, size: 16)
         questionLabel.textAlignment = NSTextAlignment.Center
         questionLabel.backgroundColor = Colors().cardLabelBackgroundColor
         questionLabel.layer.masksToBounds = true
@@ -40,7 +40,7 @@ class DraggableView: UIView {
         answerLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 20, 250))
         answerLabel.numberOfLines = 0
         answerLabel.textColor = Colors().cardTextColor
-        answerLabel.font = UIFont(name: "Chalkduster", size: 16)
+        answerLabel.font = UIFont(name: cFont, size: 16)
         answerLabel.textAlignment = NSTextAlignment.Center
         answerLabel.backgroundColor = Colors().cardLabelBackgroundColor
         answerLabel.layer.masksToBounds = true

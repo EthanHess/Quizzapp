@@ -16,6 +16,9 @@ class TableViewCell: UITableViewCell {
     var graphView = UIView()
     var backgroundImageView = UIImageView()
     
+    //
+    var gradeImageView = UIImageView()
+    
     var rightCountView : UIView!
     var wrongCountView : UIView!
     
@@ -33,21 +36,21 @@ class TableViewCell: UITableViewCell {
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         
         
-        titleLabel.font = UIFont(name: "Arial-Hebrew", size: 18)
+        titleLabel.font = UIFont(name: cFont, size: 18)
         titleLabel.textAlignment = NSTextAlignment.Center
         titleLabel.backgroundColor = UIColor.clearColor()
         titleLabel.textColor = UIColor.whiteColor()
         bringSubviewToFront(titleLabel)
         
 
-        cardCountLabel.font = UIFont(name: "Arial-Hebrew", size: 16)
+        cardCountLabel.font = UIFont(name: cFont, size: 16)
         cardCountLabel.backgroundColor = UIColor.clearColor()
         cardCountLabel.textAlignment = NSTextAlignment.Center
         cardCountLabel.textColor = UIColor.whiteColor()
         bringSubviewToFront(cardCountLabel)
         
 
-        scoreLabel.font = UIFont(name: "Arial-Hebrew", size: 16)
+        scoreLabel.font = UIFont(name: cFont, size: 16)
         scoreLabel.textAlignment = NSTextAlignment.Center
         scoreLabel.backgroundColor = UIColor.clearColor()
         scoreLabel.textColor = UIColor.whiteColor()

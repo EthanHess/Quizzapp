@@ -26,8 +26,6 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         registerForNotifications()
         
-//        self.view.backgroundColor = Colors().viewBackgroundColor
-        
         //maybe change to custom popout view later
         
         let addButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SubjectListViewController.addSubject))
@@ -45,6 +43,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         self.addCardView.layer.cornerRadius = 10
         self.addCardView.layer.borderColor = Colors().cardTextColor.CGColor
         self.addCardView.layer.borderWidth = 2
+        self.addCardView.layer.masksToBounds = true
         
         let imageBG = UIImageView(frame: addCardView.bounds)
         imageBG.image = UIImage(named: "quizCellBackground")
@@ -53,7 +52,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         titleLabel = UILabel(frame: CGRectMake(25, 25, self.addCardView.frame.size.width - 50, 50))
         titleLabel.textAlignment = NSTextAlignment.Center
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.font = UIFont(name: "ArialHebrew", size: 42)
+        titleLabel.font = UIFont(name: cFont, size: 42)
         addCardView.addSubview(titleLabel)
         
         textField = UITextField(frame: CGRectMake(100, 90, self.addCardView.frame.size.width - 200, 50))
@@ -72,7 +71,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         addCardView.addSubview(textView)
         
         addCardButton = UIButton(frame: CGRectMake(100, 270, 45, 45))
-        addCardButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        addCardButton.titleLabel?.font = UIFont(name: cFont, size: 12)
         addCardButton.setTitle("Add", forState: UIControlState.Normal)
         addCardButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         addCardButton.addTarget(self, action: #selector(SubjectListViewController.addCard), forControlEvents: UIControlEvents.TouchUpInside)
@@ -82,7 +81,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         addCardView.addSubview(addCardButton)
         
         clearButton = UIButton(frame: CGRectMake(self.addCardView.frame.size.width / 2 - 22.5, 270, 45, 45))
-        clearButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        clearButton.titleLabel?.font = UIFont(name: cFont, size: 12)
         clearButton.setTitle("Clear", forState: UIControlState.Normal)
         clearButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         clearButton.addTarget(self, action: #selector(SubjectListViewController.clearFields), forControlEvents: UIControlEvents.TouchUpInside)
@@ -92,7 +91,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         addCardView.addSubview(clearButton)
         
         dismissButton = UIButton(frame: CGRectMake(self.addCardView.frame.size.width - 145, 270, 45, 45))
-        dismissButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 18)
+        dismissButton.titleLabel?.font = UIFont(name: cFont, size: 18)
         dismissButton.setTitle(">", forState: UIControlState.Normal)
         dismissButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         dismissButton.addTarget(self, action: #selector(SubjectListViewController.dismissAddView), forControlEvents: UIControlEvents.TouchUpInside)
@@ -106,9 +105,10 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "listBackground")
         view.insertSubview(imageView, atIndex: 0)
-//        view.addSubview(imageView)
         
     }
+    
+    //remember to dealloc
     
     func registerForNotifications() {
         

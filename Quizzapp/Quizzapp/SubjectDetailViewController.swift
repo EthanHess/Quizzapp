@@ -24,16 +24,17 @@ class SubjectDetailViewController: UIViewController {
     func updateWithSubject(subject: Subject) {
         
         if let subject = self.subject {
+            
             self.subject = subject
+            
+            self.title = self.subject.name
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.view.backgroundColor = Colors().detailViewBackgroundColor
-        
-        setUpBarButtonItem()
+//        setUpBarButtonItem()
         
         self.draggableView = DraggableView(frame: CGRectMake(50, 100, self.view.frame.size.width - 100, self.view.frame.size.height - 200))
         self.view.addSubview(self.draggableView)
@@ -45,7 +46,11 @@ class SubjectDetailViewController: UIViewController {
         if self.subject.cards?.count == 0 {
             
             let alertController = UIAlertController(title: "No cards!", message: "There are no cards yet in this stack, please add one", preferredStyle: UIAlertControllerStyle.Alert)
-            let action = UIAlertAction(title: "Okay!", style: UIAlertActionStyle.Cancel, handler: nil)
+      
+            let action = UIAlertAction(title: "Okay!", style: .Cancel, handler: { (action) in
+                
+                self.navigationController?.popViewControllerAnimated(true)
+            })
             
             alertController.addAction(action)
             
@@ -64,18 +69,18 @@ class SubjectDetailViewController: UIViewController {
         rightLabel = UILabel(frame: CGRectMake(50, self.view.frame.size.height / 2 - 50, self.view.frame.size.width - 100, 100))
         rightLabel.backgroundColor = UIColor.clearColor()
         rightLabel.text = "Right!"
-        rightLabel.textColor = UIColor.blueColor()
+        rightLabel.textColor = Colors().rightLabelColor
         rightLabel.textAlignment = NSTextAlignment.Center
-        rightLabel.font = UIFont(name: "Chalkduster", size: 48)
+        rightLabel.font = UIFont(name: cFont, size: 48)
         rightLabel.hidden = true
         self.view.addSubview(rightLabel)
         
         wrongLabel = UILabel(frame: CGRectMake(50, self.view.frame.size.height / 2 - 50, self.view.frame.size.width - 100, 100))
         wrongLabel.backgroundColor = UIColor.clearColor()
         wrongLabel.text = "Wrong!"
-        wrongLabel.textColor = UIColor.redColor()
+        wrongLabel.textColor = Colors().rightLabelColor
         wrongLabel.textAlignment = NSTextAlignment.Center
-        wrongLabel.font = UIFont(name: "Chalkduster", size: 48)
+        wrongLabel.font = UIFont(name: cFont, size: 48)
         wrongLabel.hidden = true
         self.view.addSubview(wrongLabel)
     }
@@ -89,16 +94,16 @@ class SubjectDetailViewController: UIViewController {
             }, completion: nil)
     }
     
-    func setUpBarButtonItem() {
-        
-        let addButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SubjectDetailViewController.pushToAddDetailView))
-        self.navigationItem.rightBarButtonItem = addButton
-    }
-    
-    func pushToAddDetailView() {
-        
-        print("Hello World!")
-    }
+//    func setUpBarButtonItem() {
+//        
+//        let addButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SubjectDetailViewController.pushToAddDetailView))
+//        self.navigationItem.rightBarButtonItem = addButton
+//    }
+//    
+//    func pushToAddDetailView() {
+//        
+//        print("Hello World!")
+//    }
     
     func dragView(gesture: UIPanGestureRecognizer) {
         
