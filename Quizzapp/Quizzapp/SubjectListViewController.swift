@@ -20,6 +20,12 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     var subjectToAdd : Subject?
     
     var addCardView : UIView!
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,6 +130,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         let right = Int(subject.trueCount!)
         let wrong = Int(subject.falseCount!)
         
+//        cell.setGradePicture(right, wrong: wrong)
         cell.setRightAndWrongCount(right, wrong: wrong)
         
         cell.titleLabel.text = subject.name!

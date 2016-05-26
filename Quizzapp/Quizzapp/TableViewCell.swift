@@ -16,8 +16,9 @@ class TableViewCell: UITableViewCell {
     var graphView = UIView()
     var backgroundImageView = UIImageView()
     
-    //
-    var gradeImageView = UIImageView()
+    //subviews of subviews
+    
+    var graphImageView : UIImageView!
     
     var rightCountView : UIView!
     var wrongCountView : UIView!
@@ -110,7 +111,40 @@ class TableViewCell: UITableViewCell {
         bgImageWrong.image = UIImage(named: "wrongCountBackground")
         wrongCountView.addSubview(bgImageWrong)
         
+        //grade pic 
+        
+        //set up image view
+        let gradeImageFrame = CGRectMake(self.frame.size.width - 140, 0, 50, 50)
+        
+        graphImageView = UIImageView(frame: gradeImageFrame)
+        //        graphImageView.backgroundColor = UIColor.clearColor()
+        
+        
+        if right == 0 && wrong == 0 {
+            
+            //set question mark image
+            graphImageView.image = UIImage(named: "NoGrade")
+            
+        } else if right > wrong {
+            
+            //set doing well image
+            graphImageView.image = UIImage(named: "GoodGrade")
+            
+        } else {
+            
+            //set not doing so well image
+            graphImageView.image = UIImage(named: "BadGrade")
+        }
+        
+        //add it to graph
+        graphView.addSubview(graphImageView)
+        
         graphView.addSubview(wrongCountView)
+    }
+    
+    func setGradePicture(right: Int, wrong: Int) {
+        
+
     }
     
     func setUpConstraints() {

@@ -23,8 +23,8 @@ class ViewController: UIViewController {
     var aLabel = UILabel()
     var pLabel = UILabel()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(ViewController.pushToDetailView))
         self.navigationItem.rightBarButtonItem = barButtonItem
@@ -35,6 +35,12 @@ class ViewController: UIViewController {
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "mainQBackground")
         view.addSubview(imageView)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+
         
         
     }
