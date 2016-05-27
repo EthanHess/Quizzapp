@@ -18,10 +18,14 @@ class TableViewCell: UITableViewCell {
     
     //subviews of subviews
     
-    var graphImageView : UIImageView!
+    var graphImageView : UIView!
     
     var rightCountView : UIView!
     var wrongCountView : UIView!
+    
+    var bgImageRight : UIImageView!
+    var bgImageWrong : UIImageView!
+    
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
@@ -90,7 +94,8 @@ class TableViewCell: UITableViewCell {
         rightCountView.layer.cornerRadius = 3
         rightCountView.layer.masksToBounds = true
         
-        let bgImageRight = UIImageView(frame: rightCountView.bounds)
+        bgImageRight = UIImageView(frame: rightCountView.bounds)
+        bgImageRight.image = nil
         bgImageRight.layer.masksToBounds = true
         bgImageRight.image = UIImage(named: "rightCountBackground")
         rightCountView.addSubview(bgImageRight)
@@ -106,44 +111,53 @@ class TableViewCell: UITableViewCell {
         wrongCountView.layer.cornerRadius = 3
         wrongCountView.layer.masksToBounds = true
         
-        let bgImageWrong = UIImageView(frame: wrongCountView.bounds)
+        bgImageWrong = UIImageView(frame: wrongCountView.bounds)
+        bgImageWrong.image = nil
         bgImageWrong.layer.masksToBounds = true
         bgImageWrong.image = UIImage(named: "wrongCountBackground")
         wrongCountView.addSubview(bgImageWrong)
         
-        //grade pic 
-        
-        //set up image view
-        let gradeImageFrame = CGRectMake(self.frame.size.width - 140, 0, 50, 50)
-        
-        graphImageView = UIImageView(frame: gradeImageFrame)
-        //        graphImageView.backgroundColor = UIColor.clearColor()
-        
-        
-        if right == 0 && wrong == 0 {
-            
-            //set question mark image
-            graphImageView.image = UIImage(named: "NoGrade")
-            
-        } else if right > wrong {
-            
-            //set doing well image
-            graphImageView.image = UIImage(named: "GoodGrade")
-            
-        } else {
-            
-            //set not doing so well image
-            graphImageView.image = UIImage(named: "BadGrade")
-        }
-        
-        //add it to graph
-        graphView.addSubview(graphImageView)
-        
         graphView.addSubview(wrongCountView)
+        
     }
     
     func setGradePicture(right: Int, wrong: Int) {
         
+        //grade pic
+        
+        //set up image view
+        let gradeImageFrame = CGRectMake(180, 0, 50, 50)
+        
+        graphImageView = UIView(frame: gradeImageFrame)
+        //        graphImageView.backgroundColor = UIColor.clearColor()
+        
+        graphImageView.layer.masksToBounds = true
+        
+        let gradeImage = UIImageView(frame: graphImageView.bounds)
+        gradeImage.layer.masksToBounds = true
+        
+        gradeImage.image = nil
+        
+        if right == 0 && wrong == 0 {
+            
+            //set question mark image
+            gradeImage.image = UIImage(named: "NoGrade")
+            
+        } else if right > wrong {
+            
+            //set doing well image
+            gradeImage.image = UIImage(named: "GoodGrade")
+            
+        } else {
+            
+            //set not doing so well image
+            gradeImage.image = UIImage(named: "BadGrade")
+        }
+        
+        graphImageView.addSubview(gradeImage)
+        
+        //add it to graph
+        graphView.addSubview(graphImageView)
 
     }
     

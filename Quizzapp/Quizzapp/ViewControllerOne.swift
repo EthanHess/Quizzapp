@@ -13,7 +13,9 @@ class ViewControllerOne: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.image = UIImage(named: "OB1")
+        view.addSubview(imageView)
     }
 
     override func didReceiveMemoryWarning() {

@@ -13,7 +13,9 @@ class ViewControllerThree: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.image = UIImage(named: "OB3")
+        view.addSubview(imageView)
     }
 
     override func didReceiveMemoryWarning() {

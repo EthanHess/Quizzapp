@@ -130,7 +130,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         let right = Int(subject.trueCount!)
         let wrong = Int(subject.falseCount!)
         
-//        cell.setGradePicture(right, wrong: wrong)
+        cell.setGradePicture(right, wrong: wrong)
         cell.setRightAndWrongCount(right, wrong: wrong)
         
         cell.titleLabel.text = subject.name!
