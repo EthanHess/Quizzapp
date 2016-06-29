@@ -20,6 +20,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     var subjectToAdd : Subject?
     
     var addCardView : UIView!
+    var addInstructionsImageView : UIImageView!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -108,10 +109,31 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.view.addSubview(self.addCardView)
         
+        //add instructions imageView 
+        
+        addInstructionsImageView = UIImageView(frame: CGRectMake(80, 200, self.view.frame.size.width - 160, self.view.frame.size.height - 300))
+        addInstructionsImageView.image = UIImage(named: "QAddBackground")
+        
+        if self.noSubjects() {
+            addInstructionsImageView.hidden = false
+        }
+        
+        else {
+            
+            addInstructionsImageView.hidden = true
+        }
+        
+        view.insertSubview(addInstructionsImageView, atIndex: 1)
+        
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "listBackground")
         view.insertSubview(imageView, atIndex: 0)
         
+    }
+    
+    func noSubjects() -> Bool {
+        
+        return CardController.sharedInstance.subjects.count == 0
     }
     
     //remember to dealloc
@@ -170,7 +192,8 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
             let nameField = alertController.textFields![0] 
             
             CardController.sharedInstance.addSubjectWithName(nameField.text!)
-            self.tableView.reloadData()
+            self.addInstructionsImageView.hidden = true
+            self.refreshTable()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) -> Void in

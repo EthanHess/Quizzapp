@@ -40,8 +40,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        bigBangSound()
+    }
+    
+    func bigBangSound() {
         
+        let url = NSBundle.mainBundle().URLForResource("grandOpening", withExtension: "wav")
+        
+        SoundController.sharedManager.playAudioFileAtURL(url!)
         
     }
     

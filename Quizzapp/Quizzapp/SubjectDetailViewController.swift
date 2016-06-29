@@ -156,6 +156,7 @@ class SubjectDetailViewController: UIViewController {
                 print("wrong")
                 
                 self.wrongArray.append(false)
+                self.playSoundWithBool(false)
             }
             
             else if dragView.center.x > self.view.bounds.width - 100 {
@@ -163,6 +164,7 @@ class SubjectDetailViewController: UIViewController {
                 print("right")
                 
                 self.rightArray.append(true)
+                self.playSoundWithBool(true)
             }
             
             //save boolean to current card
@@ -189,6 +191,21 @@ class SubjectDetailViewController: UIViewController {
         rightLabel.hidden = true
     }
     
+    func playSoundWithBool(right: Bool) {
+        
+        let urlRight = NSBundle.mainBundle().URLForResource("right", withExtension: "wav")
+        let urlWrong = NSBundle.mainBundle().URLForResource("wrong", withExtension: "wav")
+        
+        if right {
+            
+            SoundController.sharedManager.playAudioFileAtURL(urlRight!)
+            
+        } else {
+            
+            SoundController.sharedManager.playAudioFileAtURL(urlWrong!)
+            
+        }
+    }
     
     func updateCard() {
         

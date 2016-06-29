@@ -11,6 +11,7 @@
 		270BD3191C6D999200C77FC5 /* ViewControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */; };
 		270BD31B1C6D9AC300C77FC5 /* ViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD31A1C6D9AC300C77FC5 /* ViewControllerTwo.swift */; };
 		270BD31D1C6D9AD500C77FC5 /* ViewControllerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD31C1C6D9AD500C77FC5 /* ViewControllerThree.swift */; };
+		2778304D1D21E13900842C1B /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2778304C1D21E13900842C1B /* SoundController.swift */; };
 		27BD445B1C5D8681009AEFB1 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */; };
 		27BD445C1C5D8681009AEFB1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44581C5D8681009AEFB1 /* Card.swift */; };
 		27BD445D1C5D8681009AEFB1 /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44591C5D8681009AEFB1 /* Subject+CoreDataProperties.swift */; };
@@ -31,6 +32,9 @@
 		27DA846D1C4D87F9003F59DE /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA846C1C4D87F9003F59DE /* Stack.swift */; };
 		27DA84801C4D8F2E003F59DE /* SubjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */; };
 		27DA84821C4F36BA003F59DE /* SubjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA84811C4F36BA003F59DE /* SubjectDetailViewController.swift */; };
+		27E3A9311D233EFD00143270 /* right.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27E3A92E1D233EFD00143270 /* right.wav */; };
+		27E3A9321D233EFD00143270 /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27E3A92F1D233EFD00143270 /* wrong.wav */; };
+		27E3A9331D233EFD00143270 /* grandOpening.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27E3A9301D233EFD00143270 /* grandOpening.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,7 @@
 		270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerOne.swift; sourceTree = "<group>"; };
 		270BD31A1C6D9AC300C77FC5 /* ViewControllerTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTwo.swift; sourceTree = "<group>"; };
 		270BD31C1C6D9AD500C77FC5 /* ViewControllerThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerThree.swift; sourceTree = "<group>"; };
+		2778304C1D21E13900842C1B /* SoundController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
 		27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Card+CoreDataProperties.swift"; path = "../Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		27BD44581C5D8681009AEFB1 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = ../Card.swift; sourceTree = "<group>"; };
 		27BD44591C5D8681009AEFB1 /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Subject+CoreDataProperties.swift"; path = "../Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -60,6 +65,9 @@
 		27DA846C1C4D87F9003F59DE /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectListViewController.swift; sourceTree = "<group>"; };
 		27DA84811C4F36BA003F59DE /* SubjectDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectDetailViewController.swift; sourceTree = "<group>"; };
+		27E3A92E1D233EFD00143270 /* right.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = right.wav; sourceTree = "<group>"; };
+		27E3A92F1D233EFD00143270 /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
+		27E3A9301D233EFD00143270 /* grandOpening.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grandOpening.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +96,7 @@
 			children = (
 				27DA84651C4C8E55003F59DE /* CardController.swift */,
 				27DA846C1C4D87F9003F59DE /* Stack.swift */,
+				2778304C1D21E13900842C1B /* SoundController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -115,6 +124,9 @@
 		27CF750F1CC5AF18002A354E /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				27E3A92E1D233EFD00143270 /* right.wav */,
+				27E3A92F1D233EFD00143270 /* wrong.wav */,
+				27E3A9301D233EFD00143270 /* grandOpening.wav */,
 				27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */,
 				27BD44581C5D8681009AEFB1 /* Card.swift */,
 				27BD44591C5D8681009AEFB1 /* Subject+CoreDataProperties.swift */,
@@ -219,8 +231,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				27DA845E1C4C870C003F59DE /* LaunchScreen.storyboard in Resources */,
+				27E3A9321D233EFD00143270 /* wrong.wav in Resources */,
+				27E3A9331D233EFD00143270 /* grandOpening.wav in Resources */,
 				27DA845B1C4C870C003F59DE /* Assets.xcassets in Resources */,
 				27DA84591C4C870C003F59DE /* Main.storyboard in Resources */,
+				27E3A9311D233EFD00143270 /* right.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +249,7 @@
 				27BD44631C5E5EA9009AEFB1 /* TableViewCell.swift in Sources */,
 				27C3B78E1C699D8700F71AB5 /* Colors.swift in Sources */,
 				27DA84561C4C870C003F59DE /* ViewController.swift in Sources */,
+				2778304D1D21E13900842C1B /* SoundController.swift in Sources */,
 				27DA84821C4F36BA003F59DE /* SubjectDetailViewController.swift in Sources */,
 				27DA84661C4C8E55003F59DE /* CardController.swift in Sources */,
 				27DA84801C4D8F2E003F59DE /* SubjectListViewController.swift in Sources */,
