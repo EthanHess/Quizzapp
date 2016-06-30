@@ -35,12 +35,14 @@ class ViewController: UIViewController {
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "mainQBackground")
         view.addSubview(imageView)
+        
+        bigBangSound()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bigBangSound()
+        
     }
     
     func bigBangSound() {

@@ -59,7 +59,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         titleLabel = UILabel(frame: CGRectMake(25, 25, self.addCardView.frame.size.width - 50, 50))
         titleLabel.textAlignment = NSTextAlignment.Center
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.font = UIFont(name: cFont, size: 42)
+        titleLabel.font = UIFont(name: cFont, size: 36)
         addCardView.addSubview(titleLabel)
         
         textField = UITextField(frame: CGRectMake(100, 90, self.addCardView.frame.size.width - 200, 50))
@@ -256,6 +256,13 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func popOutAddCardViewWithSubject(subject: Subject) {
         
+        if subject.cards?.count > 15 {
+            
+            self.displayAlert("There are already 15 cards in this class", message: "Feel free to start another")
+        }
+        
+        else {
+        
         //pop out add card view etc.
         
         UIView.animateWithDuration(0.5) { () -> Void in
@@ -263,8 +270,10 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
             self.addCardView.center = CGPointMake(self.view.center.x, self.addCardView.center.y)
             self.tableView.center = CGPointMake(self.view.center.x, self.view.center.y + self.view.frame.size.height - self.addCardView.frame.size.height)
             self.titleLabel.text = subject.name
+            self.titleLabel.sizeToFit()
             self.navigationController?.navigationBarHidden = true
             self.tableView.alpha = 0.5
+        }
         }
         
     }
@@ -276,6 +285,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.reloadData()
         dismissAddView()
         clearFields()
+        
     }
     
     func clearFields() {
@@ -297,25 +307,48 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-//    func textFieldDidEndEditing(textField: UITextField) {
-//        
-//        textField.resignFirstResponder()
-//    }
-    
+
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        addCard()
+//        addCard()
         
         textField.resignFirstResponder()
         
         return true
     }
     
-    //add text view delegate
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+        textField.resignFirstResponder()
+    }
+    
+    //weird text view delegate
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    //self explanatory
     
     func refreshTable() {
         
         tableView.reloadData()
+    }
+    
+    func displayAlert(title: String, message: String) {
+        
+        let alertCon = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let okayAction = UIAlertAction(title: "Okay!", style: .Cancel, handler: nil)
+        
+        alertCon.addAction(okayAction)
+        
+        presentViewController(alertCon, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

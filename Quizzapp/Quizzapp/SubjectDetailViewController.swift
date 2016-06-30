@@ -34,7 +34,9 @@ class SubjectDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setUpBarButtonItem()
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SubjectDetailViewController.popToRoot))
+        self.navigationItem.leftBarButtonItem = newBackButton;
         
         self.draggableView = DraggableView(frame: CGRectMake(50, 100, self.view.frame.size.width - 100, self.view.frame.size.height - 200))
         self.view.addSubview(self.draggableView)
@@ -49,7 +51,8 @@ class SubjectDetailViewController: UIViewController {
       
             let action = UIAlertAction(title: "Okay!", style: .Cancel, handler: { (action) in
                 
-                self.navigationController?.popViewControllerAnimated(true)
+//                self.navigationController?.popViewControllerAnimated(true)
+                self.popToRoot()
             })
             
             alertController.addAction(action)
@@ -62,6 +65,11 @@ class SubjectDetailViewController: UIViewController {
         imageView.image = UIImage(named: "cardViewBackground")
         view.insertSubview(imageView, atIndex: 0)
         
+    }
+    
+    func popToRoot() {
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func rightWrongLabels() {
@@ -94,16 +102,6 @@ class SubjectDetailViewController: UIViewController {
             }, completion: nil)
     }
     
-//    func setUpBarButtonItem() {
-//        
-//        let addButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SubjectDetailViewController.pushToAddDetailView))
-//        self.navigationItem.rightBarButtonItem = addButton
-//    }
-//    
-//    func pushToAddDetailView() {
-//        
-//        print("Hello World!")
-//    }
     
     func dragView(gesture: UIPanGestureRecognizer) {
         
