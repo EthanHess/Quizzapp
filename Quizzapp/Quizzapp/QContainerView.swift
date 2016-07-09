@@ -43,7 +43,7 @@ class QContainerView: UIView {
         layer.insertSublayer(spaceLayer, atIndex: 1)
         spaceLayer.expandAgain()
         
-        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(QContainerView.drawQLine), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(QContainerView.drawQLine), userInfo: nil, repeats: false)
         
     }
     

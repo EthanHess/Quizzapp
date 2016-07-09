@@ -189,11 +189,18 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         let alertAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default) { (action) -> Void in
             
-            let nameField = alertController.textFields![0] 
+            let nameField = alertController.textFields![0]
+            
+            if nameField.text != "" {
             
             CardController.sharedInstance.addSubjectWithName(nameField.text!)
             self.addInstructionsImageView.hidden = true
             self.refreshTable()
+                
+            } else {
+                
+                self.displayAlert("Please add a title", message: "")
+            }
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) -> Void in
@@ -280,11 +287,18 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func addCard() {
         
+        if textView.text != "" && textField.text != "" {
+        
         CardController.sharedInstance.addCardToSubject(self.subjectToAdd!, questiion: self.textField.text!, answer: self.textView.text)
         
         tableView.reloadData()
         dismissAddView()
         clearFields()
+            
+        } else {
+            
+            self.displayAlert("Add a valid question and answer", message: "")
+        }
         
     }
     

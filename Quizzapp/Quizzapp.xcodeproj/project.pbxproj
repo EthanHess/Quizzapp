@@ -35,6 +35,7 @@
 		27E3A9321D233EFD00143270 /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27E3A92F1D233EFD00143270 /* wrong.wav */; };
 		27E3A9331D233EFD00143270 /* grandOpening.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27E3A9301D233EFD00143270 /* grandOpening.wav */; };
 		27E3A95B1D24C77E00143270 /* right.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27E3A95A1D24C77E00143270 /* right.wav */; };
+		27F26ADB1D3017010020873A /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F26ADA1D3017010020873A /* CreditsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		27E3A92F1D233EFD00143270 /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
 		27E3A9301D233EFD00143270 /* grandOpening.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grandOpening.wav; sourceTree = "<group>"; };
 		27E3A95A1D24C77E00143270 /* right.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = right.wav; sourceTree = "<group>"; };
+		27F26ADA1D3017010020873A /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		27CF750E1CC5AF09002A354E /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				27F26ADA1D3017010020873A /* CreditsViewController.swift */,
 				270BD3161C6D97DB00C77FC5 /* PageViewController.swift */,
 				270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */,
 				270BD31A1C6D9AC300C77FC5 /* ViewControllerTwo.swift */,
@@ -253,6 +256,7 @@
 				27DA84821C4F36BA003F59DE /* SubjectDetailViewController.swift in Sources */,
 				27DA84661C4C8E55003F59DE /* CardController.swift in Sources */,
 				27DA84801C4D8F2E003F59DE /* SubjectListViewController.swift in Sources */,
+				27F26ADB1D3017010020873A /* CreditsViewController.swift in Sources */,
 				27BD445E1C5D8681009AEFB1 /* Subject.swift in Sources */,
 				27DA846B1C4D873C003F59DE /* Model.xcdatamodeld in Sources */,
 				27DA84681C4C8E69003F59DE /* DraggableView.swift in Sources */,

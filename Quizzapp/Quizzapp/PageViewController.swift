@@ -8,6 +8,8 @@
 
 import UIKit
 
+//will push to credits vc instead for now but keep in case
+
 class PageViewController: UIViewController, UIPageViewControllerDataSource {
     
     var pageViewController : UIPageViewController!

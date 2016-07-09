@@ -34,9 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = Colors().navBackgroundColor
         UINavigationBar.appearance().tintColor = Colors().navTextColor
 
-        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: cFont, size: 24)!, NSForegroundColorAttributeName: Colors().navTextColor]
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: cFont, size: 20)!, NSForegroundColorAttributeName: Colors().navTextColor]
         
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: cFont, size: 24)!, NSForegroundColorAttributeName: Colors().navTextColor], forState: .Normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: cFont, size: 16)!, NSForegroundColorAttributeName: Colors().navTextColor], forState: .Normal)
         
     }
 

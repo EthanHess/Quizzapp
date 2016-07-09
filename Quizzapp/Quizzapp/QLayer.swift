@@ -10,7 +10,7 @@ import UIKit
 
 class QLayer: CAShapeLayer {
     
-    let animationDuration: CFTimeInterval = 0.3
+    let animationDuration: CFTimeInterval = 1
     
     override init() {
         super.init()

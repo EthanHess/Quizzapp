@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(ViewController.pushToDetailView))
         self.navigationItem.rightBarButtonItem = barButtonItem
         
-        let onboardBarButtonItem = UIBarButtonItem(title: "Instructions", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.presentOnboarding))
+        let onboardBarButtonItem = UIBarButtonItem(title: "Credits", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.presentOnboarding))
         self.navigationItem.leftBarButtonItem = onboardBarButtonItem
         
         let imageView = UIImageView(frame: view.bounds)
@@ -91,11 +91,13 @@ class ViewController: UIViewController {
     
     func presentOnboarding() {
         
-        //present PageViewController here
+        //now credits
         
-        let pageViewController = PageViewController()
+        let creditsViewController = CreditsViewController()
         
-        self.navigationController?.pushViewController(pageViewController, animated: true)
+//        let pageViewController = PageViewController()
+        
+        self.navigationController?.pushViewController(creditsViewController, animated: true)
         
     }
 
