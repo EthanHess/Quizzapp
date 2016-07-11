@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     var aLabel = UILabel()
     var pLabel = UILabel()
     
+    var labelColor = UIColor()
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -32,17 +34,45 @@ class ViewController: UIViewController {
         let onboardBarButtonItem = UIBarButtonItem(title: "Credits", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.presentOnboarding))
         self.navigationItem.leftBarButtonItem = onboardBarButtonItem
         
+        if (scheme() != nil) {
+            
+            if scheme() == space {
+                
+                defaultImageView()
+                
+            } else if scheme() == nature {
+                
+                let imageView = UIImageView(frame: view.bounds)
+                imageView.image = UIImage(named: "NatureBackground")
+                view.addSubview(imageView)
+                
+            } else {
+                defaultImageView()
+                
+            }
+            
+        } else {
+            defaultImageView()
+        }
+        
+    }
+    
+    func defaultImageView() {
+        
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "mainQBackground")
         view.addSubview(imageView)
+    }
+    
+    func scheme() -> String? {
         
-        bigBangSound()
+        return NSUserDefaults.standardUserDefaults().objectForKey(schemeKey) as? String
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        bigBangSound()
     }
     
     func bigBangSound() {
@@ -103,7 +133,26 @@ class ViewController: UIViewController {
 
     func setUpOtherLetters() {
         
-        let labelColor = Colors().qLineColor
+        if (scheme() != nil) {
+            
+            if scheme() == space {
+                
+                labelColor = Colors().qLineColor
+                
+            } else if scheme() == nature {
+                
+                labelColor = UIColor.blackColor()
+                
+            } else {
+                
+                labelColor = Colors().qLineColor
+                
+            }
+            
+        } else {
+            
+            labelColor = Colors().qLineColor
+        }
         
         let labelDimension : CGFloat = self.view.frame.size.width / 6
         

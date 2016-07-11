@@ -15,21 +15,50 @@ class TableViewCell: UITableViewCell {
     var cardCountLabel = UILabel()
     var graphView = UIView()
     var backgroundImageView = UIImageView()
+    var gradeImageFrame = CGRect()
     
     //subviews of subviews
     
-    var graphImageView : UIView!
+    var graphImageView = UIView()
     
-    var rightCountView : UIView!
-    var wrongCountView : UIView!
+    var rightCountView = UIView()
+    var wrongCountView = UIView()
     
-    var bgImageRight : UIImageView!
-    var bgImageWrong : UIImageView!
+    var bgImageRight = UIImageView()
+    var bgImageWrong = UIImageView()
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        switch screenWidth {
+            
+        case 414:
+            
+            gradeImageFrame = CGRectMake(210, 0, 50, 50)
+            
+            break
+        
+        case 375:
+        
+            gradeImageFrame = CGRectMake(180, 0, 50, 50)
+        
+            break
+        
+        case 320:
+        
+            gradeImageFrame = CGRectMake(125, 0, 50, 50)
+        
+            break
+        
+        default:
+        
+            gradeImageFrame = CGRectMake(180, 0, 50, 50)
+                    
+            break
+                    
+        }
         
         self.layer.masksToBounds = true
         
@@ -61,9 +90,22 @@ class TableViewCell: UITableViewCell {
         scoreLabel.textColor = UIColor.whiteColor()
         bringSubviewToFront(scoreLabel)
         
-        backgroundImageView.layer.masksToBounds = true
-        backgroundImageView.image = UIImage(named: "quizCellBackground")
-        sendSubviewToBack(backgroundImageView)
+        if (scheme() != nil) {
+            
+            if scheme() == space {
+                standardBackground()
+                
+            } else if scheme() == nature {
+                customBackground()
+                
+            } else {
+                standardBackground()
+            }
+            
+        } else {
+            standardBackground()
+        }
+
         
         graphView.layer.masksToBounds = true
         graphView.layer.cornerRadius = 10
@@ -81,6 +123,25 @@ class TableViewCell: UITableViewCell {
         graphView.backgroundColor = UIColor(patternImage: UIImage(named:"graphBackground")!)
         
         
+    }
+    
+    func scheme() -> String? {
+        
+        return NSUserDefaults.standardUserDefaults().objectForKey(schemeKey) as? String
+    }
+    
+    func standardBackground() {
+        
+        backgroundImageView.layer.masksToBounds = true
+        backgroundImageView.image = UIImage(named: "quizCellBackground")
+        sendSubviewToBack(backgroundImageView)
+    }
+    
+    func customBackground() {
+        
+        backgroundImageView.layer.masksToBounds = true
+        backgroundImageView.image = UIImage(named: "WoodCell")
+        sendSubviewToBack(backgroundImageView)
     }
     
     func setRightAndWrongCount(right: Int, wrong: Int) {
@@ -124,9 +185,6 @@ class TableViewCell: UITableViewCell {
     func setGradePicture(right: Int, wrong: Int) {
         
         //grade pic
-        
-        //set up image view
-        let gradeImageFrame = CGRectMake(180, 0, 50, 50)
         
         graphImageView = UIView(frame: gradeImageFrame)
         //        graphImageView.backgroundColor = UIColor.clearColor()

@@ -51,7 +51,6 @@ class SubjectDetailViewController: UIViewController {
       
             let action = UIAlertAction(title: "Okay!", style: .Cancel, handler: { (action) in
                 
-//                self.navigationController?.popViewControllerAnimated(true)
                 self.popToRoot()
             })
             

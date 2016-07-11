@@ -125,10 +125,46 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         view.insertSubview(addInstructionsImageView, atIndex: 1)
         
+        //determine BG via scheme
+        
+        if (scheme() != nil) {
+            
+            if scheme() == space {
+                
+                standardBackground()
+                
+            } else if scheme() == nature {
+                
+                customBackground()
+                
+            } else {
+                standardBackground()
+                
+            }
+            
+        } else {
+            standardBackground()
+        }
+        
+    }
+    
+    func scheme() -> String? {
+        
+        return NSUserDefaults.standardUserDefaults().objectForKey(schemeKey) as? String
+    }
+
+    func standardBackground() {
+        
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "listBackground")
         view.insertSubview(imageView, atIndex: 0)
+    }
+    
+    func customBackground() {
         
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.image = UIImage(named: "NatureListBG")
+        view.insertSubview(imageView, atIndex: 0)
     }
     
     func noSubjects() -> Bool {

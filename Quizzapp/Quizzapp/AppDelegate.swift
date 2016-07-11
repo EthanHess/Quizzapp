@@ -8,12 +8,16 @@
 
 import UIKit
 
+let screenWidth = UIScreen.mainScreen().bounds.size.width
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        print(screenWidth)
         
         let viewController = ViewController()
         
