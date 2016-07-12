@@ -60,10 +60,44 @@ class SubjectDetailViewController: UIViewController {
             
         }
         
+        if (scheme() != nil) {
+            
+            if scheme() == space {
+                
+                standardBackground()
+                
+            } else if scheme() == nature {
+                
+                customBackground()
+                
+            } else {
+                standardBackground()
+                
+            }
+            
+        } else {
+            standardBackground()
+        }
+        
+    }
+    
+    func scheme() -> String? {
+        
+        return NSUserDefaults.standardUserDefaults().objectForKey(schemeKey) as? String
+    }
+    
+    func standardBackground() {
+        
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "cardViewBackground")
         view.insertSubview(imageView, atIndex: 0)
+    }
+    
+    func customBackground() {
         
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.image = UIImage(named: "DetailBackground")
+        view.insertSubview(imageView, atIndex: 0)
     }
     
     func popToRoot() {

@@ -10,14 +10,17 @@ import UIKit
 
 let space = "Space"
 let nature = "Nature"
+let soundKey = "Sound"
 
 let schemeKey = "Scheme"
+var soundOn = true
 
 class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableView : UITableView!
     
     var segControl : UISegmentedControl!
+    var soundButton : UIButton!
     
     var creditsArray = ["Song URLs, courtesy of Freesound.org", "https://www.freesound.org/people/Bertrof/sounds/131657/", "Other Sound"]
 
@@ -36,12 +39,24 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.view.addSubview(self.tableView)
         
         self.segControl = UISegmentedControl(items: ["Space Scheme", "Nature Scheme"])
-        self.segControl.frame = CGRectMake(50, view.frame.size.height / 2 - 100, view.frame.size.width - 100, 50)
+        self.segControl.frame = CGRectMake(50, view.frame.size.height / 2 - 50, view.frame.size.width - 100, 50)
+        self.segControl.tintColor = UIColor.whiteColor()
+        
         self.segControl.addTarget(self, action: #selector(CreditsViewController.valueChanged(_:)), forControlEvents: .ValueChanged)
-        
-        //add attributes
-        
         self.view.addSubview(segControl)
+        
+        let buttonFrame = CGRectMake(50, self.view.frame.size.height / 2 + 50, view.frame.size.width - 100, 50)
+        
+        self.soundButton = UIButton(frame: buttonFrame)
+        self.soundButton.setTitle("Turn off sound", forState: .Normal)
+        self.soundButton.backgroundColor = UIColor.clearColor()
+        self.soundButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.soundButton.addTarget(self, action: #selector(CreditsViewController.toggleSound), forControlEvents: .TouchUpInside)
+        self.soundButton.layer.cornerRadius = 5
+        self.soundButton.layer.borderColor = UIColor.whiteColor().CGColor
+        self.soundButton.layer.borderWidth = 1
+        self.view.addSubview(soundButton)
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,6 +94,23 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
             NSUserDefaults.standardUserDefaults().setObject(space, forKey: schemeKey)
             
             break
+        }
+        
+    }
+    
+    func toggleSound() {
+        
+        if soundOn {
+            
+            soundOn = false
+            soundButton.setTitle("Turn on sound", forState: .Normal)
+            NSUserDefaults.standardUserDefaults().setBool(soundOn, forKey: soundKey)
+            
+        } else {
+            
+            soundOn = true
+            soundButton.setTitle("Turn off sound", forState: .Normal)
+            NSUserDefaults.standardUserDefaults().setBool(soundOn, forKey: soundKey)
         }
         
     }

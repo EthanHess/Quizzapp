@@ -17,10 +17,7 @@ class DraggableView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let imageView = UIImageView(frame: self.bounds)
-        imageView.image = UIImage(named: "cardBackground")
-        imageView.layer.masksToBounds =  true
-        addSubview(imageView)
+        determineImage()
 
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
@@ -47,6 +44,52 @@ class DraggableView: UIView {
         answerLabel.layer.cornerRadius = 10
         answerLabel.hidden = true
         self.addSubview(answerLabel)
+    }
+    
+    func determineImage() {
+        
+        if (scheme() != nil) {
+            
+            if scheme() == space {
+                
+                standardBackground()
+                
+            } else if scheme() == nature {
+                
+                customBackground()
+                
+            } else {
+                standardBackground()
+                
+            }
+            
+        } else {
+            standardBackground()
+        }
+    }
+    
+    func scheme() -> String? {
+        
+        return NSUserDefaults.standardUserDefaults().objectForKey(schemeKey) as? String
+    }
+    
+    func standardBackground() {
+        
+        let imageView = UIImageView(frame: self.bounds)
+        imageView.image = UIImage(named: "cardBackground")
+        imageView.layer.masksToBounds =  true
+        addSubview(imageView)
+
+    }
+    
+    func customBackground() {
+        
+        let imageView = UIImageView(frame: self.bounds)
+        imageView.image = UIImage(named: "NatureCardBackground")
+        imageView.layer.masksToBounds =  true
+        addSubview(imageView)
+
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

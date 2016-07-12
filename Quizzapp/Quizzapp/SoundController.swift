@@ -17,9 +17,16 @@ class SoundController: NSObject {
     
     func playAudioFileAtURL(url: NSURL) {
         
+        if NSUserDefaults.standardUserDefaults().boolForKey(soundKey) {
+        
         try! player = AVAudioPlayer(contentsOfURL: url)
         player.numberOfLoops = 0
         player.play()
+            
+        } else {
+            
+            return
+        }
     }
 
 }
