@@ -45,7 +45,7 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.segControl.addTarget(self, action: #selector(CreditsViewController.valueChanged(_:)), forControlEvents: .ValueChanged)
         self.view.addSubview(segControl)
         
-        let buttonFrame = CGRectMake(50, self.view.frame.size.height / 2 + 50, view.frame.size.width - 100, 50)
+        let buttonFrame = CGRectMake(50, self.view.frame.size.height / 2 + 80, view.frame.size.width - 100, 50)
         
         self.soundButton = UIButton(frame: buttonFrame)
         self.soundButton.setTitle("Turn off sound", forState: .Normal)

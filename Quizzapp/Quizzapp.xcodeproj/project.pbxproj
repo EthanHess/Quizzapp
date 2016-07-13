@@ -11,6 +11,7 @@
 		270BD3191C6D999200C77FC5 /* ViewControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */; };
 		270BD31B1C6D9AC300C77FC5 /* ViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD31A1C6D9AC300C77FC5 /* ViewControllerTwo.swift */; };
 		270BD31D1C6D9AD500C77FC5 /* ViewControllerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD31C1C6D9AD500C77FC5 /* ViewControllerThree.swift */; };
+		2772F56C1D36CCE400AACDE2 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2772F56B1D36CCE400AACDE2 /* AddView.swift */; };
 		2778304D1D21E13900842C1B /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2778304C1D21E13900842C1B /* SoundController.swift */; };
 		27BD445B1C5D8681009AEFB1 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */; };
 		27BD445C1C5D8681009AEFB1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44581C5D8681009AEFB1 /* Card.swift */; };
@@ -43,6 +44,7 @@
 		270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerOne.swift; sourceTree = "<group>"; };
 		270BD31A1C6D9AC300C77FC5 /* ViewControllerTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTwo.swift; sourceTree = "<group>"; };
 		270BD31C1C6D9AD500C77FC5 /* ViewControllerThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerThree.swift; sourceTree = "<group>"; };
+		2772F56B1D36CCE400AACDE2 /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		2778304C1D21E13900842C1B /* SoundController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
 		27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Card+CoreDataProperties.swift"; path = "../Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		27BD44581C5D8681009AEFB1 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = ../Card.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				27DA84671C4C8E69003F59DE /* DraggableView.swift */,
 				27BD44621C5E5EA9009AEFB1 /* TableViewCell.swift */,
+				2772F56B1D36CCE400AACDE2 /* AddView.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				27CF75061CC59D44002A354E /* QContainerView.swift in Sources */,
 				27BD445D1C5D8681009AEFB1 /* Subject+CoreDataProperties.swift in Sources */,
 				27CF75081CC59E38002A354E /* QLayer.swift in Sources */,
+				2772F56C1D36CCE400AACDE2 /* AddView.swift in Sources */,
 				270BD3171C6D97DB00C77FC5 /* PageViewController.swift in Sources */,
 				27CF750A1CC5A3D6002A354E /* QSpaceLayer.swift in Sources */,
 				270BD31B1C6D9AC300C77FC5 /* ViewControllerTwo.swift in Sources */,

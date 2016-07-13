@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        if !(NSUserDefaults.standardUserDefaults().boolForKey(soundKey)) {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: soundKey)
+        }
+        
         print(screenWidth)
         
         let viewController = ViewController()
