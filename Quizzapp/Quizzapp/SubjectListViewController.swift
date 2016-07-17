@@ -19,13 +19,13 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+//        view.translatesAutoresizingMaskIntoConstraints = false
         
+        registerForNotifications()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        registerForNotifications()
         
         //maybe change to custom popout view later
         
@@ -141,6 +141,13 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     func registerForNotifications() {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubjectListViewController.refreshTable), name: "refresh", object: nil)
+    }
+    
+    deinit {
+        
+        print("Notification observation being removed")
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
