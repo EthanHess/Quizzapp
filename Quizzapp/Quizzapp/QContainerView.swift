@@ -43,13 +43,13 @@ class QContainerView: UIView {
         layer.insertSublayer(spaceLayer, atIndex: 1)
         spaceLayer.expandAgain()
         
-        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(QContainerView.drawQLine), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: #selector(QContainerView.drawQLine), userInfo: nil, repeats: false)
         
     }
     
     func drawQLine() {
         
-        UIView.animateWithDuration(0.5) { 
+        UIView.animateWithDuration(1) {
             
            self.qImageView.frame = CGRectMake(self.bounds.width / 2, self.bounds.height / 2, self.bounds.width / 2, self.bounds.height / 2)
         }

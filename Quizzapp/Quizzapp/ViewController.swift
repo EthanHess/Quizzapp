@@ -98,12 +98,15 @@ class ViewController: UIViewController {
         qTainerView.frame = CGRect(x: view.bounds.width / 2 - containerWidth / 2, y: 100, width: containerWidth, height: containerWidth)
         
         qTainerView.parentFrame = view.frame
-        view.addSubview(qTainerView)
+        
         
         qTainerView.expandCircle()
         
-        performSelector(#selector(ViewController.expandSpaceInQ), withObject: nil, afterDelay: 0.5)
+//        performSelector(#selector(ViewController.expandSpaceInQ), withObject: nil, afterDelay: 0.1)
         
+        self.expandSpaceInQ()
+        
+        view.addSubview(qTainerView)
     }
     
     func expandSpaceInQ() {

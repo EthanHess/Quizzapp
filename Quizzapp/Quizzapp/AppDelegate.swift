@@ -9,6 +9,7 @@
 import UIKit
 
 let screenWidth = UIScreen.mainScreen().bounds.size.width
+let screenHeight = UIScreen.mainScreen().bounds.size.height
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         print(screenWidth)
+        print(screenHeight)
         
         let viewController = ViewController()
         
@@ -37,16 +39,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setUpAppearance() {
         
-        window?.tintColor = Colors().navBackgroundColor
+//        window?.tintColor = Colors().navBackgroundColor
         
-        UINavigationBar.appearance().barTintColor = Colors().navBackgroundColor
-        UINavigationBar.appearance().tintColor = Colors().navTextColor
-
-        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: cFont, size: 20)!, NSForegroundColorAttributeName: Colors().navTextColor]
+//        UINavigationBar.appearance().barTintColor = Colors().navBackgroundColor
+//        UINavigationBar.appearance().tintColor = Colors().navTextColor
+//
+//        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: cFont, size: 20)!, NSForegroundColorAttributeName: Colors().navTextColor]
+//        
+//        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: cFont, size: 16)!, NSForegroundColorAttributeName: Colors().navTextColor], forState: .Normal)
         
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: cFont, size: 16)!, NSForegroundColorAttributeName: Colors().navTextColor], forState: .Normal)
+        if (scheme() != nil) {
+            
+            if scheme() == space {
+                
+                self.setNavBarAppearance(Colors().navBackgroundColor, textColor: UIColor.whiteColor(), fontName: cFont)
+                
+            } else if scheme() == nature {
+                
+                self.setNavBarAppearance(UIColor.brownColor(), textColor: UIColor.whiteColor(), fontName: cFont)
+            }
+        }
         
+        else {
+        
+        self.setNavBarAppearance(Colors().navBackgroundColor, textColor: UIColor.whiteColor(), fontName: cFont)
+            
+        }
     }
+    
+    //make global function
+    
+    func scheme() -> String? {
+        
+        return NSUserDefaults.standardUserDefaults().objectForKey(schemeKey) as? String
+    }
+    
+    
+    func setNavBarAppearance(backgroundColor: UIColor, textColor: UIColor, fontName: String) {
+        
+        UINavigationBar.appearance().barTintColor = backgroundColor
+        UINavigationBar.appearance().tintColor = textColor
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: fontName, size: 20)!, NSForegroundColorAttributeName: textColor]
+        
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: fontName, size: 16)!, NSForegroundColorAttributeName: textColor], forState: .Normal)
+    }
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -83,15 +83,21 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             NSUserDefaults.standardUserDefaults().setObject(space, forKey: schemeKey)
             
+            AppFunctions().setNavBarAppearanceForVC(self, backgroundColor: Colors().navBackgroundColor, textColor: UIColor.whiteColor())
+            
             break
         case 1:
             
             NSUserDefaults.standardUserDefaults().setObject(nature, forKey: schemeKey)
             
+            AppFunctions().setNavBarAppearanceForVC(self, backgroundColor: UIColor.brownColor(), textColor: UIColor.whiteColor())
+            
             break
         default:
             
             NSUserDefaults.standardUserDefaults().setObject(space, forKey: schemeKey)
+            
+            AppFunctions().setNavBarAppearanceForVC(self, backgroundColor: Colors().navBackgroundColor, textColor: UIColor.whiteColor())
             
             break
         }

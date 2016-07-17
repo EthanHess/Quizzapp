@@ -10,56 +10,20 @@ import UIKit
 
 class QSpaceLayer: CAShapeLayer {
     
-    let animationDuration: CFTimeInterval = 0.3
+    let animationDuration: CFTimeInterval = 1
     
     override init() {
         super.init()
         
         defaultImageView()
-        
-//        establishBackground()
+    
         path = centerCirclePathSmall.CGPath
     }
-    
-//    func establishBackground() {
-//        
-//        if (scheme() != nil) {
-//            
-//            if scheme() == space {
-//                
-//                defaultImageView()
-//                
-//            } else if scheme() == nature {
-//                
-//                customImageView()
-//                
-//            } else {
-//                
-//                defaultImageView()
-//                
-//            }
-//            
-//        } else {
-//            
-//            defaultImageView()
-//        }
-//    
-//    }
     
     func defaultImageView() {
         
         fillColor = UIColor(patternImage: UIImage(named: "mainQBackground")!).CGColor
     }
-    
-//    func customImageView() {
-//    
-//        fillColor = UIColor(patternImage: UIImage(named: "QSpaceNature")!).CGColor
-//    }
-    
-//    func scheme() -> String? {
-//        
-//        return NSUserDefaults.standardUserDefaults().objectForKey(schemeKey) as? String
-//    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -22,6 +22,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
 //    var addCardView : UIView!
     var addCardView : AddView!
     var addInstructionsImageView : UIImageView!
+    var addViewFrame : CGRect?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -47,7 +48,25 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
         
-        self.addCardView = AddView(frame: CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height / 2))
+        //make view bigger for iphone 4 (480) and 5 (568)
+        
+        if screenHeight == 480 {
+            
+            addViewFrame = CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height / 2 + 150)
+            
+        } else if screenHeight == 568 {
+            
+            addViewFrame = CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height / 2 + 100)
+            
+            
+        } else {
+            
+            addViewFrame = CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height / 2)
+            
+        }
+        
+        self.addCardView = AddView(frame: addViewFrame!)
+    
         self.addCardView.layer.cornerRadius = 10
         self.addCardView.layer.borderColor = Colors().cardTextColor.CGColor
         self.addCardView.layer.borderWidth = 2
