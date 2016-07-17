@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
             } else if scheme() == nature {
                 
-                self.setNavBarAppearance(UIColor.brownColor(), textColor: UIColor.whiteColor(), fontName: cFont)
+                self.setNavBarAppearance(Colors().brownColor, textColor: UIColor.whiteColor(), fontName: cFont)
             }
         }
         

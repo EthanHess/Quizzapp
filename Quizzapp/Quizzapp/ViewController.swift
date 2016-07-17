@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(ViewController.pushToDetailView))
         self.navigationItem.rightBarButtonItem = barButtonItem
         
-        let onboardBarButtonItem = UIBarButtonItem(title: "Credits", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.presentOnboarding))
+        let onboardBarButtonItem = UIBarButtonItem(title: "Settings", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.presentOnboarding))
         self.navigationItem.leftBarButtonItem = onboardBarButtonItem
         
         if (scheme() != nil) {

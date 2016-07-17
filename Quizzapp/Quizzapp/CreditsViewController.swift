@@ -22,10 +22,14 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var segControl : UISegmentedControl!
     var soundButton : UIButton!
     
-    var creditsArray = ["Song URLs, courtesy of Freesound.org", "https://www.freesound.org/people/Bertrof/sounds/131657/", "Other Sound"]
+    var scrollView : UIScrollView!
+    
+    var creditsArray = ["Song URLs, courtesy of Freesound.org", "Wrong Sound: https://www.freesound.org/people/Bertrof/sounds/131657/", "Right Sound: https://www.freesound.org/people/rhodesmas/sounds/320777/"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpScrollView()
         
         self.view.backgroundColor = UIColor.blackColor()
         
@@ -36,16 +40,16 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "creditCell")
-        self.view.addSubview(self.tableView)
+        self.scrollView.addSubview(self.tableView)
         
         self.segControl = UISegmentedControl(items: ["Space Scheme", "Nature Scheme"])
-        self.segControl.frame = CGRectMake(50, view.frame.size.height / 2 - 50, view.frame.size.width - 100, 50)
+        self.segControl.frame = CGRectMake(50, view.frame.size.height / 2 + 50, view.frame.size.width - 100, 50)
         self.segControl.tintColor = UIColor.whiteColor()
         
         self.segControl.addTarget(self, action: #selector(CreditsViewController.valueChanged(_:)), forControlEvents: .ValueChanged)
-        self.view.addSubview(segControl)
+        self.scrollView.addSubview(segControl)
         
-        let buttonFrame = CGRectMake(50, self.view.frame.size.height / 2 + 80, view.frame.size.width - 100, 50)
+        let buttonFrame = CGRectMake(50, self.view.frame.size.height / 2 + 120, view.frame.size.width - 100, 50)
         
         self.soundButton = UIButton(frame: buttonFrame)
         self.soundButton.setTitle("Turn off sound", forState: .Normal)
@@ -55,7 +59,17 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.soundButton.layer.cornerRadius = 5
         self.soundButton.layer.borderColor = UIColor.whiteColor().CGColor
         self.soundButton.layer.borderWidth = 1
-        self.view.addSubview(soundButton)
+        self.scrollView.addSubview(soundButton)
+        
+    }
+    
+    func setUpScrollView() {
+        
+        scrollView = UIScrollView(frame: self.view.bounds)
+        scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + 250)
+        
+        self.view.sendSubviewToBack(scrollView)
+        self.view.addSubview(scrollView)
         
     }
     
@@ -71,9 +85,15 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell?.textLabel?.text = creditsArray[indexPath.row]
         cell?.backgroundColor = UIColor.darkGrayColor()
         cell?.textLabel?.textColor = UIColor.greenColor()
+        cell?.textLabel?.numberOfLines = 0
         
         return cell!
         
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        return 60
     }
     
     func valueChanged(sender: UISegmentedControl) {
@@ -90,7 +110,7 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             NSUserDefaults.standardUserDefaults().setObject(nature, forKey: schemeKey)
             
-            AppFunctions().setNavBarAppearanceForVC(self, backgroundColor: UIColor.brownColor(), textColor: UIColor.whiteColor())
+            AppFunctions().setNavBarAppearanceForVC(self, backgroundColor: Colors().brownColor, textColor: UIColor.whiteColor())
             
             break
         default:

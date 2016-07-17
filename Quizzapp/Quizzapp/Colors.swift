@@ -13,6 +13,12 @@ let cFont = "Courier"
 
 class Colors {
     
+    var brownColor : UIColor {
+        get {
+            return UIColor(red: 102/255, green: 51/255, blue: 15/255, alpha: 1.0)
+        }
+    }
+    
     var viewBackgroundColor : UIColor {
         get {
             return RGB(213, 239, 239)

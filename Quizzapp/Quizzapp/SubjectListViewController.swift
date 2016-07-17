@@ -11,15 +11,7 @@ import UIKit
 class SubjectListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UITextFieldDelegate {
     
     var tableView : UITableView!
-//    var textField : UITextField!
-//    var textView : UITextView!
-//    var addCardButton : UIButton!
-//    var clearButton : UIButton!
-//    var titleLabel : UILabel!
-//    var dismissButton : UIButton!
     var subjectToAdd : Subject?
-    
-//    var addCardView : UIView!
     var addCardView : AddView!
     var addInstructionsImageView : UIImageView!
     var addViewFrame : CGRect?
@@ -78,60 +70,6 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         self.addCardView.clearButton.addTarget(self, action: #selector(SubjectListViewController.clearFields), forControlEvents: .TouchUpInside)
         self.addCardView.dismissButton.addTarget(self, action: #selector(SubjectListViewController.dismissAddView), forControlEvents: .TouchUpInside)
         
-//        let imageBG = UIImageView(frame: addCardView.bounds)
-//        imageBG.image = UIImage(named: "quizCellBackground")
-//        addCardView.addSubview(imageBG)
-        
-//        titleLabel = UILabel(frame: CGRectMake(25, 25, self.addCardView.frame.size.width - 50, 50))
-//        titleLabel.textAlignment = NSTextAlignment.Center
-//        titleLabel.textColor = UIColor.whiteColor()
-//        titleLabel.font = UIFont(name: cFont, size: 36)
-//        addCardView.addSubview(titleLabel)
-        
-//        textField = UITextField(frame: CGRectMake(100, 90, self.addCardView.frame.size.width - 200, 50))
-//        textField.placeholder = "Add Question"
-//        textField.delegate = self
-//        textField.borderStyle = UITextBorderStyle.RoundedRect
-//        textField.layer.borderColor = UIColor.darkGrayColor().CGColor
-//        textField.layer.borderWidth = 1
-//        addCardView.addSubview(textField)
-        
-//        textView = UITextView(frame: CGRectMake(100, 155, self.addCardView.frame.size.width - 200, 100))
-//        textView.delegate = self
-//        textView.layer.cornerRadius = 10
-//        textView.layer.borderColor = UIColor.whiteColor().CGColor
-//        textView.layer.borderWidth = 1
-//        addCardView.addSubview(textView)
-        
-//        addCardButton = UIButton(frame: CGRectMake(100, 270, 45, 45))
-//        addCardButton.titleLabel?.font = UIFont(name: cFont, size: 12)
-//        addCardButton.setTitle("Add", forState: UIControlState.Normal)
-//        addCardButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-//        addCardButton.addTarget(self, action: #selector(SubjectListViewController.addCard), forControlEvents: UIControlEvents.TouchUpInside)
-//        addCardButton.layer.cornerRadius = 22.5
-//        addCardButton.layer.borderWidth = 1
-//        addCardButton.layer.borderColor = UIColor.whiteColor().CGColor
-//        addCardView.addSubview(addCardButton)
-        
-//        clearButton = UIButton(frame: CGRectMake(self.addCardView.frame.size.width / 2 - 22.5, 270, 45, 45))
-//        clearButton.titleLabel?.font = UIFont(name: cFont, size: 12)
-//        clearButton.setTitle("Clear", forState: UIControlState.Normal)
-//        clearButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-//        clearButton.addTarget(self, action: #selector(SubjectListViewController.clearFields), forControlEvents: UIControlEvents.TouchUpInside)
-//        clearButton.layer.cornerRadius = 22.5
-//        clearButton.layer.borderWidth = 1
-//        clearButton.layer.borderColor = UIColor.whiteColor().CGColor
-//        addCardView.addSubview(clearButton)
-//        
-//        dismissButton = UIButton(frame: CGRectMake(self.addCardView.frame.size.width - 145, 270, 45, 45))
-//        dismissButton.titleLabel?.font = UIFont(name: cFont, size: 18)
-//        dismissButton.setTitle(">", forState: UIControlState.Normal)
-//        dismissButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-//        dismissButton.addTarget(self, action: #selector(SubjectListViewController.dismissAddView), forControlEvents: UIControlEvents.TouchUpInside)
-//        dismissButton.layer.cornerRadius = 22.5
-//        dismissButton.layer.borderWidth = 1
-//        dismissButton.layer.borderColor = UIColor.whiteColor().CGColor
-//        addCardView.addSubview(dismissButton)
         
         self.view.addSubview(self.addCardView)
         
@@ -221,7 +159,15 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         cell.scoreLabel.text = NSString(format: "right: %i, wrong: %i", Int(subject.trueCount!), Int(subject.falseCount!)) as String
         
+        if (subject.cards?.count == 1) {
+            
+            cell.cardCountLabel.text = NSString(format: "%d Card", (subject.cards?.count)!) as String
+        }
+        else {
+            
         cell.cardCountLabel.text = NSString(format: "%d Cards", (subject.cards?.count)!) as String
+            
+        }
         
         cell.layer.cornerRadius = 10
         cell.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -326,6 +272,9 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func popOutAddCardViewWithSubject(subject: Subject) {
         
+        //can't interact with cells when add view is popped out
+        self.tableView.userInteractionEnabled = false
+        
         if subject.cards?.count > 15 {
             
             self.displayAlert("There are already 15 cards in this class", message: "Feel free to start another")
@@ -374,6 +323,8 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func dismissAddView() {
+        
+        self.tableView.userInteractionEnabled = true
         
         UIView.animateWithDuration(0.5) { () -> Void in
             
