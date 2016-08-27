@@ -24,7 +24,7 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var scrollView : UIScrollView!
     
-    var creditsArray = ["Song URLs, courtesy of Freesound.org", "Wrong Sound: https://www.freesound.org/people/Bertrof/sounds/131657/", "Right Sound: https://www.freesound.org/people/rhodesmas/sounds/320777/"]
+    var creditsArray = ["Sound URLs, courtesy of Freesound.org", "Wrong Sound: https://www.freesound.org/people/Bertrof/sounds/131657/", "Right Sound: https://www.freesound.org/people/rhodesmas/sounds/320777/"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,9 +84,10 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell?.textLabel?.text = creditsArray[indexPath.row]
         cell?.backgroundColor = UIColor.darkGrayColor()
-        cell?.textLabel?.textColor = UIColor.greenColor()
+        cell?.textLabel?.textColor = UIColor.whiteColor()
+        cell?.textLabel?.font = UIFont(name: cFont, size: 12)
         cell?.textLabel?.numberOfLines = 0
-        
+    
         return cell!
         
     }

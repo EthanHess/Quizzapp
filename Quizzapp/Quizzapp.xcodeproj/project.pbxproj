@@ -7,17 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		270BD3171C6D97DB00C77FC5 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD3161C6D97DB00C77FC5 /* PageViewController.swift */; };
-		270BD3191C6D999200C77FC5 /* ViewControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */; };
-		270BD31B1C6D9AC300C77FC5 /* ViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD31A1C6D9AC300C77FC5 /* ViewControllerTwo.swift */; };
-		270BD31D1C6D9AD500C77FC5 /* ViewControllerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BD31C1C6D9AD500C77FC5 /* ViewControllerThree.swift */; };
+		2758237B1D71006500BA78A9 /* ScoreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2758237A1D71006500BA78A9 /* ScoreListViewController.swift */; };
 		2772F56C1D36CCE400AACDE2 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2772F56B1D36CCE400AACDE2 /* AddView.swift */; };
 		2772F56E1D3722D500AACDE2 /* AppFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2772F56D1D3722D500AACDE2 /* AppFunctions.swift */; };
 		2778304D1D21E13900842C1B /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2778304C1D21E13900842C1B /* SoundController.swift */; };
-		27BD445B1C5D8681009AEFB1 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */; };
-		27BD445C1C5D8681009AEFB1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44581C5D8681009AEFB1 /* Card.swift */; };
-		27BD445D1C5D8681009AEFB1 /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44591C5D8681009AEFB1 /* Subject+CoreDataProperties.swift */; };
-		27BD445E1C5D8681009AEFB1 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD445A1C5D8681009AEFB1 /* Subject.swift */; };
 		27BD44631C5E5EA9009AEFB1 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD44621C5E5EA9009AEFB1 /* TableViewCell.swift */; };
 		27C3B78E1C699D8700F71AB5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B78D1C699D8700F71AB5 /* Colors.swift */; };
 		27CF75061CC59D44002A354E /* QContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CF75051CC59D44002A354E /* QContainerView.swift */; };
@@ -38,20 +31,17 @@
 		27E3A9331D233EFD00143270 /* grandOpening.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27E3A9301D233EFD00143270 /* grandOpening.wav */; };
 		27E3A95B1D24C77E00143270 /* right.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27E3A95A1D24C77E00143270 /* right.wav */; };
 		27F26ADB1D3017010020873A /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F26ADA1D3017010020873A /* CreditsViewController.swift */; };
+		27FAA3061D6A4BC70039B069 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAA3021D6A4BC70039B069 /* Card+CoreDataProperties.swift */; };
+		27FAA3071D6A4BC70039B069 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAA3031D6A4BC70039B069 /* Card.swift */; };
+		27FAA3081D6A4BC70039B069 /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAA3041D6A4BC70039B069 /* Subject+CoreDataProperties.swift */; };
+		27FAA3091D6A4BC70039B069 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAA3051D6A4BC70039B069 /* Subject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		270BD3161C6D97DB00C77FC5 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerOne.swift; sourceTree = "<group>"; };
-		270BD31A1C6D9AC300C77FC5 /* ViewControllerTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTwo.swift; sourceTree = "<group>"; };
-		270BD31C1C6D9AD500C77FC5 /* ViewControllerThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerThree.swift; sourceTree = "<group>"; };
+		2758237A1D71006500BA78A9 /* ScoreListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreListViewController.swift; sourceTree = "<group>"; };
 		2772F56B1D36CCE400AACDE2 /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		2772F56D1D3722D500AACDE2 /* AppFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFunctions.swift; sourceTree = "<group>"; };
 		2778304C1D21E13900842C1B /* SoundController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
-		27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Card+CoreDataProperties.swift"; path = "../Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		27BD44581C5D8681009AEFB1 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = ../Card.swift; sourceTree = "<group>"; };
-		27BD44591C5D8681009AEFB1 /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Subject+CoreDataProperties.swift"; path = "../Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		27BD445A1C5D8681009AEFB1 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subject.swift; path = ../Subject.swift; sourceTree = "<group>"; };
 		27BD44621C5E5EA9009AEFB1 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		27C3B78D1C699D8700F71AB5 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		27CF75051CC59D44002A354E /* QContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QContainerView.swift; sourceTree = "<group>"; };
@@ -74,6 +64,10 @@
 		27E3A9301D233EFD00143270 /* grandOpening.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grandOpening.wav; sourceTree = "<group>"; };
 		27E3A95A1D24C77E00143270 /* right.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = right.wav; sourceTree = "<group>"; };
 		27F26ADA1D3017010020873A /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		27FAA3021D6A4BC70039B069 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Card+CoreDataProperties.swift"; path = "../Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		27FAA3031D6A4BC70039B069 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = ../Card.swift; sourceTree = "<group>"; };
+		27FAA3041D6A4BC70039B069 /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Subject+CoreDataProperties.swift"; path = "../Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		27FAA3051D6A4BC70039B069 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subject.swift; path = ../Subject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,10 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				27F26ADA1D3017010020873A /* CreditsViewController.swift */,
-				270BD3161C6D97DB00C77FC5 /* PageViewController.swift */,
-				270BD3181C6D999200C77FC5 /* ViewControllerOne.swift */,
-				270BD31A1C6D9AC300C77FC5 /* ViewControllerTwo.swift */,
-				270BD31C1C6D9AD500C77FC5 /* ViewControllerThree.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -132,13 +122,13 @@
 		27CF750F1CC5AF18002A354E /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				27FAA3021D6A4BC70039B069 /* Card+CoreDataProperties.swift */,
+				27FAA3031D6A4BC70039B069 /* Card.swift */,
+				27FAA3041D6A4BC70039B069 /* Subject+CoreDataProperties.swift */,
+				27FAA3051D6A4BC70039B069 /* Subject.swift */,
 				27E3A95A1D24C77E00143270 /* right.wav */,
 				27E3A92F1D233EFD00143270 /* wrong.wav */,
 				27E3A9301D233EFD00143270 /* grandOpening.wav */,
-				27BD44571C5D8681009AEFB1 /* Card+CoreDataProperties.swift */,
-				27BD44581C5D8681009AEFB1 /* Card.swift */,
-				27BD44591C5D8681009AEFB1 /* Subject+CoreDataProperties.swift */,
-				27BD445A1C5D8681009AEFB1 /* Subject.swift */,
 				27C3B78D1C699D8700F71AB5 /* Colors.swift */,
 			);
 			name = DataModels;
@@ -168,6 +158,7 @@
 				27DA84551C4C870C003F59DE /* ViewController.swift */,
 				27DA847F1C4D8F2E003F59DE /* SubjectListViewController.swift */,
 				27DA84811C4F36BA003F59DE /* SubjectDetailViewController.swift */,
+				2758237A1D71006500BA78A9 /* ScoreListViewController.swift */,
 				27CF750B1CC5AEBC002A354E /* AnimationViews */,
 				27CF750D1CC5AEF1002A354E /* Custom Views */,
 				27CF750C1CC5AED7002A354E /* Controllers */,
@@ -256,30 +247,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				27BD44631C5E5EA9009AEFB1 /* TableViewCell.swift in Sources */,
+				27FAA3091D6A4BC70039B069 /* Subject.swift in Sources */,
 				27C3B78E1C699D8700F71AB5 /* Colors.swift in Sources */,
 				27DA84561C4C870C003F59DE /* ViewController.swift in Sources */,
 				2778304D1D21E13900842C1B /* SoundController.swift in Sources */,
 				27DA84821C4F36BA003F59DE /* SubjectDetailViewController.swift in Sources */,
+				27FAA3061D6A4BC70039B069 /* Card+CoreDataProperties.swift in Sources */,
+				2758237B1D71006500BA78A9 /* ScoreListViewController.swift in Sources */,
 				27DA84661C4C8E55003F59DE /* CardController.swift in Sources */,
 				27DA84801C4D8F2E003F59DE /* SubjectListViewController.swift in Sources */,
 				27F26ADB1D3017010020873A /* CreditsViewController.swift in Sources */,
-				27BD445E1C5D8681009AEFB1 /* Subject.swift in Sources */,
 				27DA846B1C4D873C003F59DE /* Model.xcdatamodeld in Sources */,
 				27DA84681C4C8E69003F59DE /* DraggableView.swift in Sources */,
-				27BD445B1C5D8681009AEFB1 /* Card+CoreDataProperties.swift in Sources */,
 				2772F56E1D3722D500AACDE2 /* AppFunctions.swift in Sources */,
-				27BD445C1C5D8681009AEFB1 /* Card.swift in Sources */,
+				27FAA3081D6A4BC70039B069 /* Subject+CoreDataProperties.swift in Sources */,
 				27DA846D1C4D87F9003F59DE /* Stack.swift in Sources */,
-				270BD31D1C6D9AD500C77FC5 /* ViewControllerThree.swift in Sources */,
-				270BD3191C6D999200C77FC5 /* ViewControllerOne.swift in Sources */,
 				27DA84541C4C870C003F59DE /* AppDelegate.swift in Sources */,
 				27CF75061CC59D44002A354E /* QContainerView.swift in Sources */,
-				27BD445D1C5D8681009AEFB1 /* Subject+CoreDataProperties.swift in Sources */,
 				27CF75081CC59E38002A354E /* QLayer.swift in Sources */,
+				27FAA3071D6A4BC70039B069 /* Card.swift in Sources */,
 				2772F56C1D36CCE400AACDE2 /* AddView.swift in Sources */,
-				270BD3171C6D97DB00C77FC5 /* PageViewController.swift in Sources */,
 				27CF750A1CC5A3D6002A354E /* QSpaceLayer.swift in Sources */,
-				270BD31B1C6D9AC300C77FC5 /* ViewControllerTwo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

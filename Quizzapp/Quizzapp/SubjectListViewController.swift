@@ -19,8 +19,6 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-//        view.translatesAutoresizingMaskIntoConstraints = false
-        
         registerForNotifications()
     }
 
@@ -29,8 +27,12 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         //maybe change to custom popout view later
         
-        let addButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SubjectListViewController.addSubject))
-        self.navigationItem.rightBarButtonItem = addButton
+        let addButton = UIBarButtonItem(title: "Add Class", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SubjectListViewController.addSubject))
+        //self.navigationItem.rightBarButtonItem = addButton
+        
+        let scoreButton = UIBarButtonItem(title: "See Scores", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SubjectListViewController.presentScores))
+        
+        self.navigationItem.rightBarButtonItems = [addButton, scoreButton]
 
         self.tableView = UITableView(frame: CGRectMake(50, 80, self.view.frame.size.width - 100, self.view.frame.size.height), style: UITableViewStyle.Grouped)
         self.tableView.backgroundColor = UIColor.clearColor()
@@ -110,6 +112,12 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
             standardBackground()
         }
         
+    }
+    
+    func presentScores() {
+        
+        let scoreList = ScoreListViewController()
+        self.presentViewController(scoreList, animated: true, completion: nil)
     }
     
     func scheme() -> String? {
