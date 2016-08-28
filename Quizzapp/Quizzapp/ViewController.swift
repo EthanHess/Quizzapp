@@ -48,7 +48,6 @@ class ViewController: UIViewController {
                 
             } else {
                 defaultImageView()
-                
             }
             
         } else {
@@ -124,11 +123,7 @@ class ViewController: UIViewController {
     
     func presentOnboarding() {
         
-        //now credits
-        
         let creditsViewController = CreditsViewController()
-        
-//        let pageViewController = PageViewController()
         
         self.navigationController?.pushViewController(creditsViewController, animated: true)
         
