@@ -20,6 +20,13 @@ class CardController: NSObject {
     
     static let sharedInstance = CardController ()
     
+    
+    func addGradeToSubject(subject: Subject, grade: Float) {
+
+        subject.grade = grade
+        save()
+    }
+    
     func addSubjectWithName(name: String) {
         
         let subject = NSEntityDescription.insertNewObjectForEntityForName("Subject", inManagedObjectContext: Stack.sharedInstance.managedObjectContext) as! Subject
@@ -28,12 +35,12 @@ class CardController: NSObject {
         save()
     }
     
-    func addCardToSubject(subject: Subject, questiion: String, answer: String) {
+    func addCardToSubject(subject: Subject, question: String, answer: String) {
         
         let card = NSEntityDescription.insertNewObjectForEntityForName("Card", inManagedObjectContext: Stack.sharedInstance.managedObjectContext) as! Card
         
         card.subject = subject
-        card.question = questiion
+        card.question = question
         card.answer = answer
         save()
     }

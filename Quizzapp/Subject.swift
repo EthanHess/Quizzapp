@@ -2,7 +2,7 @@
 //  Subject.swift
 //  Quizzapp
 //
-//  Created by Ethan Hess on 8/21/16.
+//  Created by Ethan Hess on 9/3/16.
 //  Copyright © 2016 Ethan Hess. All rights reserved.
 //
 

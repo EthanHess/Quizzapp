@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272BC7B21D7BB04200EA368F /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272BC7B01D7BB04200EA368F /* Subject+CoreDataProperties.swift */; };
+		272BC7B31D7BB04200EA368F /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272BC7B11D7BB04200EA368F /* Subject.swift */; };
 		2758237B1D71006500BA78A9 /* ScoreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2758237A1D71006500BA78A9 /* ScoreListViewController.swift */; };
 		2772F56C1D36CCE400AACDE2 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2772F56B1D36CCE400AACDE2 /* AddView.swift */; };
 		2772F56E1D3722D500AACDE2 /* AppFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2772F56D1D3722D500AACDE2 /* AppFunctions.swift */; };
@@ -33,11 +35,11 @@
 		27F26ADB1D3017010020873A /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F26ADA1D3017010020873A /* CreditsViewController.swift */; };
 		27FAA3061D6A4BC70039B069 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAA3021D6A4BC70039B069 /* Card+CoreDataProperties.swift */; };
 		27FAA3071D6A4BC70039B069 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAA3031D6A4BC70039B069 /* Card.swift */; };
-		27FAA3081D6A4BC70039B069 /* Subject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAA3041D6A4BC70039B069 /* Subject+CoreDataProperties.swift */; };
-		27FAA3091D6A4BC70039B069 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAA3051D6A4BC70039B069 /* Subject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		272BC7B01D7BB04200EA368F /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Subject+CoreDataProperties.swift"; path = "../Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		272BC7B11D7BB04200EA368F /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subject.swift; path = ../Subject.swift; sourceTree = "<group>"; };
 		2758237A1D71006500BA78A9 /* ScoreListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreListViewController.swift; sourceTree = "<group>"; };
 		2772F56B1D36CCE400AACDE2 /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		2772F56D1D3722D500AACDE2 /* AppFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFunctions.swift; sourceTree = "<group>"; };
@@ -66,8 +68,6 @@
 		27F26ADA1D3017010020873A /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		27FAA3021D6A4BC70039B069 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Card+CoreDataProperties.swift"; path = "../Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		27FAA3031D6A4BC70039B069 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = ../Card.swift; sourceTree = "<group>"; };
-		27FAA3041D6A4BC70039B069 /* Subject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Subject+CoreDataProperties.swift"; path = "../Subject+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		27FAA3051D6A4BC70039B069 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subject.swift; path = ../Subject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +124,8 @@
 			children = (
 				27FAA3021D6A4BC70039B069 /* Card+CoreDataProperties.swift */,
 				27FAA3031D6A4BC70039B069 /* Card.swift */,
-				27FAA3041D6A4BC70039B069 /* Subject+CoreDataProperties.swift */,
-				27FAA3051D6A4BC70039B069 /* Subject.swift */,
+				272BC7B01D7BB04200EA368F /* Subject+CoreDataProperties.swift */,
+				272BC7B11D7BB04200EA368F /* Subject.swift */,
 				27E3A95A1D24C77E00143270 /* right.wav */,
 				27E3A92F1D233EFD00143270 /* wrong.wav */,
 				27E3A9301D233EFD00143270 /* grandOpening.wav */,
@@ -247,7 +247,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				27BD44631C5E5EA9009AEFB1 /* TableViewCell.swift in Sources */,
-				27FAA3091D6A4BC70039B069 /* Subject.swift in Sources */,
 				27C3B78E1C699D8700F71AB5 /* Colors.swift in Sources */,
 				27DA84561C4C870C003F59DE /* ViewController.swift in Sources */,
 				2778304D1D21E13900842C1B /* SoundController.swift in Sources */,
@@ -259,10 +258,11 @@
 				27F26ADB1D3017010020873A /* CreditsViewController.swift in Sources */,
 				27DA846B1C4D873C003F59DE /* Model.xcdatamodeld in Sources */,
 				27DA84681C4C8E69003F59DE /* DraggableView.swift in Sources */,
+				272BC7B31D7BB04200EA368F /* Subject.swift in Sources */,
 				2772F56E1D3722D500AACDE2 /* AppFunctions.swift in Sources */,
-				27FAA3081D6A4BC70039B069 /* Subject+CoreDataProperties.swift in Sources */,
 				27DA846D1C4D87F9003F59DE /* Stack.swift in Sources */,
 				27DA84541C4C870C003F59DE /* AppDelegate.swift in Sources */,
+				272BC7B21D7BB04200EA368F /* Subject+CoreDataProperties.swift in Sources */,
 				27CF75061CC59D44002A354E /* QContainerView.swift in Sources */,
 				27CF75081CC59E38002A354E /* QLayer.swift in Sources */,
 				27FAA3071D6A4BC70039B069 /* Card.swift in Sources */,

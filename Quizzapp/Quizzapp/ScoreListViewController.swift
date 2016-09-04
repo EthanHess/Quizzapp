@@ -17,8 +17,19 @@ class ScoreListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if noSubjects() {
+            print("Nada") //pop an alert eventually
+        }
 
-        setUpViews()
+        else {
+            calculateFinalGrade()
+        }
+    }
+    
+    func noSubjects() -> Bool {
+        
+        return CardController.sharedInstance.subjects.count == 0
     }
     
     func setUpViews() {
@@ -47,12 +58,40 @@ class ScoreListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func calculateFinalGrade() {
+        
+        let subjects = CardController.sharedInstance.subjects
+        
+        for subject in subjects {
+            
+            let yes = Float(subject.trueCount!)
+            let no = Float(subject.falseCount!)
+            
+            print("yes and no: \(yes) \(no)")
+            
+            let totalPoints = yes + no
+            
+            print("total points: \(totalPoints)")
+            
+            let finalGrade = Float(yes / totalPoints)
+            let finalGradeMultiplied = finalGrade * 100
+            
+            print("final grade: \(finalGrade) --- \(finalGradeMultiplied)")
+            
+            //set grade property in core data
+            
+            CardController.sharedInstance.addGradeToSubject(subject, grade: finalGradeMultiplied)
+            
+            setUpViews()
+        }
+    }
+    
     func sortClassesOnGrade() -> Array<Subject> {
-
+        
         let fetchRequest = NSFetchRequest(entityName: "Subject")
         fetchRequest.returnsObjectsAsFaults = false
         
-        let goodGradeSort = NSSortDescriptor(key: "trueCount", ascending: false)
+        let goodGradeSort = NSSortDescriptor(key: "grade", ascending: false)
         fetchRequest.sortDescriptors = [goodGradeSort]
         
         guard let objects = try! Stack.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest) as? [Subject] else { return [] }
@@ -85,16 +124,19 @@ extension ScoreListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return self.sortClassesOnGrade().count
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")
+        var cell = tableView.dequeueReusableCellWithIdentifier("cell")
+        
+        cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
         
         let subject = self.sortClassesOnGrade()[indexPath.row]
         
         cell?.textLabel?.text = subject.name
-        cell?.detailTextLabel?.text = String(subject.trueCount)
+        cell?.detailTextLabel?.text = String(subject.grade)
         
         return cell!
         

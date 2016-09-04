@@ -2,7 +2,7 @@
 //  Subject+CoreDataProperties.swift
 //  Quizzapp
 //
-//  Created by Ethan Hess on 8/21/16.
+//  Created by Ethan Hess on 9/3/16.
 //  Copyright © 2016 Ethan Hess. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -17,6 +17,7 @@ extension Subject {
     @NSManaged var falseCount: NSNumber?
     @NSManaged var name: String?
     @NSManaged var trueCount: NSNumber?
+    @NSManaged var grade: NSNumber?
     @NSManaged var cards: NSOrderedSet?
 
 }

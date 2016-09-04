@@ -317,7 +317,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         if self.addCardView.textView.text != "" && self.addCardView.textField.text != "" {
         
-        CardController.sharedInstance.addCardToSubject(self.subjectToAdd!, questiion: self.self.addCardView.textField.text!, answer: self.self.addCardView.textView.text)
+        CardController.sharedInstance.addCardToSubject(self.subjectToAdd!, question: self.self.addCardView.textField.text!, answer: self.self.addCardView.textView.text)
         
         tableView.reloadData()
         dismissAddView()
