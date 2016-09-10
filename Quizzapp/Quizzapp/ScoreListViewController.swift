@@ -27,6 +27,12 @@ class ScoreListViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        view.backgroundColor = UIColor.darkGrayColor()
+    }
+    
     func noSubjects() -> Bool {
         
         return CardController.sharedInstance.subjects.count == 0
@@ -40,6 +46,7 @@ class ScoreListViewController: UIViewController {
         scoreTableView.delegate = self
         scoreTableView.dataSource = self
         scoreTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        scoreTableView.backgroundColor = UIColor.darkGrayColor()
         self.view.addSubview(scoreTableView)
         
         let buttonFrame = CGRectMake(0, 0, self.view.frame.size.width, 80)
@@ -136,7 +143,19 @@ extension ScoreListViewController : UITableViewDelegate, UITableViewDataSource {
         let subject = self.sortClassesOnGrade()[indexPath.row]
         
         cell?.textLabel?.text = subject.name
-        cell?.detailTextLabel?.text = String(subject.grade)
+        cell?.backgroundColor = Colors().niceBlue
+        cell?.textLabel?.textColor = UIColor.whiteColor()
+        cell?.detailTextLabel?.textColor = UIColor.whiteColor()
+        
+        
+        if subject.grade != nil {
+            
+            cell?.detailTextLabel?.text = String(subject.grade!.intValue)
+            cell?.imageView?.image = determineImage(Float(subject.grade!))
+        }
+        else {
+            cell?.imageView?.image = UIImage(named: "NoGrade")
+        }
         
         return cell!
         
@@ -144,5 +163,31 @@ extension ScoreListViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func determineImage(grade: Float) -> UIImage {
+        
+        //if they haven't started the quiz at all will still return F, fix eventually...
+        
+        if grade < 60 {
+            return UIImage(named: "F")!
+        }
+        
+        else if grade > 60 && grade < 70 {
+            return UIImage(named: "D")!
+        }
+        
+        else if grade > 70 && grade < 80 {
+            return UIImage(named: "C")!
+        }
+        
+        else if grade > 80 && grade < 90 {
+            return UIImage(named: "B")!
+        }
+        
+        else {
+            return UIImage(named: "A")!
+        }
+        
     }
 }

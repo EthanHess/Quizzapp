@@ -102,7 +102,8 @@ class SubjectDetailViewController: UIViewController {
     
     func popToRoot() {
         
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        //self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func rightWrongLabels() {

@@ -20,6 +20,7 @@ class TableViewCell: UITableViewCell {
     //subviews of subviews
     
     var graphImageView = UIView()
+    var gradeImage = UIImageView() //confusing name choice, change
     
     var rightCountView = UIView()
     var wrongCountView = UIView()
@@ -156,7 +157,6 @@ class TableViewCell: UITableViewCell {
         rightCountView.layer.masksToBounds = true
         
         bgImageRight = UIImageView(frame: rightCountView.bounds)
-        bgImageRight.image = nil
         bgImageRight.layer.masksToBounds = true
         bgImageRight.image = UIImage(named: "rightCountBackground")
         rightCountView.addSubview(bgImageRight)
@@ -173,7 +173,6 @@ class TableViewCell: UITableViewCell {
         wrongCountView.layer.masksToBounds = true
         
         bgImageWrong = UIImageView(frame: wrongCountView.bounds)
-        bgImageWrong.image = nil
         bgImageWrong.layer.masksToBounds = true
         bgImageWrong.image = UIImage(named: "wrongCountBackground")
         wrongCountView.addSubview(bgImageWrong)
@@ -191,10 +190,10 @@ class TableViewCell: UITableViewCell {
         
         graphImageView.layer.masksToBounds = true
         
-        let gradeImage = UIImageView(frame: graphImageView.bounds)
+        gradeImage = UIImageView(frame: graphImageView.bounds)
         gradeImage.layer.masksToBounds = true
         
-        gradeImage.image = nil
+        //gradeImage.image = nil
         
         if right == 0 && wrong == 0 {
             

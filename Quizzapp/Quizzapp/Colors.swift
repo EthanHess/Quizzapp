@@ -75,13 +75,21 @@ class Colors {
     
     var wrongLabelColor : UIColor {
         get {
-            return UIColor(red: 249/255, green: 246/255, blue: 34/255, alpha: 1.0)
+            //return UIColor(red: 249/255, green: 246/255, blue: 34/255, alpha: 1.0)
+            return RGB(249, 246, 34)
         }
     }
     
     var rightLabelColor : UIColor {
         get {
-            return UIColor(red: 48/255, green: 247/255, blue: 34/255, alpha: 1.0)
+            //return UIColor(red: 48/255, green: 247/255, blue: 34/255, alpha: 1.0)
+            return RGB(48, 247, 34)
+        }
+    }
+    
+    var niceBlue : UIColor {
+        get {
+            return RGB(0, 174, 209)
         }
     }
     

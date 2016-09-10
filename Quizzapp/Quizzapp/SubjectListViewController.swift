@@ -167,6 +167,10 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         let right = Int(subject.trueCount!)
         let wrong = Int(subject.falseCount!)
         
+        cell.bgImageRight.image = nil
+        cell.bgImageWrong.image = nil
+        cell.gradeImage.image = nil
+        
         cell.setGradePicture(right, wrong: wrong)
         cell.setRightAndWrongCount(right, wrong: wrong)
         

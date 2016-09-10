@@ -36,7 +36,7 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let tableFrame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height / 2)
 
         self.tableView = UITableView(frame: tableFrame, style: .Grouped)
-        self.tableView.backgroundColor = UIColor.blackColor()
+        self.tableView.backgroundColor = UIColor.clearColor()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "creditCell")
@@ -45,6 +45,7 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.segControl = UISegmentedControl(items: ["Space Scheme", "Nature Scheme"])
         self.segControl.frame = CGRectMake(50, view.frame.size.height / 2 + 50, view.frame.size.width - 100, 50)
         self.segControl.tintColor = UIColor.whiteColor()
+        self.segControl.backgroundColor = UIColor.darkGrayColor()
         
         self.segControl.addTarget(self, action: #selector(CreditsViewController.valueChanged(_:)), forControlEvents: .ValueChanged)
         self.scrollView.addSubview(segControl)
@@ -53,7 +54,7 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.soundButton = UIButton(frame: buttonFrame)
         self.soundButton.setTitle("Turn off sound", forState: .Normal)
-        self.soundButton.backgroundColor = UIColor.clearColor()
+        self.soundButton.backgroundColor = UIColor.darkGrayColor()
         self.soundButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.soundButton.addTarget(self, action: #selector(CreditsViewController.toggleSound), forControlEvents: .TouchUpInside)
         self.soundButton.layer.cornerRadius = 5
