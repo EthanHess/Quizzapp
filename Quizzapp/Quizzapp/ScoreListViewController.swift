@@ -46,7 +46,7 @@ class ScoreListViewController: UIViewController {
         scoreTableView.delegate = self
         scoreTableView.dataSource = self
         scoreTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        scoreTableView.backgroundColor = UIColor.darkGrayColor()
+        scoreTableView.backgroundColor = UIColor(red: 4/255, green: 42/255, blue: 84/255, alpha: 1.0)
         self.view.addSubview(scoreTableView)
         
         let buttonFrame = CGRectMake(0, 0, self.view.frame.size.width, 80)
@@ -153,7 +153,7 @@ extension ScoreListViewController : UITableViewDelegate, UITableViewDataSource {
             cell?.detailTextLabel?.text = String(subject.grade!.intValue)
             cell?.imageView?.image = determineImage(Float(subject.grade!))
         }
-        else {
+        else if subject.trueCount == 0 && subject.falseCount == 0 {
             cell?.imageView?.image = UIImage(named: "NoGrade")
         }
         
@@ -166,8 +166,6 @@ extension ScoreListViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func determineImage(grade: Float) -> UIImage {
-        
-        //if they haven't started the quiz at all will still return F, fix eventually...
         
         if grade < 60 {
             return UIImage(named: "F")!
@@ -188,6 +186,5 @@ extension ScoreListViewController : UITableViewDelegate, UITableViewDataSource {
         else {
             return UIImage(named: "A")!
         }
-        
     }
 }

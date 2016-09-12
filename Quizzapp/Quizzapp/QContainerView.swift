@@ -53,8 +53,6 @@ class QContainerView: UIView {
             
            self.qImageView.frame = CGRectMake(self.bounds.width / 2, self.bounds.height / 2, self.bounds.width / 2, self.bounds.height / 2)
         }
-        
-        
     }
 
     /*

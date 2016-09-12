@@ -30,7 +30,6 @@ class TableViewCell: UITableViewCell {
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         switch screenWidth {
@@ -123,7 +122,6 @@ class TableViewCell: UITableViewCell {
 
         graphView.backgroundColor = UIColor(patternImage: UIImage(named:"graphBackground")!)
         
-        
     }
     
     func scheme() -> String? {
@@ -186,14 +184,11 @@ class TableViewCell: UITableViewCell {
         //grade pic
         
         graphImageView = UIView(frame: gradeImageFrame)
-        //        graphImageView.backgroundColor = UIColor.clearColor()
         
         graphImageView.layer.masksToBounds = true
         
         gradeImage = UIImageView(frame: graphImageView.bounds)
         gradeImage.layer.masksToBounds = true
-        
-        //gradeImage.image = nil
         
         if right == 0 && wrong == 0 {
             

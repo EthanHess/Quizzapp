@@ -11,11 +11,13 @@ import UIKit
 
 let cFont = "Courier"
 
+//Would be better as extension or struct
+
 class Colors {
     
-    var brownColor : UIColor {
+    var brownColor : UIColor { //now green color
         get {
-            return UIColor(red: 102/255, green: 51/255, blue: 15/255, alpha: 1.0)
+            return RGB(1, 33, 2)
         }
     }
     
@@ -27,7 +29,7 @@ class Colors {
     
     var navBackgroundColor : UIColor {
         get {
-            return RGB(8, 7, 56)
+            return RGB(2, 0, 12)
         }
     }
     
@@ -75,14 +77,12 @@ class Colors {
     
     var wrongLabelColor : UIColor {
         get {
-            //return UIColor(red: 249/255, green: 246/255, blue: 34/255, alpha: 1.0)
             return RGB(249, 246, 34)
         }
     }
     
     var rightLabelColor : UIColor {
         get {
-            //return UIColor(red: 48/255, green: 247/255, blue: 34/255, alpha: 1.0)
             return RGB(48, 247, 34)
         }
     }

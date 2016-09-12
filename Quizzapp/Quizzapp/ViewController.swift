@@ -98,10 +98,7 @@ class ViewController: UIViewController {
         
         qTainerView.parentFrame = view.frame
         
-        
         qTainerView.expandCircle()
-        
-//        performSelector(#selector(ViewController.expandSpaceInQ), withObject: nil, afterDelay: 0.1)
         
         self.expandSpaceInQ()
         
@@ -144,11 +141,8 @@ class ViewController: UIViewController {
             } else {
                 
                 labelColor = Colors().qLineColor
-                
             }
-            
         } else {
-            
             labelColor = Colors().qLineColor
         }
         

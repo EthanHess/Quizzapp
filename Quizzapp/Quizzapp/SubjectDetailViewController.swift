@@ -61,24 +61,18 @@ class SubjectDetailViewController: UIViewController {
         }
         
         if (scheme() != nil) {
-            
             if scheme() == space {
-                
                 standardBackground()
                 
             } else if scheme() == nature {
-                
                 customBackground()
                 
             } else {
                 standardBackground()
-                
             }
-            
         } else {
             standardBackground()
         }
-        
     }
     
     func scheme() -> String? {
@@ -100,9 +94,9 @@ class SubjectDetailViewController: UIViewController {
         view.insertSubview(imageView, atIndex: 0)
     }
     
+    //used to pop to root, rename function
+    
     func popToRoot() {
-        
-        //self.navigationController?.popToRootViewControllerAnimated(true)
         self.navigationController?.popViewControllerAnimated(true)
     }
     

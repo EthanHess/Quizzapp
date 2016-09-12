@@ -49,20 +49,15 @@ class DraggableView: UIView {
     func determineImage() {
         
         if (scheme() != nil) {
-            
             if scheme() == space {
-                
                 standardBackground()
                 
             } else if scheme() == nature {
-                
                 customBackground()
                 
             } else {
                 standardBackground()
-                
             }
-            
         } else {
             standardBackground()
         }
@@ -88,8 +83,6 @@ class DraggableView: UIView {
         imageView.image = UIImage(named: "NatureCardBackground")
         imageView.layer.masksToBounds =  true
         addSubview(imageView)
-
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -115,6 +108,4 @@ class DraggableView: UIView {
         }
         
     }
-    
-
 }

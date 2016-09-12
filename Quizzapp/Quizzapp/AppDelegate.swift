@@ -38,16 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setUpAppearance() {
-        
-//        window?.tintColor = Colors().navBackgroundColor
-        
-//        UINavigationBar.appearance().barTintColor = Colors().navBackgroundColor
-//        UINavigationBar.appearance().tintColor = Colors().navTextColor
-//
-//        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: cFont, size: 20)!, NSForegroundColorAttributeName: Colors().navTextColor]
-//        
-//        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: cFont, size: 16)!, NSForegroundColorAttributeName: Colors().navTextColor], forState: .Normal)
-        
+
         if (scheme() != nil) {
             
             if scheme() == space {

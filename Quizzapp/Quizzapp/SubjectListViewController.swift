@@ -96,22 +96,17 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         if (scheme() != nil) {
             
             if scheme() == space {
-                
                 standardBackground()
                 
             } else if scheme() == nature {
-                
                 customBackground()
                 
             } else {
                 standardBackground()
-                
             }
-            
         } else {
             standardBackground()
         }
-        
     }
     
     func presentScores() {
@@ -151,7 +146,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SubjectListViewController.refreshTable), name: "refresh", object: nil)
     }
     
-    deinit {
+    deinit { //could do in view did disappear?
         
         print("Notification observation being removed")
         
@@ -166,6 +161,8 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         let right = Int(subject.trueCount!)
         let wrong = Int(subject.falseCount!)
+        
+        //clear out image views to prevent overlap
         
         cell.bgImageRight.image = nil
         cell.bgImageWrong.image = nil

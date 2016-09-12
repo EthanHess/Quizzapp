@@ -28,18 +28,14 @@ class AddView: UIView {
     func determineImage() {
         
         if (scheme() != nil) {
-            
             if scheme() == space {
-                
                 standardBackground()
                 
             } else if scheme() == nature {
-                
                 customBackground()
                 
             } else {
                 standardBackground()
-                
             }
             
         } else {
