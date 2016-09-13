@@ -19,7 +19,7 @@ class ScoreListViewController: UIViewController {
         super.viewDidLoad()
         
         if noSubjects() {
-            print("Nada") //pop an alert eventually
+            return
         }
 
         else {
@@ -109,10 +109,6 @@ class ScoreListViewController: UIViewController {
     func dismiss() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        dismiss()
-    }
 
     /*
     // MARK: - Navigation
@@ -171,15 +167,15 @@ extension ScoreListViewController : UITableViewDelegate, UITableViewDataSource {
             return UIImage(named: "F")!
         }
         
-        else if grade > 60 && grade < 70 {
+        else if grade >= 60 && grade < 70 {
             return UIImage(named: "D")!
         }
         
-        else if grade > 70 && grade < 80 {
+        else if grade >= 70 && grade < 80 {
             return UIImage(named: "C")!
         }
         
-        else if grade > 80 && grade < 90 {
+        else if grade >= 80 && grade < 90 {
             return UIImage(named: "B")!
         }
         

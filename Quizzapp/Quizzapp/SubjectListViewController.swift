@@ -111,8 +111,15 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func presentScores() {
         
-        let scoreList = ScoreListViewController()
-        self.presentViewController(scoreList, animated: true, completion: nil)
+        if noSubjects() {
+            displayAlert("No Subjects", message: "Please add some classes and try again!")
+        }
+        
+        else {
+            
+            let scoreList = ScoreListViewController()
+            self.presentViewController(scoreList, animated: true, completion: nil)
+        }
     }
     
     func scheme() -> String? {
