@@ -14,15 +14,12 @@ class QSpaceLayer: CAShapeLayer {
     
     override init() {
         super.init()
-        
         defaultImageView()
-    
-        path = centerCirclePathSmall.CGPath
+        path = centerCirclePathSmall.cgPath
     }
     
     func defaultImageView() {
-        
-        fillColor = UIColor(patternImage: UIImage(named: "mainQBackground")!).CGColor
+        fillColor = UIColor(patternImage: UIImage(named: "mainQBackground")!).cgColor
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -30,26 +27,23 @@ class QSpaceLayer: CAShapeLayer {
     }
     
     var centerCirclePathSmall: UIBezierPath {
-        
-        return UIBezierPath(ovalInRect: CGRect(x: 125.0, y: 125.0, width: 0.0, height: 0.0))
+        return UIBezierPath(ovalIn: CGRect(x: 125.0, y: 125.0, width: 0.0, height: 0.0))
     }
     
     var centerCirclePathLarge: UIBezierPath {
-        
-        return UIBezierPath(ovalInRect: CGRect(x: 20.0, y: 20.0, width: 210.0, height: 210.0))
+        return UIBezierPath(ovalIn: CGRect(x: 20.0, y: 20.0, width: 210.0, height: 210.0))
     }
     
     func expandAgain() {
-        
         let expandAnimation: CABasicAnimation = CABasicAnimation(keyPath: "path")
         
-        expandAnimation.fromValue = centerCirclePathSmall.CGPath
-        expandAnimation.toValue = centerCirclePathLarge.CGPath
+        expandAnimation.fromValue = centerCirclePathSmall.cgPath
+        expandAnimation.toValue = centerCirclePathLarge.cgPath
         expandAnimation.duration = animationDuration
         expandAnimation.fillMode = kCAFillModeForwards
-        expandAnimation.removedOnCompletion = false
+        expandAnimation.isRemovedOnCompletion = false
         
-        addAnimation(expandAnimation, forKey: nil)
+        add(expandAnimation, forKey: nil)
         
     }
 }

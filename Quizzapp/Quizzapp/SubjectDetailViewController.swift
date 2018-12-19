@@ -21,12 +21,9 @@ class SubjectDetailViewController: UIViewController {
     var rightLabel : UILabel!
     var wrongLabel : UILabel!
     
-    func updateWithSubject(subject: Subject) {
-        
+    func updateWithSubject(_ subject: Subject) {
         if let subject = self.subject {
-            
             self.subject = subject
-            
             self.title = self.subject.name
         }
     }
@@ -35,10 +32,10 @@ class SubjectDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SubjectDetailViewController.popToRoot))
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SubjectDetailViewController.popToRoot))
         self.navigationItem.leftBarButtonItem = newBackButton;
         
-        self.draggableView = DraggableView(frame: CGRectMake(50, 100, self.view.frame.size.width - 100, self.view.frame.size.height - 200))
+        self.draggableView = DraggableView(frame: CGRect(x: 50, y: 100, width: self.view.frame.size.width - 100, height: self.view.frame.size.height - 200))
         self.view.addSubview(self.draggableView)
         
         rightWrongLabels()
@@ -46,27 +43,19 @@ class SubjectDetailViewController: UIViewController {
         setUpView()
         
         if self.subject.cards?.count == 0 {
-            
-            let alertController = UIAlertController(title: "No cards!", message: "There are no cards yet in this stack, please add one", preferredStyle: UIAlertControllerStyle.Alert)
-      
-            let action = UIAlertAction(title: "Okay!", style: .Cancel, handler: { (action) in
-                
+            let alertController = UIAlertController(title: "No cards!", message: "There are no cards yet in this stack, please add one", preferredStyle: UIAlertControllerStyle.alert)
+            let action = UIAlertAction(title: "Okay!", style: .cancel, handler: { (action) in
                 self.popToRoot()
             })
-            
             alertController.addAction(action)
-            
-            presentViewController(alertController, animated: true, completion: nil)
-            
+            present(alertController, animated: true, completion: nil)
         }
         
         if (scheme() != nil) {
             if scheme() == space {
                 standardBackground()
-                
             } else if scheme() == nature {
                 customBackground()
-                
             } else {
                 standardBackground()
             }
@@ -76,169 +65,134 @@ class SubjectDetailViewController: UIViewController {
     }
     
     func scheme() -> String? {
-        
-        return NSUserDefaults.standardUserDefaults().objectForKey(schemeKey) as? String
+        return UserDefaults.standard.object(forKey: schemeKey) as? String
     }
     
     func standardBackground() {
-        
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "cardViewBackground")
-        view.insertSubview(imageView, atIndex: 0)
+        view.insertSubview(imageView, at: 0)
     }
     
     func customBackground() {
-        
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "DetailBackground")
-        view.insertSubview(imageView, atIndex: 0)
+        view.insertSubview(imageView, at: 0)
     }
     
     //used to pop to root, rename function
     
     func popToRoot() {
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func rightWrongLabels() {
         
-        rightLabel = UILabel(frame: CGRectMake(50, self.view.frame.size.height / 2 - 50, self.view.frame.size.width - 100, 100))
-        rightLabel.backgroundColor = UIColor.clearColor()
+        rightLabel = UILabel(frame: CGRect(x: 50, y: self.view.frame.size.height / 2 - 50, width: self.view.frame.size.width - 100, height: 100))
+        rightLabel.backgroundColor = UIColor.clear
         rightLabel.text = "Right!"
         rightLabel.textColor = Colors().rightLabelColor
-        rightLabel.textAlignment = NSTextAlignment.Center
+        rightLabel.textAlignment = NSTextAlignment.center
         rightLabel.font = UIFont(name: cFont, size: 48)
-        rightLabel.hidden = true
+        rightLabel.isHidden = true
         self.view.addSubview(rightLabel)
         
-        wrongLabel = UILabel(frame: CGRectMake(50, self.view.frame.size.height / 2 - 50, self.view.frame.size.width - 100, 100))
-        wrongLabel.backgroundColor = UIColor.clearColor()
+        wrongLabel = UILabel(frame: CGRect(x: 50, y: self.view.frame.size.height / 2 - 50, width: self.view.frame.size.width - 100, height: 100))
+        wrongLabel.backgroundColor = UIColor.clear
         wrongLabel.text = "Wrong!"
         wrongLabel.textColor = Colors().rightLabelColor
-        wrongLabel.textAlignment = NSTextAlignment.Center
+        wrongLabel.textAlignment = NSTextAlignment.center
         wrongLabel.font = UIFont(name: cFont, size: 48)
-        wrongLabel.hidden = true
+        wrongLabel.isHidden = true
         self.view.addSubview(wrongLabel)
     }
     
     func flipCard() {
-        
-        UIView.transitionWithView(draggableView, duration: 1, options: UIViewAnimationOptions.TransitionFlipFromRight, animations: { () -> Void in
-            
+        UIView.transition(with: draggableView, duration: 1, options: UIViewAnimationOptions.transitionFlipFromRight, animations: { () -> Void in
             self.draggableView.flipCard()
-            
             }, completion: nil)
     }
     
     
-    func dragView(gesture: UIPanGestureRecognizer) {
+    func dragView(_ gesture: UIPanGestureRecognizer) {
         
         //moves view
-        
-        let translation = gesture.translationInView(self.view)
+        let translation = gesture.translation(in: self.view)
         let dragView = gesture.view!
         
         dragView.center = CGPoint(x: self.view.bounds.width / 2 + translation.x, y: self.view.bounds.height + translation.y)
         
         let xFromCenter = dragView.center.x - self.view.bounds.width / 2
-        
         let scale = min(100 / abs(xFromCenter), 1)
-        
-        var rotation = CGAffineTransformMakeRotation(xFromCenter / 200)
-        var stretch = CGAffineTransformScale(rotation, scale, scale)
+        var rotation = CGAffineTransform(rotationAngle: xFromCenter / 200)
+        var stretch = rotation.scaledBy(x: scale, y: scale)
         
         dragView.transform = stretch
         
         //change background color accordingly 
         
         if dragView.center.x < 150 {
-            
-            wrongLabel.hidden = false
+            wrongLabel.isHidden = false
             wrongLabel.alpha = 0.5
-            rightLabel.hidden = true
-            
-            performSelector(#selector(SubjectDetailViewController.hideWrongLabel), withObject: nil, afterDelay: 1)
-            
+            rightLabel.isHidden = true
+            perform(#selector(SubjectDetailViewController.hideWrongLabel), with: nil, afterDelay: 1)
         }
         
         if dragView.center.x > self.view.bounds.width - 150 {
-            
-            rightLabel.hidden = false
+            rightLabel.isHidden = false
             rightLabel.alpha = 0.5
-            wrongLabel.hidden = true
-            
-            performSelector(#selector(SubjectDetailViewController.hideRightLabel), withObject: nil, afterDelay: 1)
-            
+            wrongLabel.isHidden = true
+            perform(#selector(SubjectDetailViewController.hideRightLabel), with: nil, afterDelay: 1)
         }
         
         //decifer whether answer was wrong or right
         
-        if gesture.state == UIGestureRecognizerState.Ended {
-            
+        if gesture.state == UIGestureRecognizerState.ended {
             //TODO create boolean variable for answer
-            
             if dragView.center.x < 100 {
-                
                 print("wrong")
-                
                 self.wrongArray.append(false)
                 self.playSoundWithBool(false)
             }
             
             else if dragView.center.x > self.view.bounds.width - 100 {
-                
                 print("right")
-                
                 self.rightArray.append(true)
                 self.playSoundWithBool(true)
             }
-            
             //save boolean to current card
-            
             //resetting dragView
-            rotation = CGAffineTransformMakeRotation(0)
-            stretch = CGAffineTransformScale(rotation, 1, 1)
+            rotation = CGAffineTransform(rotationAngle: 0)
+            stretch = rotation.scaledBy(x: 1, y: 1)
             dragView.transform = stretch
             dragView.center = CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)
-            
             //call update card
-            
             updateCard()
         }
     }
     
     func hideWrongLabel() {
-        
-        wrongLabel.hidden = true
+        wrongLabel.isHidden = true
     }
     
     func hideRightLabel() {
-        
-        rightLabel.hidden = true
+        rightLabel.isHidden = true
     }
     
-    func playSoundWithBool(right: Bool) {
-        
-        let urlRight = NSBundle.mainBundle().URLForResource("right", withExtension: "wav")
-        let urlWrong = NSBundle.mainBundle().URLForResource("wrong", withExtension: "wav")
+    func playSoundWithBool(_ right: Bool) {
+        let urlRight = Bundle.main.url(forResource: "right", withExtension: "wav")
+        let urlWrong = Bundle.main.url(forResource: "wrong", withExtension: "wav")
         
         if right {
-            
             SoundController.sharedManager.playAudioFileAtURL(urlRight!)
-            
         } else {
-            
             SoundController.sharedManager.playAudioFileAtURL(urlWrong!)
-            
         }
     }
     
     func updateCard() {
-        
         let cardCount = (self.subject.cards?.array.count)! - 2
-        
         if self.selectedCardIndex <= cardCount {
-            
             self.selectedCardIndex += 1
             self.currentCard = self.subject.cards?.array[self.selectedCardIndex] as? Card
             self.draggableView.questionLabel.text = self.currentCard?.question
@@ -246,46 +200,38 @@ class SubjectDetailViewController: UIViewController {
             
             //flip it back over
             if self.draggableView.isFlipped == true {
-                
                 draggableView.flipCard()
             }
-        
         } else {
-            
              CardController.sharedInstance.addFalseCountToSubject(self.subject, falseCount: wrongArray.count)
              CardController.sharedInstance.addTrueCountToSubject(self.subject, trueCount: rightArray.count)
             
             //reload VC table view
+             NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "refresh"), object: nil))
             
-             NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "refresh", object: nil))
-
-             let alertController = UIAlertController(title: "Finished", message: String(format: "You got %i right and %i wrong", rightArray.count, wrongArray.count), preferredStyle: UIAlertControllerStyle.Alert)
+             let alertController = UIAlertController(title: "Finished", message: String(format: "You got %i right and %i wrong", rightArray.count, wrongArray.count), preferredStyle: UIAlertControllerStyle.alert)
             
-            let okayAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: { (action) -> Void in
-                
+            let okayAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.cancel, handler: { (action) -> Void in
                 self.setUpView()
             })
-            
             alertController.addAction(okayAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         }
-        
     }
     
     func setUpView() {
-        
+
         selectedCardIndex = 0
         
-        wrongArray.removeAll(keepCapacity: true)
-        rightArray.removeAll(keepCapacity: true)
+        wrongArray.removeAll(keepingCapacity: true)
+        rightArray.removeAll(keepingCapacity: true)
         
-        wrongLabel.hidden = true
-        rightLabel.hidden = true
+        wrongLabel.isHidden = true
+        rightLabel.isHidden = true
         
         self.updateWithSubject(self.subject!)
         
         //TODO: Clear array here
-        
         if let firstCard = self.subject?.cards?.array.first as? Card {
             self.currentCard = firstCard
         }
@@ -295,7 +241,6 @@ class SubjectDetailViewController: UIViewController {
         
         //flip it back over
         if self.draggableView.isFlipped == true {
-            
             draggableView.flipCard()
         }
         

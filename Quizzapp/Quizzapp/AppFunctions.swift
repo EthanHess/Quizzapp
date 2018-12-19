@@ -12,19 +12,18 @@ import UIKit
 class AppFunctions {
     
     func scheme() -> String? {
-        
-        return NSUserDefaults.standardUserDefaults().objectForKey(schemeKey) as? String
+        return UserDefaults.standard.object(forKey: schemeKey) as? String
     }
     
-    func setNavBarAppearanceForVC(viewController: UIViewController, backgroundColor: UIColor, textColor: UIColor) {
+    func setNavBarAppearanceForVC(_ viewController: UIViewController, backgroundColor: UIColor, textColor: UIColor) {
         
         viewController.navigationController?.navigationBar.barTintColor = backgroundColor
         viewController.navigationController?.navigationBar.tintColor = textColor
         
         viewController.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: cFont, size: 20)!, NSForegroundColorAttributeName: textColor]
         
-        viewController.navigationController?.navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: cFont, size: 16)!, NSForegroundColorAttributeName: textColor], forState: .Normal)
-        viewController.navigationController?.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: cFont, size: 16)!, NSForegroundColorAttributeName: textColor], forState: .Normal)
+        viewController.navigationController?.navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: cFont, size: 16)!, NSForegroundColorAttributeName: textColor], for: UIControlState())
+        viewController.navigationController?.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: cFont, size: 16)!, NSForegroundColorAttributeName: textColor], for: UIControlState())
     }
     
 }

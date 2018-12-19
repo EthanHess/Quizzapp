@@ -15,35 +15,33 @@ class Stack: NSObject {
     
     override init() {
         super.init()
-        
         self.setupManagedObjectContext()
     }
 
     func setupManagedObjectContext () {
-        self.managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
+        self.managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
         self.managedObjectContext!.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel())
-        
-        let error = NSErrorPointer()
-        
+    
+        let error: NSErrorPointer = nil
         do {
-            try self.managedObjectContext!.persistentStoreCoordinator?.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.storeURL(), options: nil)
+            try self.managedObjectContext!.persistentStoreCoordinator?.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: self.storeURL(), options: nil)
         } catch let error1 as NSError {
-            error.memory = error1
+            error?.pointee = error1
         }
     }
     
-    func storeURL () -> NSURL? {
-        let documentsDirectory = try? NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true)
+    func storeURL () -> URL? {
+        let documentsDirectory = try? FileManager.default.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: true)
         
-        return documentsDirectory?.URLByAppendingPathComponent("db.sqlite")
+        return documentsDirectory?.appendingPathComponent("db.sqlite")
     }
     
-    func modelURL () -> NSURL {
-        return NSBundle.mainBundle().URLForResource("Model", withExtension: "momd")!
+    func modelURL () -> URL {
+        return Bundle.main.url(forResource: "Model", withExtension: "momd")!
     }
     
     func managedObjectModel () -> NSManagedObjectModel {
-        return NSManagedObjectModel(contentsOfURL: self.modelURL())!
+        return NSManagedObjectModel(contentsOf: self.modelURL())!
     }
     
     // shared instance

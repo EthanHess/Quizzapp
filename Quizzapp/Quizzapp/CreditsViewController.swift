@@ -33,114 +33,92 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.view.backgroundColor = UIColor(red: 24/255, green: 66/255, blue: 52/255, alpha: 1.0)
         
-        let tableFrame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height / 2)
+        let tableFrame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height / 2)
 
-        self.tableView = UITableView(frame: tableFrame, style: .Grouped)
-        self.tableView.backgroundColor = UIColor.clearColor()
+        self.tableView = UITableView(frame: tableFrame, style: .grouped)
+        self.tableView.backgroundColor = UIColor.clear
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "creditCell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "creditCell")
         self.scrollView.addSubview(self.tableView)
         
         self.segControl = UISegmentedControl(items: ["Space Scheme", "Nature Scheme"])
-        self.segControl.frame = CGRectMake(50, view.frame.size.height / 2 + 50, view.frame.size.width - 100, 50)
-        self.segControl.tintColor = UIColor.whiteColor()
+        self.segControl.frame = CGRect(x: 50, y: view.frame.size.height / 2 + 50, width: view.frame.size.width - 100, height: 50)
+        self.segControl.tintColor = UIColor.white
         self.segControl.backgroundColor = UIColor(red: 72/255, green: 87/255, blue: 196/255, alpha: 1.0)
         
-        self.segControl.addTarget(self, action: #selector(CreditsViewController.valueChanged(_:)), forControlEvents: .ValueChanged)
+        self.segControl.addTarget(self, action: #selector(CreditsViewController.valueChanged(_:)), for: .valueChanged)
         self.scrollView.addSubview(segControl)
         
-        let buttonFrame = CGRectMake(50, self.view.frame.size.height / 2 + 120, view.frame.size.width - 100, 50)
+        let buttonFrame = CGRect(x: 50, y: self.view.frame.size.height / 2 + 120, width: view.frame.size.width - 100, height: 50)
         
         self.soundButton = UIButton(frame: buttonFrame)
-        self.soundButton.setTitle("Turn off sound", forState: .Normal)
+        self.soundButton.setTitle("Turn off sound", for: UIControlState())
         self.soundButton.backgroundColor = UIColor(red: 72/255, green: 87/255, blue: 196/255, alpha: 1.0)
-        self.soundButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.soundButton.addTarget(self, action: #selector(CreditsViewController.toggleSound), forControlEvents: .TouchUpInside)
+        self.soundButton.setTitleColor(UIColor.white, for: UIControlState())
+        self.soundButton.addTarget(self, action: #selector(CreditsViewController.toggleSound), for: .touchUpInside)
         self.soundButton.layer.cornerRadius = 5
-        self.soundButton.layer.borderColor = UIColor.whiteColor().CGColor
+        self.soundButton.layer.borderColor = UIColor.white.cgColor
         self.soundButton.layer.borderWidth = 1
         self.scrollView.addSubview(soundButton)
-        
     }
     
     func setUpScrollView() {
-        
         scrollView = UIScrollView(frame: self.view.bounds)
-        scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + 250)
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height + 250)
         
-        self.view.sendSubviewToBack(scrollView)
+        self.view.sendSubview(toBack: scrollView)
         self.view.addSubview(scrollView)
-        
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return creditsArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("creditCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "creditCell")
         
         cell?.textLabel?.text = creditsArray[indexPath.row]
-        cell?.backgroundColor = UIColor.darkGrayColor()
-        cell?.textLabel?.textColor = UIColor.whiteColor()
+        cell?.backgroundColor = UIColor.darkGray
+        cell?.textLabel?.textColor = UIColor.white
         cell?.textLabel?.font = UIFont(name: cFont, size: 12)
         cell?.textLabel?.numberOfLines = 0
     
         return cell!
-        
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
     
-    func valueChanged(sender: UISegmentedControl) {
-        
+    func valueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            
-            NSUserDefaults.standardUserDefaults().setObject(space, forKey: schemeKey)
-            
-            AppFunctions().setNavBarAppearanceForVC(self, backgroundColor: Colors().navBackgroundColor, textColor: UIColor.whiteColor())
-            
+            UserDefaults.standard.set(space, forKey: schemeKey)
+            AppFunctions().setNavBarAppearanceForVC(self, backgroundColor: Colors().navBackgroundColor, textColor: UIColor.white)
             break
         case 1:
-            
-            NSUserDefaults.standardUserDefaults().setObject(nature, forKey: schemeKey)
-            
-            AppFunctions().setNavBarAppearanceForVC(self, backgroundColor: Colors().brownColor, textColor: UIColor.whiteColor())
-            
+            UserDefaults.standard.set(nature, forKey: schemeKey)
+            AppFunctions().setNavBarAppearanceForVC(self, backgroundColor: Colors().brownColor, textColor: UIColor.white)
             break
         default:
-            
-            NSUserDefaults.standardUserDefaults().setObject(space, forKey: schemeKey)
-            
-            AppFunctions().setNavBarAppearanceForVC(self, backgroundColor: Colors().navBackgroundColor, textColor: UIColor.whiteColor())
-            
+            UserDefaults.standard.set(space, forKey: schemeKey)
+            AppFunctions().setNavBarAppearanceForVC(self, backgroundColor: Colors().navBackgroundColor, textColor: UIColor.white)
             break
         }
-        
     }
     
     func toggleSound() {
-        
         if soundOn {
-            
             soundOn = false
-            soundButton.setTitle("Turn on sound", forState: .Normal)
-            NSUserDefaults.standardUserDefaults().setBool(soundOn, forKey: soundKey)
-            
+            soundButton.setTitle("Turn on sound", for: UIControlState())
+            UserDefaults.standard.set(soundOn, forKey: soundKey)
         } else {
-            
             soundOn = true
-            soundButton.setTitle("Turn off sound", forState: .Normal)
-            NSUserDefaults.standardUserDefaults().setBool(soundOn, forKey: soundKey)
+            soundButton.setTitle("Turn off sound", for: UIControlState())
+            UserDefaults.standard.set(soundOn, forKey: soundKey)
         }
-        
     }
 
     override func didReceiveMemoryWarning() {

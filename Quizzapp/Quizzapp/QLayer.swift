@@ -15,8 +15,8 @@ class QLayer: CAShapeLayer {
     override init() {
         super.init()
         
-        fillColor = Colors().qLineColor.CGColor
-        path = qPathSmall.CGPath
+        fillColor = Colors().qLineColor.cgColor
+        path = qPathSmall.cgPath
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,25 +24,23 @@ class QLayer: CAShapeLayer {
     }
     
     var qPathSmall: UIBezierPath {
-        return UIBezierPath(ovalInRect: CGRect(x: 125.0, y: 125.0, width: 0.0, height: 0.0))
+        return UIBezierPath(ovalIn: CGRect(x: 125.0, y: 125.0, width: 0.0, height: 0.0))
     }
     
     var qPathLarge: UIBezierPath {
-        return UIBezierPath(ovalInRect: CGRect(x: 0.0, y: 0.0, width: 250.0, height: 250.0))
+        return UIBezierPath(ovalIn: CGRect(x: 0.0, y: 0.0, width: 250.0, height: 250.0))
     }
     
-    
     func expand() {
-        
         let expandAnimation: CABasicAnimation = CABasicAnimation(keyPath: "path")
         
-        expandAnimation.fromValue = qPathSmall.CGPath
-        expandAnimation.toValue = qPathLarge.CGPath
+        expandAnimation.fromValue = qPathSmall.cgPath
+        expandAnimation.toValue = qPathLarge.cgPath
         expandAnimation.duration = animationDuration
         expandAnimation.fillMode = kCAFillModeForwards
-        expandAnimation.removedOnCompletion = false
+        expandAnimation.isRemovedOnCompletion = false
         
-        addAnimation(expandAnimation, forKey: nil)
+        add(expandAnimation, forKey: nil)
     }
 
 }

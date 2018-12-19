@@ -12,69 +12,53 @@ import CoreData
 class CardController: NSObject {
     
     var subjects: [Subject] {
-        
         get {
-            return (try? Stack.sharedInstance.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Subject"))) as! Array
+            return (try? Stack.sharedInstance.managedObjectContext.fetch(NSFetchRequest(entityName: "Subject"))) as! Array
         }
     }
     
     static let sharedInstance = CardController ()
     
-    
-    func addGradeToSubject(subject: Subject, grade: Float) {
-
-        subject.grade = grade
+    func addGradeToSubject(_ subject: Subject, grade: Float) {
+        subject.grade = grade as NSNumber?
         save()
     }
     
-    func addSubjectWithName(name: String) {
-        
-        let subject = NSEntityDescription.insertNewObjectForEntityForName("Subject", inManagedObjectContext: Stack.sharedInstance.managedObjectContext) as! Subject
-        
+    func addSubjectWithName(_ name: String) {
+        let subject = NSEntityDescription.insertNewObject(forEntityName: "Subject", into: Stack.sharedInstance.managedObjectContext) as! Subject
         subject.name = name
         save()
     }
     
-    func addCardToSubject(subject: Subject, question: String, answer: String) {
-        
-        let card = NSEntityDescription.insertNewObjectForEntityForName("Card", inManagedObjectContext: Stack.sharedInstance.managedObjectContext) as! Card
-        
+    func addCardToSubject(_ subject: Subject, question: String, answer: String) {
+        let card = NSEntityDescription.insertNewObject(forEntityName: "Card", into: Stack.sharedInstance.managedObjectContext) as! Card
         card.subject = subject
         card.question = question
         card.answer = answer
         save()
     }
     
-    func removeSubject(subject: Subject) {
-        
-        subject.managedObjectContext?.deleteObject(subject)
+    func removeSubject(_ subject: Subject) {
+        subject.managedObjectContext?.delete(subject)
         save()
     }
     
-    func addFalseCountToSubject(subject: Subject, falseCount: Int) {
-        
-        subject.falseCount = falseCount
+    func addFalseCountToSubject(_ subject: Subject, falseCount: Int) {
+        subject.falseCount = falseCount as NSNumber?
         save()
-        
     }
     
-    func addTrueCountToSubject(subject: Subject, trueCount: Int) {
-        
-        subject.trueCount = trueCount
+    func addTrueCountToSubject(_ subject: Subject, trueCount: Int) {
+        subject.trueCount = trueCount as NSNumber?
         save()
     }
     
     func save() {
-        
         do {
-            
             try Stack.sharedInstance.managedObjectContext.save()
         }
-        
         catch _ {
-            
             //catch error here
         }
     }
-
 }

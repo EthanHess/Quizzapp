@@ -14,16 +14,16 @@ class QContainerView: UIView {
     let spaceLayer = QSpaceLayer()
     let qImageView = UIImageView()
     
-    var parentFrame : CGRect = CGRectZero
+    var parentFrame : CGRect = CGRect.zero
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         
-        qImageView.frame = CGRectMake(self.bounds.width, self.bounds.height, 0, 0)
+        qImageView.frame = CGRect(x: self.bounds.width, y: self.bounds.height, width: 0, height: 0)
         qImageView.image = UIImage(named: "QLine")
-        self.bringSubviewToFront(qImageView)
+        self.bringSubview(toFront: qImageView)
         self.addSubview(qImageView)
     }
     
@@ -32,27 +32,20 @@ class QContainerView: UIView {
     }
     
     func expandCircle() {
-        
-        layer.insertSublayer(qLayer, atIndex: 0)
+        layer.insertSublayer(qLayer, at: 0)
         qLayer.expand()
-        
     }
     
     func expandSmallerCircle() {
-
-        layer.insertSublayer(spaceLayer, atIndex: 1)
+        layer.insertSublayer(spaceLayer, at: 1)
         spaceLayer.expandAgain()
-        
-        NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: #selector(QContainerView.drawQLine), userInfo: nil, repeats: false)
-        
+        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(QContainerView.drawQLine), userInfo: nil, repeats: false)
     }
     
     func drawQLine() {
-        
-        UIView.animateWithDuration(1) {
-            
-           self.qImageView.frame = CGRectMake(self.bounds.width / 2, self.bounds.height / 2, self.bounds.width / 2, self.bounds.height / 2)
-        }
+        UIView.animate(withDuration: 1, animations: {
+           self.qImageView.frame = CGRect(x: self.bounds.width / 2, y: self.bounds.height / 2, width: self.bounds.width / 2, height: self.bounds.height / 2)
+        }) 
     }
 
     /*

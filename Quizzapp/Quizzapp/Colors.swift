@@ -93,7 +93,7 @@ class Colors {
         }
     }
     
-    private func RGB(r: CGFloat, _ g: CGFloat, _ b: CGFloat) -> UIColor {
+    fileprivate func RGB(_ r: CGFloat, _ g: CGFloat, _ b: CGFloat) -> UIColor {
         return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }
     

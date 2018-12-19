@@ -21,40 +21,37 @@ class DraggableView: UIView {
 
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
-        self.layer.borderColor = Colors().cardLineColor.CGColor
+        self.layer.borderColor = Colors().cardLineColor.cgColor
         self.layer.borderWidth = 1
         
-        questionLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 20, 250))
+        questionLabel = UILabel(frame: CGRect(x: 10, y: 20, width: self.frame.size.width - 20, height: 250))
         questionLabel.numberOfLines = 0
         questionLabel.textColor = Colors().cardTextColor
         questionLabel.font = UIFont(name: cFont, size: 16)
-        questionLabel.textAlignment = NSTextAlignment.Center
+        questionLabel.textAlignment = NSTextAlignment.center
         questionLabel.backgroundColor = Colors().cardLabelBackgroundColor
         questionLabel.layer.masksToBounds = true
         questionLabel.layer.cornerRadius = 10
         self.addSubview(questionLabel)
         
-        answerLabel = UILabel(frame: CGRectMake(10, 20, self.frame.size.width - 20, 250))
+        answerLabel = UILabel(frame: CGRect(x: 10, y: 20, width: self.frame.size.width - 20, height: 250))
         answerLabel.numberOfLines = 0
         answerLabel.textColor = Colors().cardTextColor
         answerLabel.font = UIFont(name: cFont, size: 16)
-        answerLabel.textAlignment = NSTextAlignment.Center
+        answerLabel.textAlignment = NSTextAlignment.center
         answerLabel.backgroundColor = Colors().cardLabelBackgroundColor
         answerLabel.layer.masksToBounds = true
         answerLabel.layer.cornerRadius = 10
-        answerLabel.hidden = true
+        answerLabel.isHidden = true
         self.addSubview(answerLabel)
     }
     
     func determineImage() {
-        
         if (scheme() != nil) {
             if scheme() == space {
                 standardBackground()
-                
             } else if scheme() == nature {
                 customBackground()
-                
             } else {
                 standardBackground()
             }
@@ -64,21 +61,17 @@ class DraggableView: UIView {
     }
     
     func scheme() -> String? {
-        
-        return NSUserDefaults.standardUserDefaults().objectForKey(schemeKey) as? String
+        return UserDefaults.standard.object(forKey: schemeKey) as? String
     }
     
     func standardBackground() {
-        
         let imageView = UIImageView(frame: self.bounds)
         imageView.image = UIImage(named: "cardBackground")
         imageView.layer.masksToBounds =  true
         addSubview(imageView)
-
     }
     
     func customBackground() {
-        
         let imageView = UIImageView(frame: self.bounds)
         imageView.image = UIImage(named: "NatureCardBackground")
         imageView.layer.masksToBounds =  true
@@ -90,22 +83,14 @@ class DraggableView: UIView {
     }
     
     func flipCard() {
-        
         if isFlipped == false {
-            
-            questionLabel.hidden = true
-            answerLabel.hidden = false
-            
+            questionLabel.isHidden = true
+            answerLabel.isHidden = false
             isFlipped = true
-        }
-        
-        else {
-            
-            questionLabel.hidden = false
-            answerLabel.hidden = true
-            
+        } else {
+            questionLabel.isHidden = false
+            answerLabel.isHidden = true
             isFlipped = false
         }
-        
     }
 }

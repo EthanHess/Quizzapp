@@ -15,16 +15,16 @@ class SoundController: NSObject {
     
     static let sharedManager = SoundController ()
     
-    func playAudioFileAtURL(url: NSURL) {
+    func playAudioFileAtURL(_ url: URL) {
         
-        if NSUserDefaults.standardUserDefaults().boolForKey(soundKey) {
+        //do/catch?
+        if UserDefaults.standard.bool(forKey: soundKey) {
         
-        try! player = AVAudioPlayer(contentsOfURL: url)
+        try! player = AVAudioPlayer(contentsOf: url)
         player.numberOfLoops = 0
         player.play()
             
         } else {
-            
             return
         }
     }
