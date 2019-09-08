@@ -91,17 +91,19 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.view.addSubview(self.addCardView)
         
-        //add instructions imageView
-        addInstructionsImageView = UIImageView(frame: CGRect(x: 80, y: 200, width: self.view.frame.size.width - 160, height: self.view.frame.size.height - 300))
-        addInstructionsImageView.image = UIImage(named: "QAddBackground")
+        //add instructions imageView (have a blurb pop out from nav bar, with icon, this old drawing is ugly)
         
-        if self.noSubjects() {
-            addInstructionsImageView.isHidden = false
-        } else {
-            addInstructionsImageView.isHidden = true
-        }
+//        addInstructionsImageView = UIImageView(frame: CGRect(x: 80, y: 200, width: self.view.frame.size.width - 160, height: self.view.frame.size.height - 300))
+//        addInstructionsImageView.image = UIImage(named: "QAddBackground")
+//
+//        if self.noSubjects() {
+//            addInstructionsImageView.isHidden = false
+//        } else {
+//            addInstructionsImageView.isHidden = true
+//        }
+//
+//        view.insertSubview(addInstructionsImageView, at: 1)
         
-        view.insertSubview(addInstructionsImageView, at: 1)
         //determine BG via scheme
         
         if (scheme() != nil) {
@@ -132,7 +134,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
 
     func standardBackground() {
         let imageView = UIImageView(frame: view.bounds)
-        imageView.image = UIImage(named: "listBackground")
+        imageView.image = UIImage(named: "galaxyWide")
         view.insertSubview(imageView, at: 0)
     }
     
@@ -212,7 +214,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
             let nameField = alertController.textFields![0]
             if nameField.text != "" {
                 CardController.sharedInstance.addSubjectWithName(nameField.text!)
-                self.addInstructionsImageView.isHidden = true
+                //self.addInstructionsImageView.isHidden = true
                 self.refreshTable()
             } else {
                 self.displayAlert("Please add a title", message: "")

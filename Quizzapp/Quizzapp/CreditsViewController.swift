@@ -25,20 +25,31 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var scrollView : UIScrollView!
     
     var creditsArray = ["Sound URLs, courtesy of Freesound.org", "Wrong Sound: https://www.freesound.org/people/Bertrof/sounds/131657/", "Right Sound: https://www.freesound.org/people/rhodesmas/sounds/320777/"]
+    
+    var theBackground : UIImageView = {
+        let theIV = UIImageView()
+        theIV.image = UIImage(named: "galaxyWideBlue")
+        return theIV
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpScrollView()
+        backgroundImage()
         
         self.view.backgroundColor = UIColor(red: 24/255, green: 66/255, blue: 52/255, alpha: 1.0)
         
-        let tableFrame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height / 2)
+        let tableFrame = CGRect(x: 10, y: 0, width: view.frame.size.width - 20, height: view.frame.size.height / 2)
 
         self.tableView = UITableView(frame: tableFrame, style: .grouped)
         self.tableView.backgroundColor = UIColor.clear
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.layer.cornerRadius = 5
+        self.tableView.layer.borderColor = UIColor.white.cgColor
+        self.tableView.clipsToBounds = true
+        self.tableView.separatorStyle = .none
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "creditCell")
         self.scrollView.addSubview(self.tableView)
         
@@ -63,6 +74,11 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.scrollView.addSubview(soundButton)
     }
     
+    fileprivate func backgroundImage() {
+        theBackground.frame = self.view.bounds
+        self.view.insertSubview(theBackground, at: 0)
+    }
+    
     func setUpScrollView() {
         scrollView = UIScrollView(frame: self.view.bounds)
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height + 250)
@@ -80,7 +96,8 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "creditCell")
         
         cell?.textLabel?.text = creditsArray[indexPath.row]
-        cell?.backgroundColor = UIColor.darkGray
+        //cell?.backgroundColor = UIColor.darkGray
+        cell?.backgroundColor = Colors().niceBlue
         cell?.textLabel?.textColor = UIColor.white
         cell?.textLabel?.font = UIFont(name: cFont, size: 12)
         cell?.textLabel?.numberOfLines = 0

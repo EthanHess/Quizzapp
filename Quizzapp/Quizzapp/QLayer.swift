@@ -15,7 +15,8 @@ class QLayer: CAShapeLayer {
     override init() {
         super.init()
         
-        fillColor = Colors().qLineColor.cgColor
+        //fillColor = Colors().qLineColor.cgColor
+        fillColor = Colors().niceBlue.cgColor
         path = qPathSmall.cgPath
     }
     

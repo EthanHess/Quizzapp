@@ -70,20 +70,25 @@ class SubjectDetailViewController: UIViewController {
     
     func standardBackground() {
         let imageView = UIImageView(frame: view.bounds)
-        imageView.image = UIImage(named: "cardViewBackground")
+        imageView.image = UIImage(named: "galaxyWideBlue")
         view.insertSubview(imageView, at: 0)
     }
     
     func customBackground() {
         let imageView = UIImageView(frame: view.bounds)
-        imageView.image = UIImage(named: "DetailBackground")
+        //imageView.image = UIImage(named: "DetailBackground")
+        imageView.image = UIImage(named: "galaxyWideBlue") //TODO, find new nature pic
         view.insertSubview(imageView, at: 0)
     }
     
     //used to pop to root, rename function
     
     func popToRoot() {
-        self.navigationController?.popViewController(animated: true)
+        guard let navController = self.navigationController else {
+            print("No NC \(self)")
+            return
+        }
+        navController.popViewController(animated: true)
     }
     
     func rightWrongLabels() {

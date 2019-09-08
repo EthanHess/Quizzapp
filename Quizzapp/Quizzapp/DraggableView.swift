@@ -17,29 +17,31 @@ class DraggableView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        determineImage()
+        //determineImage()
+        
+        self.backgroundColor = UIColor(red: 0/255, green: 79/255, blue: 206/255, alpha: 1.0)
 
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
-        self.layer.borderColor = Colors().cardLineColor.cgColor
+        self.layer.borderColor = Colors().niceBlue.cgColor
         self.layer.borderWidth = 1
         
         questionLabel = UILabel(frame: CGRect(x: 10, y: 20, width: self.frame.size.width - 20, height: 250))
         questionLabel.numberOfLines = 0
-        questionLabel.textColor = Colors().cardTextColor
+        questionLabel.textColor = Colors().niceBlue
         questionLabel.font = UIFont(name: cFont, size: 16)
         questionLabel.textAlignment = NSTextAlignment.center
-        questionLabel.backgroundColor = Colors().cardLabelBackgroundColor
+        questionLabel.backgroundColor = UIColor.black
         questionLabel.layer.masksToBounds = true
         questionLabel.layer.cornerRadius = 10
         self.addSubview(questionLabel)
         
         answerLabel = UILabel(frame: CGRect(x: 10, y: 20, width: self.frame.size.width - 20, height: 250))
         answerLabel.numberOfLines = 0
-        answerLabel.textColor = Colors().cardTextColor
+        answerLabel.textColor = Colors().niceBlue
         answerLabel.font = UIFont(name: cFont, size: 16)
         answerLabel.textAlignment = NSTextAlignment.center
-        answerLabel.backgroundColor = Colors().cardLabelBackgroundColor
+        answerLabel.backgroundColor = UIColor.black
         answerLabel.layer.masksToBounds = true
         answerLabel.layer.cornerRadius = 10
         answerLabel.isHidden = true

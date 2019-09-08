@@ -51,7 +51,8 @@ class ViewController: UIViewController {
     
     func defaultImageView() {
         let imageView = UIImageView(frame: view.bounds)
-        imageView.image = UIImage(named: "mainQBackground")
+        //imageView.image = UIImage(named: "mainQBackground")
+        imageView.image = UIImage(named: "QAPiPhone") //TODO check for ipad
         view.addSubview(imageView)
     }
     
@@ -101,14 +102,15 @@ class ViewController: UIViewController {
     func setUpOtherLetters() {
         if (scheme() != nil) {
             if scheme() == space {
-                labelColor = Colors().qLineColor
+                labelColor = Colors().niceBlue
             } else if scheme() == nature {
-                labelColor = UIColor.black
+                //labelColor = UIColor.black
+                labelColor = Colors().niceBlue
             } else {
-                labelColor = Colors().qLineColor
+                labelColor = Colors().niceBlue
             }
         } else {
-            labelColor = Colors().qLineColor
+            labelColor = Colors().niceBlue
         }
         
         let labelDimension : CGFloat = self.view.frame.size.width / 6
@@ -167,6 +169,13 @@ class ViewController: UIViewController {
         pLabel.textColor = labelColor
         pLabel.backgroundColor = UIColor.clear
         
+        labelStylizer(theLabel: uLabel)
+        labelStylizer(theLabel: iLabel)
+        labelStylizer(theLabel: z1Label)
+        labelStylizer(theLabel: z2Label)
+        labelStylizer(theLabel: aLabel)
+        labelStylizer(theLabel: pLabel)
+        
         view.addSubview(uLabel)
         view.addSubview(iLabel)
         view.addSubview(z1Label)
@@ -175,6 +184,14 @@ class ViewController: UIViewController {
         view.addSubview(pLabel)
         
         animateLabels()
+    }
+    
+    fileprivate func labelStylizer(theLabel: UILabel) {
+        theLabel.backgroundColor = .black
+        theLabel.layer.cornerRadius = 37.5
+        theLabel.layer.borderColor = Colors().niceBlue.cgColor
+        theLabel.layer.borderWidth = 1
+        theLabel.layer.masksToBounds = true
     }
     
     func animateLabels() {
