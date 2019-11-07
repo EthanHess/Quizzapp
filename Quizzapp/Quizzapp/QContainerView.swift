@@ -42,7 +42,7 @@ class QContainerView: UIView {
         Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(QContainerView.drawQLine), userInfo: nil, repeats: false)
     }
     
-    func drawQLine() {
+    @objc func drawQLine() {
         UIView.animate(withDuration: 1, animations: {
            self.qImageView.frame = CGRect(x: self.bounds.width / 2, y: self.bounds.height / 2, width: self.bounds.width / 2, height: self.bounds.height / 2)
         }) 

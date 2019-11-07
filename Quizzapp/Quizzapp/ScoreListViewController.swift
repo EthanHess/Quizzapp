@@ -103,7 +103,7 @@ class ScoreListViewController: UIViewController {
         return objects
     }
     
-    func dismissSelf() {
+    @objc func dismissSelf() {
         self.dismiss(animated: true, completion: nil)
     }
 

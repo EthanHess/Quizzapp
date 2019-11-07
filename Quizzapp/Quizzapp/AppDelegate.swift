@@ -57,8 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setNavBarAppearance(_ backgroundColor: UIColor, textColor: UIColor, fontName: String) {
         UINavigationBar.appearance().barTintColor = backgroundColor
         UINavigationBar.appearance().tintColor = textColor
-        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: fontName, size: 20)!, NSForegroundColorAttributeName: textColor]
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: fontName, size: 16)!, NSForegroundColorAttributeName: textColor], for: UIControlState())
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: fontName, size: 20)!, NSAttributedStringKey.foregroundColor: textColor]
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: fontName, size: 16)!, NSAttributedStringKey.foregroundColor: textColor], for: UIControlState())
     }
     
 

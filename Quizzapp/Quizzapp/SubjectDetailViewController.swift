@@ -83,7 +83,7 @@ class SubjectDetailViewController: UIViewController {
     
     //used to pop to root, rename function
     
-    func popToRoot() {
+    @objc func popToRoot() {
         guard let navController = self.navigationController else {
             print("No NC \(self)")
             return
@@ -112,14 +112,14 @@ class SubjectDetailViewController: UIViewController {
         self.view.addSubview(wrongLabel)
     }
     
-    func flipCard() {
+    @objc func flipCard() {
         UIView.transition(with: draggableView, duration: 1, options: UIViewAnimationOptions.transitionFlipFromRight, animations: { () -> Void in
             self.draggableView.flipCard()
             }, completion: nil)
     }
     
     
-    func dragView(_ gesture: UIPanGestureRecognizer) {
+    @objc func dragView(_ gesture: UIPanGestureRecognizer) {
         
         //moves view
         let translation = gesture.translation(in: self.view)
@@ -176,11 +176,11 @@ class SubjectDetailViewController: UIViewController {
         }
     }
     
-    func hideWrongLabel() {
+    @objc func hideWrongLabel() {
         wrongLabel.isHidden = true
     }
     
-    func hideRightLabel() {
+    @objc func hideRightLabel() {
         rightLabel.isHidden = true
     }
     

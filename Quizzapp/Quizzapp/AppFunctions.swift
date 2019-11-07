@@ -20,10 +20,10 @@ class AppFunctions {
         viewController.navigationController?.navigationBar.barTintColor = backgroundColor
         viewController.navigationController?.navigationBar.tintColor = textColor
         
-        viewController.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: cFont, size: 20)!, NSForegroundColorAttributeName: textColor]
+        viewController.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: cFont, size: 20)!, NSAttributedStringKey.foregroundColor: textColor]
         
-        viewController.navigationController?.navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: cFont, size: 16)!, NSForegroundColorAttributeName: textColor], for: UIControlState())
-        viewController.navigationController?.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: cFont, size: 16)!, NSForegroundColorAttributeName: textColor], for: UIControlState())
+        viewController.navigationController?.navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: cFont, size: 16)!, NSAttributedStringKey.foregroundColor: textColor], for: UIControlState())
+        viewController.navigationController?.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: cFont, size: 16)!, NSAttributedStringKey.foregroundColor: textColor], for: UIControlState())
     }
     
 }

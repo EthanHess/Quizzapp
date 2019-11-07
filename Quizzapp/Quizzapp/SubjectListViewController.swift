@@ -119,7 +119,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    func presentScores() {
+    @objc func presentScores() {
         if noSubjects() {
             displayAlert("No Subjects", message: "Please add some classes and try again!")
         } else {
@@ -202,7 +202,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         return 260
     }
     
-    func addSubject() {
+    @objc func addSubject() {
         let alertController = UIAlertController(title: "Add subject", message: "For quiz stack", preferredStyle: UIAlertControllerStyle.alert)
         
         alertController.addTextField { (textField) -> Void in
@@ -296,7 +296,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    func addCard() {
+    @objc func addCard() {
         
         if self.addCardView.textView.text != "" && self.addCardView.textField.text != "" {
         
@@ -312,12 +312,12 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-    func clearFields() {
+    @objc func clearFields() {
         self.addCardView.textField.text = ""
         self.addCardView.textView.text = ""
     }
     
-    func dismissAddView() {
+    @objc func dismissAddView() {
         
         self.tableView.isUserInteractionEnabled = true
         
@@ -352,7 +352,7 @@ class SubjectListViewController: UIViewController, UITableViewDelegate, UITableV
     
     //self explanatory
     
-    func refreshTable() {
+    @objc func refreshTable() {
         tableView.reloadData()
     }
     

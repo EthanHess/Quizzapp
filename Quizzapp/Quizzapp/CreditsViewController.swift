@@ -109,7 +109,7 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return 60
     }
     
-    func valueChanged(_ sender: UISegmentedControl) {
+    @objc func valueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             UserDefaults.standard.set(space, forKey: schemeKey)
@@ -126,7 +126,7 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func toggleSound() {
+    @objc func toggleSound() {
         if soundOn {
             soundOn = false
             soundButton.setTitle("Turn on sound", for: UIControlState())

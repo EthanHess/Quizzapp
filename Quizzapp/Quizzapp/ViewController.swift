@@ -25,13 +25,34 @@ class ViewController: UIViewController {
     
     var labelColor = UIColor()
     
+    //Middle animation
+    var animationContainer : UIView = {
+        let theView = UIView()
+        theView.backgroundColor = .clear
+        return theView
+    }()
+    
+    var animationViewLeft : UIView = {
+        let leftView = UIView()
+        leftView.backgroundColor = .white
+        leftView.alpha = 0.5
+        return leftView
+    }()
+    
+    var animationViewRight : UIView = {
+        let rightView = UIView()
+        rightView.backgroundColor = .cyan
+        rightView.alpha = 0.5
+        return rightView
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let barButtonItem = UIBarButtonItem(title: "Classes", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ViewController.pushToDetailView))
+        let barButtonItem = UIBarButtonItem(title: "Classes", style: UIBarButtonItem.Style.plain, target: self, action: #selector(ViewController.pushToDetailView))
         self.navigationItem.rightBarButtonItem = barButtonItem
         
-        let onboardBarButtonItem = UIBarButtonItem(title: "Settings", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ViewController.presentOnboarding))
+        let onboardBarButtonItem = UIBarButtonItem(title: "Settings", style: UIBarButtonItem.Style.plain, target: self, action: #selector(ViewController.presentOnboarding))
         self.navigationItem.leftBarButtonItem = onboardBarButtonItem
         
         if (scheme() != nil) {
@@ -83,18 +104,52 @@ class ViewController: UIViewController {
         qTainerView.expandCircle()
         self.expandSpaceInQ()
         view.addSubview(qTainerView)
+        
+        animationContainerSetUp()
+    }
+    
+    //TODO add anchor extension
+    fileprivate func animationContainerSetUp() {
+        animationContainer.frame = CGRect(x: 50, y: (view.frame.size.height / 2) - 50, width: view.frame.size.width - 100, height: 100)
+        
+        animationViewLeft.frame = CGRect(x: 20, y: 20, width: 60, height: 60)
+        cornerRadiusForSubviews(theSV: animationViewLeft)
+        animationContainer.addSubview(animationViewLeft)
+        
+        animationViewRight.frame = CGRect(x: animationContainer.frame.size.width - 80, y: 20, width: 60, height: 60)
+        cornerRadiusForSubviews(theSV: animationViewRight)
+        animationContainer.addSubview(animationViewRight)
+        
+        view.addSubview(animationContainer)
+        
+        beginOrbAnimation()
+    }
+    
+    fileprivate func cornerRadiusForSubviews(theSV: UIView) {
+        theSV.layer.cornerRadius = theSV.frame.size.width / 2
+        theSV.layer.masksToBounds = true
+    }
+    
+    fileprivate func beginOrbAnimation() {
+        UIView.animate(withDuration: 2, animations: {
+            self.animationViewRight.frame = self.animationViewLeft.frame
+            self.animationViewLeft.frame = CGRect(x: self.animationContainer.frame.size.width - 80, y: 20, width: 60, height: 60)
+        }) { (completed) in
+            self.animationViewRight.frame = CGRect(x: self.animationContainer.frame.size.width - 80, y: 20, width: 60, height: 60)
+            self.animationViewLeft.frame = CGRect(x: 20, y: 20, width: 60, height: 60)
+        }
     }
     
     func expandSpaceInQ() {
         qTainerView.expandSmallerCircle()
     }
 
-    func pushToDetailView() {
+    @objc func pushToDetailView() {
         let subjectView = SubjectListViewController()
         self.navigationController?.pushViewController(subjectView, animated: true)
     }
     
-    func presentOnboarding() {
+    @objc func presentOnboarding() {
         let creditsViewController = CreditsViewController()
         self.navigationController?.pushViewController(creditsViewController, animated: true)
     }
