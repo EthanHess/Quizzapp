@@ -32,6 +32,7 @@ class ViewController: UIViewController {
         return theView
     }()
     
+    //Left and right orbs
     var animationViewLeft : UIView = {
         let leftView = UIView()
         leftView.backgroundColor = .white
@@ -42,6 +43,21 @@ class ViewController: UIViewController {
     var animationViewRight : UIView = {
         let rightView = UIView()
         rightView.backgroundColor = .cyan
+        rightView.alpha = 0.5
+        return rightView
+    }()
+    
+    //Top and bottom orbs
+    var animationViewTop : UIView = {
+        let leftView = UIView()
+        leftView.backgroundColor = .blue
+        leftView.alpha = 0.5
+        return leftView
+    }()
+    
+    var animationViewBottom : UIView = {
+        let rightView = UIView()
+        rightView.backgroundColor = .magenta
         rightView.alpha = 0.5
         return rightView
     }()
@@ -112,6 +128,7 @@ class ViewController: UIViewController {
     fileprivate func animationContainerSetUp() {
         animationContainer.frame = CGRect(x: 50, y: (view.frame.size.height / 2) - 50, width: view.frame.size.width - 100, height: 100)
         
+        //Left and right
         animationViewLeft.frame = CGRect(x: 20, y: 20, width: 60, height: 60)
         cornerRadiusForSubviews(theSV: animationViewLeft)
         animationContainer.addSubview(animationViewLeft)
@@ -120,9 +137,19 @@ class ViewController: UIViewController {
         cornerRadiusForSubviews(theSV: animationViewRight)
         animationContainer.addSubview(animationViewRight)
         
+        //Top and bottom
+        animationViewTop.frame = CGRect(x: (animationContainer.frame.size.width / 2) - 10, y: 5, width: 20, height: 20)
+        cornerRadiusForSubviews(theSV: animationViewTop)
+        animationContainer.addSubview(animationViewTop)
+        
+        animationViewBottom.frame = CGRect(x: (animationContainer.frame.size.width / 2) - 10, y: animationContainer.frame.size.height - 25, width: 20, height: 20)
+        cornerRadiusForSubviews(theSV: animationViewBottom)
+        animationContainer.addSubview(animationViewBottom)
+        
         view.addSubview(animationContainer)
         
         beginOrbAnimation()
+        beginTopBottomOrbAnimation()
     }
     
     fileprivate func cornerRadiusForSubviews(theSV: UIView) {
@@ -137,6 +164,18 @@ class ViewController: UIViewController {
         }) { (completed) in
             self.animationViewRight.frame = CGRect(x: self.animationContainer.frame.size.width - 80, y: 20, width: 60, height: 60)
             self.animationViewLeft.frame = CGRect(x: 20, y: 20, width: 60, height: 60)
+        }
+    }
+    
+    //D.R.Y frame code in computed property once correct coordinates are established, also make sure they return when VC is refreshed (when user leaves and comes back)
+    fileprivate func beginTopBottomOrbAnimation() {
+        UIView.animate(withDuration: 1, animations: {
+            self.animationViewTop.frame = CGRect(x: (self.animationContainer.frame.size.width / 2) - 10, y: self.animationContainer.frame.size.height - 25, width: 20, height: 20)
+            self.animationViewBottom.frame = CGRect(x: (self.animationContainer.frame.size.width / 2) - 10, y: 5, width: 20, height: 20)
+        }) { (completed) in
+            self.animationViewBottom.frame = CGRect(x: (self.animationContainer.frame.size.width / 2) - 10, y: self.animationContainer.frame.size.height - 25, width: 20, height: 20)
+            self.animationViewTop.frame = CGRect(x: (self.animationContainer.frame.size.width / 2) - 10, y: 5, width: 20, height: 20)
+            self.beginTopBottomOrbAnimation()
         }
     }
     

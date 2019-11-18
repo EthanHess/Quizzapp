@@ -48,6 +48,7 @@ class CreditsViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.dataSource = self
         self.tableView.layer.cornerRadius = 5
         self.tableView.layer.borderColor = UIColor.white.cgColor
+        self.tableView.layer.borderWidth = 1
         self.tableView.clipsToBounds = true
         self.tableView.separatorStyle = .none
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "creditCell")
