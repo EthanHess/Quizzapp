@@ -28,7 +28,9 @@ class ViewController: UIViewController {
     //Middle animation
     var animationContainer : UIView = {
         let theView = UIView()
-        theView.backgroundColor = .clear
+        theView.backgroundColor = UIColor.white.withAlphaComponent(0.25)
+        theView.layer.borderColor = UIColor.white.cgColor
+        theView.layer.borderWidth = 1
         return theView
     }()
     
@@ -126,8 +128,53 @@ class ViewController: UIViewController {
     
     //TODO add anchor extension
     fileprivate func animationContainerSetUp() {
-        animationContainer.frame = CGRect(x: 50, y: (view.frame.size.height / 2) - 50, width: view.frame.size.width - 100, height: 100)
+        animationContainer.frame = animationContainerFrame()
+        animationContainer.layer.cornerRadius = animationContainer.frame.size.height / 2
+        animationContainer.layer.masksToBounds = true
+        view.addSubview(animationContainer)
+        //addSubviewsToContainer()
+        addNewAnimationContainerSubviews()
         
+        rotateNewParentOrb()
+    }
+    
+    fileprivate func animationContainerFrame() -> CGRect {
+        let oneThird = self.view.frame.size.width / 3
+        let yCoord = (self.view.frame.size.height / 2) - (oneThird / 2)
+        return CGRect(x: oneThird, y: yCoord, width: oneThird, height: oneThird)
+    }
+    
+    //TODO subclass animation container
+    fileprivate func addNewAnimationContainerSubviews() { //Rotating
+        //Top and bottom
+        animationViewTop.frame = CGRect(x: 10, y: (animationContainerFrame().height / 2) - 5, width: 10, height: 10)
+        cornerRadiusForSubviews(theSV: animationViewTop)
+        animationContainer.addSubview(animationViewTop)
+        
+        animationViewBottom.frame = CGRect(x: animationContainerFrame().width - 20, y: (animationContainerFrame().height / 2) - 5, width: 10, height: 10)
+        cornerRadiusForSubviews(theSV: animationViewBottom)
+        animationContainer.addSubview(animationViewBottom)
+    }
+    
+    fileprivate func rotateNewParentOrb() {
+        UIView.transition(with: animationContainer, duration: 1, options: .transitionFlipFromRight, animations: {
+            //Orb animations here
+        }) { (complete) in
+            UIView.transition(with: self.animationContainer, duration: 1, options: .transitionFlipFromRight, animations: {
+                
+            }) { (complete) in
+                self.rotateNewParentOrb()
+            }
+        }
+    }
+    
+    fileprivate func rotateNewChildOrbs() {
+        
+    }
+    
+    //Old, replace
+    
+    fileprivate func addSubviewsToContainer() {
         //Left and right
         animationViewLeft.frame = CGRect(x: 20, y: 20, width: 60, height: 60)
         cornerRadiusForSubviews(theSV: animationViewLeft)
@@ -178,6 +225,8 @@ class ViewController: UIViewController {
             self.beginTopBottomOrbAnimation()
         }
     }
+    
+    //End old animations
     
     func expandSpaceInQ() {
         qTainerView.expandSmallerCircle()
